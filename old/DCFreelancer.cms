@@ -1,0 +1,44 @@
+// CMS Script File
+//
+//     Game Title:
+//     Written By:
+//           Date:
+//
+script
+  if ([js1.a3 < 50]) then
+    cms.b1 = true;
+  else
+    cms.b1 = false;
+  endif
+  
+  if ([js1.a3 > 200]) then
+    cms.b2 = true;
+  else
+    cms.b2 = false;
+  endif
+  
+  if ([js1.a1 < 100]) then
+    cms.b3 = true;
+  else
+    cms.b3 = false;
+  endif
+
+  if ([js1.a1 > 156]) then
+    cms.b4 = true;
+  else
+    cms.b4 = false;
+  endif
+
+  if ([js1.a2 < 75]) then
+    cms.b5 = true;
+  else
+    cms.b5 = false;
+  endif
+
+//  if ([js1.a2 > 200]) then
+//    cms.b6 = true;
+//  else
+//    cms.b6 = false;
+//  endif
+
+endScript

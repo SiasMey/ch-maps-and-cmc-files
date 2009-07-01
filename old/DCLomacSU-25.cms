@@ -1,0 +1,341 @@
+// CMS Script File
+//
+//     Game Title: Lomac 1.12a
+//     Written By: Sias "Dace" Mey
+//           Date: 2006/07/22
+//
+
+//buttons used by script
+//command buttons
+%define btn_wheelbrakes cms.b1
+%define btn_drogueshute cms.b2
+
+%define btn_nav cms.b3
+%define btn_a2g cms.b4
+%define btn_casbvr cms.b6
+%define btn_casvscan cms.b7
+%define btn_casbore cms.b8
+%define btn_cashelmet cms.b9
+%define btn_a2along cms.b10
+
+//use shift to slew radar/eos/tv
+%define btn_reticle_left cms.b11
+%define btn_reticle_right cms.b12
+%define btn_reticle_up cms.b13
+%define btn_reticle_down cms.b14
+%define btn_reticle_center cms.b5
+
+//Nav mode only functions
+%define btn_gear cms.b15
+%define btn_engine_start cms.b16
+%define btn_engine_stop cms.b17
+%define btn_refeuling_boom cms.b17
+%define btn_refeul cms.b18
+%define btn_
+
+//joy buttons
+%define btn_shift js1.b4
+
+//mode selection buttons
+%define btn_joy_nav js2.b6
+%define btn_joy_a2g js2.b5
+%define btn_joy_a2along js2.b8
+%define btn_joy_a2a js2.b7
+
+//a2a mode selection buttons
+%define btn_joy_casbvr js2.b7
+%define btn_joy_casbore js2.b6
+%define btn_joy_casvscan js2.b5
+%define btn_joy_cashelmet js2.b8
+
+//using shift elevator for trim resetting
+//%define btn_resettrim js1.b6 //set to joy button to reset trim
+
+//using shift ail for rudder trimming
+//%define btn_trimrud_left cms.b11 //set rudder left trim here
+//%define btn_trimrud_right cms.b12 //set rudder right trim here
+
+%define btn_trimail_left js1.b10 //set aileron left trim here
+%define btn_trimail_right js1.b8 //set aileron right trim here
+%define btn_trimele_up js1.b9 //set elevator up trim here
+%define btn_trimele_down js1.b7 //set elevator down trim here
+
+//axis used by script
+%define ax_trimrud cms.a1
+%define ax_trimail cms.a2
+%define ax_trimele cms.a3
+
+//devices used by script
+%define trim_slow d1
+%define trim_fast d2
+%define key_hold d3
+%define key_pulse d4
+
+//constants used by script
+%define trim_slow_delay 0
+%define trim_fast_delay 60
+%define trim_slow_rep 8
+%define trim_fast_rep 4
+%define trim_slow_amt 2
+%define trim_fast_amt 4
+
+//bits used by script
+%define first b1
+%define trimming b2
+
+%define trimail_left b3
+%define trimail_right b4
+%define trimrud_left b5
+%define trimrud_right b6
+%define trimele_up b7
+%define trimele_down b8
+%define resettrim b9
+
+%define nav_active b10
+%define a2a_active b11
+%define a2g_active b12
+%define mode_selected b13
+%define a2a_select b14
+
+script
+//initialization
+ 	if(not first) then
+ 		first = true;
+    mode_selected = false;
+    a2a_select = false;
+ 		nav_active = true;
+ 		a2a_active = false;
+  	a2g_active = false;
+  	trimming = false;
+
+    ax_trimrud = 128;
+    ax_trimail = 128;
+    ax_trimele = 128;
+ 	endif
+
+//mode selection
+mode_selected = btn_joy_casbvr or btn_joy_casbore or btn_joy_cashelmet or btn_joy_casvscan;
+pulse(key_pulse) = mode_selected;
+
+Sequence
+  while(a2a_select);
+  Sequence
+    wait(btn_joy_casbvr and key_pulse);
+    btn_casbvr = true;
+    delay(10);
+    btn_casbvr = false;
+    a2a_active = true;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_casbore and key_pulse);
+    btn_casbore = true;
+    delay(10);
+    btn_casbore = false;
+    a2a_active = true;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_cashelmet and key_pulse);
+    btn_cashelmet = true;
+    delay(10);
+    btn_cashelmet = false;
+    a2a_active = true;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_casvscan and key_pulse);
+    btn_casvscan = true;
+    delay(10);
+    btn_casvscan = false;
+    a2a_active = true;
+    a2a_select = false;
+  EndSequence
+EndSequence
+
+//a2g mode
+Sequence
+  wait(btn_joy_a2g and not a2a_select and key_pulse);
+  btn_a2g = true;
+  delay(5);
+  btn_a2g = false;
+
+	nav_active = false;
+	a2a_active = false;
+	a2g_active = true;
+EndSequence
+
+//nav mode
+Sequence
+  wait(btn_joy_nav and not a2a_select and key_pulse);
+  btn_nav = true;
+  delay(10);
+  btn_nav = false;
+
+	nav_active = true;
+	a2a_active = false;
+	a2g_active = false;
+EndSequence
+
+//a2along mode
+Sequence
+  wait(btn_joy_a2along and not a2a_select and key_pulse);
+  btn_a2along = true;
+  delay(10);
+  btn_a2along = false;
+
+	nav_active = false;
+	a2a_active = true;
+	a2g_active = false;
+EndSequence
+
+//a2a modes
+Sequence
+  wait(btn_joy_a2a and not a2a_select and key_pulse);
+  	nav_active = false;
+  	a2a_active = false;
+  	a2g_active = false;
+    a2a_select = true;
+EndSequence
+
+cms.b128 = a2a_select;
+cms.b127 = mode_selected;
+
+//trimming
+  //un shifted
+  trimail_left = btn_trimail_left and not btn_shift;
+  trimail_right = btn_trimail_right and not btn_shift;
+  trimele_up = btn_trimele_up and not btn_shift;
+  trimele_down = btn_trimele_down and not btn_shift;
+
+  //shifted
+  trimrud_left = btn_trimail_left and btn_shift;
+  trimrud_right = btn_trimail_right and btn_shift;
+  resettrim = (btn_trimele_up and btn_shift) or (btn_trimele_down and btn_shift);
+ 
+//reset trim 	
+ 	Sequence
+    Wait(resettrim);
+    ax_trimrud = 128;
+    ax_trimail = 128;
+    ax_trimele = 128;
+ 	EndSequence
+
+//set trim axis by converting button presses
+//to an analogue axis movement
+//single click will move axis by trim_slow_amt
+//short hold will trigger repeated axis movement by trim_slow_amt
+//long hold will trigger repeated axis movement by trim_fast_amt
+
+  trimming = trimail_left OR trimail_right OR trimrud_left OR trimrud_left OR trimele_up OR trimele_down;
+  Timer( ONDELAY, trim_slow, trim_slow_delay ) = trimming;
+  Timer( ONDELAY, trim_fast, trim_fast_delay ) = trimming;
+
+  if (trim_fast) then
+  //fast trimming
+    Sequence
+      //trim aileron left
+      while(trimail_left);
+        ax_trimail = ax_trimail - trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim aileron right
+      while(trimail_right);
+        ax_trimail = ax_trimail + trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim rudder left
+      while(trimrud_left);
+        ax_trimrud = ax_trimrud - trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim rudder right
+      while(trimrud_right);
+        ax_trimrud = ax_trimrud + trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim elevator up
+      while(trimele_up);
+        ax_trimele = ax_trimele - trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim elevator down
+      while(trimele_down);
+        ax_trimele = ax_trimele + trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+  else
+    if (trim_slow) then
+    //slow trimming
+      Sequence
+        //trim aileron left
+        while(trimail_left);
+          ax_trimail = ax_trimail - trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim aileron right
+        while(trimail_right);
+          ax_trimail = ax_trimail + trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim rudder left
+        while(trimrud_left);
+          ax_trimrud = ax_trimrud - trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim rudder right
+        while(trimrud_right);
+          ax_trimrud = ax_trimrud + trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim elevator up
+        while(trimele_up);
+          ax_trimele = ax_trimele - trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim elevator down
+        while(trimele_down);
+          ax_trimele = ax_trimele + trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+    endif
+  endif
+
+
+//wheelbrake and drogue shute
+  if ([js3.a1 > 80] or [js3.a2 > 80]) then
+    btn_wheelbrakes = true;
+  else
+    btn_wheelbrakes = false;
+  endif
+  
+  if ([js3.a1 > 250] and [js3.a2 > 250]) then
+    btn_drogueshute = true;
+  else
+    btn_drogueshute = false;
+  endif
+  
+endScript

@@ -1,0 +1,80 @@
+// CMS Script File
+//
+//     Game Title:	IL2 Pacific Fighters
+//     Written By:	Dace (Sias Mey)
+//           Date:  2006-03-28
+//
+
+// Buttons used by the script
+%define closeButton					js2.b2
+%define mode2Button					js2.b4
+%define mode3Button					js2.b3
+
+// Axises used by the script
+
+// Cms buttons used by the script. These need
+// to be set in the CMS controls and perhaps
+// in the game
+%define wideOut							cms.b1
+%define normalOut						cms.b2
+%define closeOut						cms.b3
+%define instantCenterOut		cms.b4
+
+// Internal bit registers used by the script
+%define doneFirst						b1
+%define changeMode					b2
+				
+script
+ 	if(not doneFirst) then
+ 		doneFirst=true;
+ 		currentMode=MODE1;
+ 	endif
+
+ 	// Some view controls
+ 	sequence // Centers and widens view
+ 		wait( closeButton and [currentmode==MODE1] );
+ 		instantCenterOut=true;
+ 		wideOut=true;
+ 	endsequence 
+ 	sequence // Close view
+ 		wait( closeButton and [currentmode==MODE2] );
+ 		instantCenterOut=true;
+ 		closeOut=true;
+ 	endsequence 	
+ 	sequence // Centers view
+ 		wait( closeButton and [currentmode==MODE3] );
+ 		instantCenterOut=true;
+ 		normalOut=true;
+ 	endsequence 	
+	
+ 	sequence // Releases center button if not pressed
+ 		wait( not closeButton );
+ 		instantCenterOut=false;
+ 		normalOut=false;
+ 		closeOut=false;
+ 		wideOut=false;
+ 	endSequence
+ 
+ 	// Mode1 is the normaly active mode
+ 	// Mode2 is active while button 4 but not button 3 on the 
+ 	//       throttle is depressed.
+ 	// Mode3 is active while button 3 but not button 4 on the
+ 	//       throttle is depressed
+ 	// Mode4 is entered while button 3 and button 4 on the 
+ 	//       throttle are both depressed. 	
+ 	if(mode2Button && mode3Button) then
+ 		currentMode=MODE4;
+ 	else 
+ 		if(mode2Button) then
+ 			currentMode=MODE2;
+ 		else 
+ 			if(mode3Button) then
+ 				currentMode=MODE3;
+ 			else 
+ 				if(not mode2Button && not mode3Button) then
+ 					currentMode=MODE1;
+ 				endif
+ 			endif
+ 		endif
+ 	endif
+endscript	

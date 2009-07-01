@@ -1,0 +1,790 @@
+// CMS Script File
+//
+//     Game Title: Lomac 1.12a
+//     Written By: Sias "Dace" Mey
+//           Date: 2006/07/22
+//
+
+//cms buttons used by script
+
+////command buttons////
+%define btn_wheelbrakes cms.b1  //done
+%define btn_drogueshute cms.b2  //done
+
+%define btn_nav cms.b3  //done
+%define btn_a2g cms.b4  //done
+%define btn_casbvr cms.b6  //done
+%define btn_casvscan cms.b7  //done
+%define btn_casbore cms.b8  //done
+%define btn_cashelmet cms.b9  //done
+%define btn_a2along cms.b10  //done
+
+//use shift to slew radar/eos/tv
+%define btn_reticle_center cms.b5  //done // not used anymore
+
+//Nav mode only functions
+%define btn_gear cms.b15  //done
+%define btn_engine_start cms.b16  //done
+%define btn_engine_stop cms.b17  //done
+%define btn_canopy cms.b20  //done
+%define btn_smoke cms.b21  //done
+%define btn_nav_lights cms.b22  //done
+%define btn_land_lights cms.b23  //done
+%define btn_power cms.b29  //done
+%define btn_refeuling_boom cms.b18
+%define btn_refeul cms.b19
+%define btn_rearm cms.b24
+%define btn_inc_AltPres cms.b25
+%define btn_dec_AltPres cms.b26
+%define btn_inc_SU_25_AltPres cms.b27
+%define btn_dec_SU_25_AltPres cms.b28
+%define btn_carrier_takeof cms.b30
+
+//a2g only
+%define btn_salvo_mode cms.b31
+%define btn_ripple_inc cms.b32
+%define btn_ripple_dec cms.b33
+%define btn_ripple_quantity cms.b34
+%define btn_release_mode cms.b35
+%define btn_gun_rate cms.b36
+
+//a2a only
+%define btn_scanz_up cms.b37
+%define btn_scanz_down cms.b38
+%define btn_radar cms.b39
+%define btn_radar_mode cms.b40
+%define btn_radar_smode cms.b41
+%define btn_inc_azimuth cms.b42
+%define btn_dec_azimuth cms.b43
+
+//a2a or a2g
+%define btn_eos_tv cms.b44
+%define btn_laser cms.b45
+%define btn_mfd_zoom_in cms.b46
+%define btn_mfd_zoom_out cms.b47
+%define btn_inc_rf_stuff cms.b48
+%define btn_dec_rf_stuff cms.b49
+%define btn_inc_rf_stuff_smooth cms.b50
+%define btn_dec_rf_stuff_smooth cms.b51
+%define btn_lock cms.b52
+%define btn_unlock cms.b53
+%define btn_fire cms.b57
+%define btn_release cms.b58
+%define btn_cannon cms.b59
+%define btn_burst_cutoff cms.b60
+
+
+//other usefull btns
+%define btn_alt cms.b54
+%define btn_shf cms.b55
+%define cms_btn_shift cms.b56
+
+////joystick mapping to cms functions////
+%define btn_shift js1.b4
+
+//mode selection buttons
+%define btn_joy_nav js2.b6
+%define btn_joy_a2g js2.b5
+%define btn_joy_a2along js2.b8
+%define btn_joy_a2a js2.b7
+
+//a2a mode selection buttons
+%define btn_joy_casbvr js2.b7
+%define btn_joy_casbore js2.b6
+%define btn_joy_casvscan js2.b5
+%define btn_joy_cashelmet js2.b8
+
+//using shift elevator for trim resetting
+//%define btn_resettrim js1.b6 //set to joy button to reset trim
+
+//using shift ail for rudder trimming
+//%define btn_trimrud_left cms.b11 //set rudder left trim here
+//%define btn_trimrud_right cms.b12 //set rudder right trim here
+
+%define btn_trimail_left js1.b10 //set aileron left trim here
+%define btn_trimail_right js1.b8 //set aileron right trim here
+%define btn_trimele_up js1.b9 //set elevator up trim here
+%define btn_trimele_down js1.b7 //set elevator down trim here
+
+//nav buttons
+%define btn_joy_refeuling_boom js2.b13
+%define btn_joy_rearm js2.b15
+%define btn_joy_inc_AltPres js2.b16
+%define btn_joy_dec_AltPres js2.b14
+
+//shift
+%define btn_joy_inc_SU_25_AltPres js2.b16
+%define btn_joy_dec_SU_25_AltPres js2.b14
+
+%define btn_joy_carrier_takeof false
+
+//a2a buttons
+%define btn_joy_scanz_up js2.b16
+%define btn_joy_scanz_down js2.b14
+%define btn_joy_inc_azimuth js2.b13
+%define btn_joy_dec_azimuth js2.b15
+//shift
+%define btn_joy_radar js2.b14
+%define btn_joy_radar_mode js2.b13
+%define btn_joy_radar_smode js2.b15
+
+//a2g buttons
+%define btn_joy_salvo_mode js2.b16
+%define btn_joy_ripple_inc js2.b13
+%define btn_joy_ripple_dec js2.b15
+%define btn_joy_ripple_quantity js2.b14
+//shift
+%define btn_joy_release_mode js2.b16
+%define btn_joy_gun_rate js2.b14
+
+//a2a or a2g buttons
+%define btn_joy_laser js1.b2
+%define btn_joy_lock js1.b3
+%define btn_joy_fire js1.b1
+%define btn_joy_cannon js1.b5
+
+//shift
+%define btn_joy_eos_tv js1.b2
+%define btn_joy_mercury_tv false //not coded yet
+%define btn_joy_mfd_zoom_in false
+%define btn_joy_mfd_zoom_out false
+%define btn_joy_inc_rf_stuff_smooth false
+%define btn_joy_dec_rf_stuff_smooth false
+%define btn_joy_unlock js1.b3
+%define btn_joy_release js1.b1
+%define btn_joy_burst_cutoff js1.b5
+
+%define btn_joy_inc_rf_stuff false
+%define btn_joy_dec_rf_stuff false
+
+//axis used by script
+%define ax_trimrud cms.a1
+%define ax_trimail cms.a2
+%define ax_trimele cms.a3
+
+%define ax_slew_rad_x cms.a4
+%define ax_slew_rad_y cms.a5
+%define ax_slew_ret_x cms.a6
+%define ax_slew_ret_y cms.a7
+
+//devices used by script
+%define trim_slow d1
+%define trim_fast d2
+%define key_hold d3
+%define key_pulse d4
+
+//constants used by script
+%define trim_slow_delay 0
+%define trim_fast_delay 60
+%define trim_slow_rep 4
+%define trim_fast_rep 4
+%define trim_slow_amt 1
+%define trim_fast_amt 4
+
+%define slew_slow_rep 3
+%define slew_fast_rep 3
+%define slew_slow_amt 1
+%define slew_fast_amt 5
+//bits used by script
+%define first b1
+%define trimming b2
+
+%define trimail_left b3
+%define trimail_right b4
+%define trimrud_left b5
+%define trimrud_right b6
+%define trimele_up b7
+%define trimele_down b8
+%define resettrim b9
+
+%define nav_active b10
+%define a2a_active b11
+%define a2g_active b12
+%define mode_selected b13
+%define a2a_select b14
+
+%define slew_fast b15
+%define slew_slow b16
+script
+//initialization
+ 	if(not first) then
+ 		first = true;
+    mode_selected = false;
+    a2a_select = false;
+ 		nav_active = true;
+ 		a2a_active = false;
+  	a2g_active = false;
+  	trimming = false;
+
+    ax_trimrud = 128;
+    ax_trimail = 128;
+    ax_trimele = 128;
+
+    ax_slew_rad_x = 128;
+    ax_slew_rad_y = 128;
+    ax_slew_ret_x = 128;
+    ax_slew_ret_y = 128;
+ 	endif
+//button assignments
+  if(a2a_active) then
+
+    if (not btn_shift) then
+      //not shifted
+      btn_scanz_up = btn_joy_scanz_up;
+      btn_scanz_down = btn_joy_scanz_down;
+      btn_inc_azimuth = btn_joy_inc_azimuth;
+      btn_dec_azimuth = btn_joy_dec_azimuth;
+    else
+      //shifted
+      btn_radar = btn_joy_radar;
+      btn_radar_mode = btn_joy_radar_mode;
+      btn_radar_smode = btn_joy_radar_smode;
+    endif
+    //shifted and unshifted
+  else
+    btn_scanz_up = false;
+    btn_scanz_down = false;
+    btn_radar = false;
+    btn_radar_mode = false;
+    btn_radar_smode = false;
+    btn_inc_azimuth = false;
+    btn_dec_azimuth = false;
+  endif
+  
+  if(a2g_active) then
+
+    if (not btn_shift) then
+      //not shifted
+      btn_salvo_mode = btn_joy_salvo_mode;
+      btn_ripple_inc = btn_joy_ripple_inc;
+      btn_ripple_dec = btn_joy_ripple_dec;
+      btn_ripple_quantity = btn_joy_ripple_quantity;
+    else
+      //shifted
+      btn_release_mode = btn_joy_release_mode;
+      btn_gun_rate = btn_joy_gun_rate;
+    endif
+    //shifted and unshifted
+  else
+    btn_salvo_mode = false;
+    btn_ripple_inc = false;
+    btn_ripple_dec = false;
+    btn_ripple_quantity = false;
+    btn_release_mode = false;
+    btn_gun_rate = false;
+  endif
+
+  if(a2a_active or a2g_active) then
+    if (not btn_shift) then
+      //not shifted
+      btn_lock = btn_joy_lock;
+      btn_fire = btn_joy_fire;
+      btn_cannon = btn_joy_cannon;
+
+      btn_eos_tv = btn_joy_eos_tv;
+      btn_laser = btn_joy_laser;
+    else
+      //shifted
+      btn_unlock = btn_joy_unlock;
+      btn_release = btn_joy_release;
+      btn_burst_cutoff = btn_joy_burst_cutoff;
+
+      btn_mfd_zoom_in = btn_joy_mfd_zoom_in;
+      btn_mfd_zoom_out = btn_joy_mfd_zoom_out;
+      btn_inc_rf_stuff_smooth = btn_joy_inc_rf_stuff_smooth;
+      btn_dec_rf_stuff_smooth = btn_joy_dec_rf_stuff_smooth;
+    endif
+    //shifted and unshifted
+
+
+//    btn_inc_rf_stuff = btn_joy_inc_rf_stuff; //using smooth only
+//    btn_dec_rf_stuff = btn_joy_dec_rf_stuff; //using smooth only
+  else
+    btn_eos_tv = false;
+    btn_laser = false;
+    btn_mfd_zoom_in = false;
+    btn_mfd_zoom_out = false;
+    btn_inc_rf_stuff = false;
+    btn_dec_rf_stuff = false;
+    btn_inc_rf_stuff_smooth = false;
+    btn_dec_rf_stuff_smooth = false;
+    btn_lock = false;
+    btn_unlock = false;
+    btn_fire = false;
+    btn_release = false;
+    btn_cannon = false;
+    btn_burst_cutoff = false;
+  endif
+  
+  
+  if(nav_active) then
+    if (not btn_shift) then
+      //not shifted
+      btn_inc_AltPres = btn_joy_inc_AltPres;
+      btn_dec_AltPres = btn_joy_dec_AltPres;
+    else
+      //shifted
+      btn_inc_SU_25_AltPres = btn_joy_inc_SU_25_AltPres;
+      btn_dec_SU_25_AltPres = btn_joy_dec_SU_25_AltPres;
+    endif
+    //shifted and unshifted
+    //I dont care about these yet
+    btn_refeul = btn_joy_refeuling_boom;
+    btn_rearm = btn_joy_rearm;
+    btn_carrier_takeof = btn_joy_carrier_takeof;
+  else
+    btn_refeul = false;
+    btn_rearm = false;
+    btn_inc_AltPres = false;
+    btn_dec_AltPres = false;
+    btn_inc_SU_25_AltPres = false;
+    btn_dec_SU_25_AltPres = false;
+    btn_carrier_takeof = false;
+  endif
+ 	 	
+ 	
+//reticle slewing
+  if(a2a_active or a2g_active) then
+    //mini joy click
+    //center reticle
+    Sequence
+      wait(js2.b1 and not btn_shift);
+      ax_slew_ret_x = 128;
+      ax_slew_ret_y = 128;
+    EndSequence
+
+    //mini joy click shifted
+    //center scanner
+    Sequence
+      wait(js2.b1 and btn_shift);
+      ax_slew_rad_x = 128;
+      ax_slew_rad_y = 128;
+    EndSequence
+  else
+    //mini joy click in Nav mode
+    Sequence
+      wait(js2.b1 and not btn_shift);
+      btn_smoke = true;
+      delay(5);
+      btn_smoke = false;
+    EndSequence
+
+    //mini joy click shifted
+    Sequence
+      wait(js2.b1 and btn_shift);
+      btn_power = true;
+      delay(5);
+      btn_power = false;
+    EndSequence
+
+    //mini joy movements in Nav mode
+    Sequence
+      wait([js2.a1 > 200] and not btn_shift);
+      btn_shf = true;
+      delay(5);
+      btn_engine_start = true;
+      delay(5);
+      btn_engine_start = false;
+      delay(5);
+      btn_shf = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a1 < 73] and not btn_shift);
+      btn_alt = true;
+      delay(5);
+      btn_engine_start = true;
+      delay(5);
+      btn_engine_start = false;
+      delay(5);
+      btn_alt = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a2 > 200] and not btn_shift);
+      btn_gear = true;
+      delay(5);
+      btn_gear = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a2 < 73] and not btn_shift);
+      btn_nav_lights = true;
+      delay(5);
+      btn_nav_lights = false;
+    EndSequence
+
+    //mini joy movements in Nav mode shifted
+    Sequence
+      wait([js2.a1 > 200] and btn_shift);
+      btn_shf = true;
+      delay(5);
+      btn_engine_stop = true;
+      delay(5);
+      btn_engine_stop = false;
+      delay(5);
+      btn_shf = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a1 < 73] and btn_shift);
+      btn_alt = true;
+      delay(5);
+      btn_engine_stop = true;
+      delay(5);
+      btn_engine_stop = false;
+      delay(5);
+      btn_alt = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a2 > 200] and btn_shift);
+      btn_canopy = true;
+      delay(5);
+      btn_canopy = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a2 < 73] and btn_shift);
+      btn_land_lights = true;
+      delay(5);
+      btn_land_lights = false;
+    EndSequence
+  endif
+
+  slew_slow = [js2.a1 > 170] or [js2.a1 < 86] or [js2.a2 > 170] or [js2.a2 < 86];
+  slew_fast = [js2.a1 > 240] or [js2.a1 < 15] or [js2.a2 > 240] or [js2.a2 < 15];
+  
+  if (slew_fast and (a2a_active or a2g_active) and not btn_shift) then
+    Sequence
+      while([js2.a1 > 240]);
+      ax_slew_ret_x = ax_slew_ret_x + slew_fast_amt;
+      delay(slew_fast_rep);
+    EndSequence
+
+    Sequence
+      while([js2.a1 < 15]);
+      ax_slew_ret_x = ax_slew_ret_x - slew_fast_amt;
+      delay(slew_fast_rep);
+    EndSequence
+
+    Sequence
+      while([js2.a2 > 240]);
+      ax_slew_ret_y = ax_slew_ret_y + slew_fast_amt;
+      delay(slew_fast_rep);
+    EndSequence
+
+    Sequence
+      while([js2.a2 < 15]);
+      ax_slew_ret_y = ax_slew_ret_y - slew_fast_amt;
+      delay(slew_fast_rep);
+    EndSequence
+  else
+    if (slew_slow and (a2a_active or a2g_active) and not btn_shift) then
+      Sequence
+        while([js2.a1 > 170]);
+        ax_slew_ret_x = ax_slew_ret_x + slew_slow_amt;
+        delay(slew_slow_rep);
+      EndSequence
+
+      Sequence
+        while([js2.a1 < 86]);
+        ax_slew_ret_x = ax_slew_ret_x - slew_slow_amt;
+        delay(slew_slow_rep);
+      EndSequence
+
+      Sequence
+        while([js2.a2 > 170]);
+        ax_slew_ret_y = ax_slew_ret_y + slew_slow_amt;
+        delay(slew_slow_rep);
+      EndSequence
+
+      Sequence
+        while([js2.a2 < 86]);
+        ax_slew_ret_y = ax_slew_ret_y - slew_slow_amt;
+        delay(slew_slow_rep);
+      EndSequence
+    endif
+  endif
+
+  if (slew_fast and (a2a_active or a2g_active) and btn_shift) then
+    Sequence
+      while([js2.a1 > 240]);
+      ax_slew_rad_x = ax_slew_rad_x + slew_fast_amt;
+      delay(slew_fast_rep);
+    EndSequence
+
+    Sequence
+      while([js2.a1 < 15]);
+      ax_slew_rad_x = ax_slew_rad_x - slew_fast_amt;
+      delay(slew_fast_rep);
+    EndSequence
+
+    Sequence
+      while([js2.a2 > 240]);
+      ax_slew_rad_y = ax_slew_rad_y + slew_fast_amt;
+      delay(slew_fast_rep);
+    EndSequence
+
+    Sequence
+      while([js2.a2 < 15]);
+      ax_slew_rad_y = ax_slew_rad_y - slew_fast_amt;
+      delay(slew_fast_rep);
+    EndSequence
+  else
+    if (slew_slow and (a2a_active or a2g_active) and btn_shift) then
+      Sequence
+        while([js2.a1 > 170]);
+        ax_slew_rad_x = ax_slew_rad_x + slew_slow_amt;
+        delay(slew_slow_rep);
+      EndSequence
+
+      Sequence
+        while([js2.a1 < 86]);
+        ax_slew_rad_x = ax_slew_rad_x - slew_slow_amt;
+        delay(slew_slow_rep);
+      EndSequence
+
+      Sequence
+        while([js2.a2 > 170]);
+        ax_slew_rad_y = ax_slew_rad_y + slew_slow_amt;
+        delay(slew_slow_rep);
+      EndSequence
+
+      Sequence
+        while([js2.a2 < 86]);
+        ax_slew_rad_y = ax_slew_rad_y - slew_slow_amt;
+        delay(slew_slow_rep);
+      EndSequence
+    endif
+  endif
+
+//mode selection
+mode_selected = btn_joy_casbvr or btn_joy_casbore or btn_joy_cashelmet or btn_joy_casvscan;
+pulse(key_pulse) = mode_selected;
+
+Sequence
+  //while a2a mode select is active
+  //use alternative values for assignment buttons
+  //only assign on the pulse otherwise holding causes reselection of other modes
+  while(a2a_select);
+  Sequence
+    wait(btn_joy_casbvr and key_pulse);
+    btn_casbvr = true;
+    delay(10);
+    btn_casbvr = false;
+    a2a_active = true;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_casbore and key_pulse);
+    btn_casbore = true;
+    delay(10);
+    btn_casbore = false;
+    a2a_active = true;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_cashelmet and key_pulse);
+    btn_cashelmet = true;
+    delay(10);
+    btn_cashelmet = false;
+    a2a_active = true;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_casvscan and key_pulse);
+    btn_casvscan = true;
+    delay(10);
+    btn_casvscan = false;
+    a2a_active = true;
+    a2a_select = false;
+  EndSequence
+EndSequence
+
+//a2g mode
+Sequence
+  wait(btn_joy_a2g and not a2a_select and key_pulse);
+  btn_a2g = true;
+  delay(5);
+  btn_a2g = false;
+
+	nav_active = false;
+	a2a_active = false;
+	a2g_active = true;
+EndSequence
+
+//nav mode
+Sequence
+  wait(btn_joy_nav and not a2a_select and key_pulse);
+  btn_nav = true;
+  delay(10);
+  btn_nav = false;
+
+	nav_active = true;
+	a2a_active = false;
+	a2g_active = false;
+EndSequence
+
+//a2along mode
+Sequence
+  wait(btn_joy_a2along and not a2a_select and key_pulse);
+  btn_a2along = true;
+  delay(10);
+  btn_a2along = false;
+
+	nav_active = false;
+	a2a_active = true;
+	a2g_active = false;
+EndSequence
+
+//a2a modes
+Sequence
+  wait(btn_joy_a2a and not a2a_select and key_pulse);
+  	nav_active = false;
+  	a2a_active = false;
+  	a2g_active = false;
+    a2a_select = true;
+EndSequence
+
+cms.b128 = a2a_select;
+cms.b127 = mode_selected;
+
+//trimming
+  //un shifted
+  trimail_left = btn_trimail_left and not btn_shift;
+  trimail_right = btn_trimail_right and not btn_shift;
+  trimele_up = btn_trimele_up and not btn_shift;
+  trimele_down = btn_trimele_down and not btn_shift;
+
+  //shifted
+  trimrud_left = btn_trimail_left and btn_shift;
+  trimrud_right = btn_trimail_right and btn_shift;
+  resettrim = (btn_trimele_up and btn_shift) or (btn_trimele_down and btn_shift);
+ 
+//reset trim 	
+ 	Sequence
+    Wait(resettrim);
+    ax_trimrud = 128;
+    ax_trimail = 128;
+    ax_trimele = 128;
+ 	EndSequence
+
+//set trim axis by converting button presses
+//to an analogue axis movement
+//single click will move axis by trim_slow_amt
+//short hold will trigger repeated axis movement by trim_slow_amt
+//long hold will trigger repeated axis movement by trim_fast_amt
+
+  trimming = trimail_left OR trimail_right OR trimrud_left OR trimrud_left OR trimele_up OR trimele_down;
+  Timer( ONDELAY, trim_slow, trim_slow_delay ) = trimming;
+  Timer( ONDELAY, trim_fast, trim_fast_delay ) = trimming;
+
+  if (trim_fast) then
+  //fast trimming
+    Sequence
+      //trim aileron left
+      while(trimail_left);
+        ax_trimail = ax_trimail - trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim aileron right
+      while(trimail_right);
+        ax_trimail = ax_trimail + trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim rudder left
+      while(trimrud_left);
+        ax_trimrud = ax_trimrud - trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim rudder right
+      while(trimrud_right);
+        ax_trimrud = ax_trimrud + trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim elevator up
+      while(trimele_up);
+        ax_trimele = ax_trimele - trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim elevator down
+      while(trimele_down);
+        ax_trimele = ax_trimele + trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+  else
+    if (trim_slow) then
+    //slow trimming
+      Sequence
+        //trim aileron left
+        while(trimail_left);
+          ax_trimail = ax_trimail - trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim aileron right
+        while(trimail_right);
+          ax_trimail = ax_trimail + trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim rudder left
+        while(trimrud_left);
+          ax_trimrud = ax_trimrud - trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim rudder right
+        while(trimrud_right);
+          ax_trimrud = ax_trimrud + trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim elevator up
+        while(trimele_up);
+          ax_trimele = ax_trimele - trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim elevator down
+        while(trimele_down);
+          ax_trimele = ax_trimele + trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+    endif
+  endif
+
+
+//wheelbrake and drogue shute
+  if ([js3.a1 > 80] or [js3.a2 > 80]) then
+    btn_wheelbrakes = true;
+  else
+    btn_wheelbrakes = false;
+  endif
+  
+  if ([js3.a1 > 250] and [js3.a2 > 250]) then
+    btn_drogueshute = true;
+  else
+    btn_drogueshute = false;
+  endif
+  
+endScript

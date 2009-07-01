@@ -1,0 +1,82 @@
+// CMS Script File
+//
+//     Game Title: Evochron Renegades
+//     Written By: Sias "Dace" Mey
+//           Date: 07-06-2008
+//
+
+%define LpedIn          js3.a1
+%define RpedIn          js3.a2
+%define PedOut          cms.a1
+%define ThrottleIn      js2.a3
+
+%define PedOut          cms.a1
+%define ThrottleOut     cms.a2
+
+%define xin             js1.a1
+%define yin             js1.a2
+
+%define xout            cms.a3
+%define yout            cms.a4
+
+%define yup             a1
+%define ydown           a2
+
+%define xup             a3
+%define xdown           a4
+
+
+script
+  PedOut = 127 + (LpedIn - RpedIn) / 2;
+
+  if([LpedIn > 127]) then cms.b1=true; else cms.b1=false; endif
+  if([RpedIn > 127]) then cms.b2=true; else cms.b2=false; endif
+
+
+//Evochron set a deadzone even if you ask it not to....
+//So with a bit of magic I make the axis have a negative deadzone :)
+
+  if([xin > 129] or [xin < 127]) then
+    xup = xin - 127;
+    xdown = 129 - xin;
+
+    if([xin > 128]) then
+      xup = (xup * 118) / 128;
+      xout = 138 + xup;
+    else
+      xdown = (xdown * 118) / 128;
+      xout = 118 - xdown;
+   endif
+  else
+    xout = 128;
+  endif
+
+  if([yin > 129] or [yin < 128]) then
+    yup = yin - 127;
+    ydown = 129 - yin;
+
+    if([yin > 128]) then
+      yup = (yup * 118) / 128;
+      yout = 138 + yup;
+    else
+      ydown = (ydown * 118) / 128;
+      yout = 118 - ydown;
+    endif
+  else
+    yout = 128;
+  endif
+//need to get out 0-108, 148 - 255
+  
+  if([ThrottleIn < 10]) then
+    cms.b3=true;
+  else
+    cms.b3=false;
+    if([ThrottleIn > 240]) then
+      ThrottleOut = 255;
+    else
+      ThrottleOut = ((ThrottleIn - 10)*255)/230;
+    endif
+  endif
+  
+endScript
+

@@ -1,0 +1,560 @@
+// CMS Script File
+//
+//     Game Title: Lomac 1.12a
+//     Written By: Sias "Dace" Mey
+//           Date: 2006/07/22
+//
+
+//buttons used by script
+//command buttons
+%define btn_wheelbrakes cms.b1
+
+%define btn_mode_a2g cms.b5
+%define btn_mode_casbvr cms.b6
+%define btn_mode_casvscan cms.b7
+%define btn_mode_casbore cms.b8
+%define btn_mode_cashelmet cms.b9
+%define btn_mode_a2along cms.b10
+%define btn_mode_a2gsetka cms.b12
+
+%define btn_ap_althold cms.b13
+%define btn_ap_altrollhold cms.b14
+%define btn_ap_altbarohold cms.b15
+%define btn_ap_altradiohold cms.b16
+%define btn_ap_route cms.b17
+%define btn_ap_lvl cms.b18
+%define btn_ap_off cms.b19
+
+%define btn_inc_alt cms.b20
+%define btn_dec_alt cms.b21
+%define btn_inc_warning cms.b22
+%define btn_dec_warning cms.b23
+%define btn_inc_ripple cms.b24
+%define btn_dec_ripple cms.b25
+%define btn_inc_pod cms.b26
+%define btn_dec_pod cms.b27
+%define btn_inc_tgt cms.b28
+%define btn_dec_tgt cms.b29
+%define btn_inc_mfd cms.b30
+%define btn_dec_mfd cms.b31
+
+//joy buttons
+%define btn_shift js1.b4
+%define btn_reset_slew js2.b1
+
+//mode selection buttons
+%define btn_joy_a2a js4.b72
+%define btn_joy_a2along js4.b73
+%define btn_joy_a2g js4.b74
+%define btn_joy_a2gsetka js4.b75
+
+//a2a mode selection buttons
+%define btn_joy_casbvr js4.b72
+%define btn_joy_casbore js4.b73
+%define btn_joy_casvscan js4.b74
+%define btn_joy_cashelmet js4.b75
+
+//AP selection buttons
+%define btn_joy_ap_off (js4.b10 or js4.b25)
+%define btn_joy_ap_lvl js4.b23
+%define btn_joy_ap_route js4.b24
+
+//AP Alt hold buttons
+%define btn_joy_ap_hold js4.b22
+%define btn_joy_ap_roll js4.b23
+%define btn_joy_ap_baro js4.b24
+%define btn_joy_ap_radio js4.b25
+
+//inc/dec mode selection buttons
+//I use a single Up and Down button for most of the Inc/Dec functions in the game
+//This way I get 12 buttons funtionality into 2... and that with 2 spare slots and no shift functions.....
+%define btn_joy_altimeter js4.b16
+%define btn_joy_warning_volume js4.b17
+%define btn_joy_ripple_interval js4.b66
+%define btn_joy_gun_pod_angle js4.b67
+%define btn_joy_target_size js4.b68
+%define btn_joy_mfd_zoom js4.b69
+
+%define val_altimeter 1
+%define val_warning_volume 2
+%define val_ripple_interval 3
+%define val_gun_pod_angle 4
+%define val_target_size 5
+%define val_mfd_zoom 6
+
+%define btn_joy_increment (js4.b20 or js4.b70)
+%define btn_joy_decrement (js4.b21 or js4.b71)
+
+//Trim assignments
+%define btn_trimail_left js1.b10 //set aileron left trim here
+%define btn_trimail_right js1.b8 //set aileron right trim here
+%define btn_trimele_up js1.b9 //set elevator up trim here
+%define btn_trimele_down js1.b7 //set elevator down trim here
+//using shift elevator for trim resetting
+//using shift ail for rudder trimming
+
+//slew assignments
+%define joy_slewy js2.a2
+%define joy_slewx js2.a1
+
+//axis used by script
+%define ax_trimrud cms.a1
+%define ax_trimail cms.a2
+%define ax_trimele cms.a3
+
+%define ax_slewhudx cms.a4
+%define ax_slewhudy cms.a5
+%define ax_slewelex cms.a6
+%define ax_sleweley cms.a7
+
+//devices used by script
+%define trim_slow d1
+%define trim_fast d2
+%define key_pulse d3
+%define ap_pulse d4
+%define inc_dec_pulse d5
+
+//constants used by script
+%define trim_slow_delay 0
+%define trim_fast_delay 60
+%define trim_slow_rep 8
+%define trim_fast_rep 4
+%define trim_slow_amt 2
+%define trim_fast_amt 4
+
+//bits used by script
+%define first b1
+%define trimming b2
+
+%define trimail_left b3
+%define trimail_right b4
+%define trimrud_left b5
+%define trimrud_right b6
+%define trimele_up b7
+%define trimele_down b8
+%define resettrim b9
+
+%define a2a_select b10
+%define ap_select b11
+
+//logical axis used by script
+%define inc_dec_mode a1
+%define slew_devx a2
+%define slew_devy a3
+
+script
+//initialization
+ 	if(not first) then
+ 		first = true;
+    a2a_select = false;
+    ap_select = false;
+  	trimming = false;
+
+    ax_trimrud = 128;
+    ax_trimail = 128;
+    ax_trimele = 128;
+    
+    ax_slewhudx = 128;
+    ax_slewhudy = 128;
+    ax_slewelex = 128;
+    ax_sleweley = 128;
+ 	endif
+
+//mode selection
+pulse(key_pulse) = btn_joy_casbvr or btn_joy_casbore or btn_joy_cashelmet or btn_joy_casvscan;
+
+Sequence
+  while(a2a_select);
+  Sequence
+    wait(btn_joy_casbvr and key_pulse);
+    btn_mode_casbvr = true;
+    delay(5);
+    btn_mode_casbvr = false;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_casbore and key_pulse);
+    btn_mode_casbore = true;
+    delay(5);
+    btn_mode_casbore = false;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_cashelmet and key_pulse);
+    btn_mode_cashelmet = true;
+    delay(5);
+    btn_mode_cashelmet = false;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_casvscan and key_pulse);
+    btn_mode_casvscan = true;
+    delay(5);
+    btn_mode_casvscan = false;
+    a2a_select = false;
+  EndSequence
+EndSequence
+
+//a2g mode
+Sequence
+  wait(btn_joy_a2g and not a2a_select and key_pulse);
+  btn_mode_a2g = true;
+  delay(5);
+  btn_mode_a2g = false;
+EndSequence
+
+//a2along mode
+Sequence
+  wait(btn_joy_a2along and not a2a_select and key_pulse);
+  btn_mode_a2along = true;
+  delay(5);
+  btn_mode_a2along = false;
+EndSequence
+
+//a2gsetka mode
+Sequence
+  wait(btn_joy_a2gsetka and not a2a_select and key_pulse);
+  btn_mode_a2gsetka = true;
+  delay(5);
+  btn_mode_a2gsetka = false;
+EndSequence
+
+//a2a modes
+Sequence
+  wait(btn_joy_a2a and not a2a_select and key_pulse);
+    a2a_select = true;
+EndSequence
+
+//auto pilot selection
+pulse(ap_pulse) = btn_joy_ap_roll or btn_joy_ap_baro or btn_joy_ap_radio or btn_joy_ap_hold;
+
+Sequence
+  while(ap_select);
+  Sequence
+    wait(btn_joy_ap_hold and ap_pulse);
+    btn_ap_althold = true;
+    delay(5);
+    btn_ap_althold = false;
+    ap_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_ap_roll and ap_pulse);
+    btn_ap_altrollhold = true;
+    delay(5);
+    btn_ap_altrollhold = false;
+    ap_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_ap_baro and ap_pulse);
+    btn_ap_altbarohold = true;
+    delay(5);
+    btn_ap_altbarohold = false;
+    ap_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_ap_radio and ap_pulse);
+    btn_ap_altradiohold = true;
+    delay(5);
+    btn_ap_altradiohold = false;
+    ap_select = false;
+  EndSequence
+EndSequence
+
+//ap off mode
+Sequence
+  wait(btn_joy_ap_off and not ap_select and ap_pulse);
+  btn_ap_off = true;
+  delay(5);
+  btn_ap_off = false;
+EndSequence
+
+//lvl flight mode
+Sequence
+  wait(btn_joy_ap_lvl and not ap_select and ap_pulse);
+  btn_ap_lvl = true;
+  delay(5);
+  btn_ap_lvl = false;
+EndSequence
+
+//route follow mode
+Sequence
+  wait(btn_joy_ap_route and not ap_select and ap_pulse);
+  btn_ap_route = true;
+  delay(5);
+  btn_ap_route = false;
+EndSequence
+
+//alt_hold modes
+Sequence
+  wait(btn_joy_ap_hold and not ap_select and ap_pulse);
+    ap_select = true;
+EndSequence
+
+//Setting dynamic assignment for increment and decrement buttons
+
+  if(btn_joy_altimeter) then
+    inc_dec_mode = val_altimeter;
+  endif
+  if(btn_joy_warning_volume) then
+    inc_dec_mode = val_warning_volume;
+  endif
+  if(btn_joy_ripple_interval) then
+    inc_dec_mode = val_ripple_interval;
+  endif
+  if(btn_joy_gun_pod_angle) then
+    inc_dec_mode = val_gun_pod_angle;
+  endif
+  if(btn_joy_target_size) then
+    inc_dec_mode = val_target_size;
+  endif
+  if(btn_joy_mfd_zoom) then
+    inc_dec_mode = val_mfd_zoom;
+  endif
+
+  pulse(inc_dec_pulse) = btn_joy_increment or btn_joy_decrement;
+
+    Sequence
+      wait([inc_dec_mode EQ val_altimeter] and inc_dec_pulse and btn_joy_increment);
+      btn_inc_alt = true;
+      delay(5);
+      btn_inc_alt = false;
+    EndSequence
+    Sequence
+      wait([inc_dec_mode EQ val_warning_volume] and inc_dec_pulse and btn_joy_increment);
+      btn_inc_warning = true;
+      delay(5);
+      btn_inc_warning = false;
+    EndSequence
+    Sequence
+      wait([inc_dec_mode EQ val_ripple_interval] and inc_dec_pulse and btn_joy_increment);
+      btn_inc_ripple = true;
+      delay(5);
+      btn_inc_ripple = false;
+    EndSequence
+    Sequence
+      wait([inc_dec_mode EQ val_gun_pod_angle] and inc_dec_pulse and btn_joy_increment);
+      btn_inc_pod = true;
+      delay(5);
+      btn_inc_pod = false;
+    EndSequence
+    Sequence
+      wait([inc_dec_mode EQ val_target_size] and inc_dec_pulse and btn_joy_increment);
+      btn_inc_tgt = true;
+      delay(5);
+      btn_inc_tgt = false;
+    EndSequence
+    Sequence
+      wait([inc_dec_mode EQ val_mfd_zoom] and inc_dec_pulse and btn_joy_increment);
+      btn_inc_mfd = true;
+      delay(5);
+      btn_inc_mfd = false;
+    EndSequence
+
+    Sequence
+      wait([inc_dec_mode EQ val_altimeter] and inc_dec_pulse and btn_joy_decrement);
+      btn_dec_alt = true;
+      delay(5);
+      btn_dec_alt = false;
+    EndSequence
+    Sequence
+      wait([inc_dec_mode EQ val_warning_volume] and inc_dec_pulse and btn_joy_decrement);
+      btn_dec_warning = true;
+      delay(5);
+      btn_dec_warning = false;
+    EndSequence
+    Sequence
+      wait([inc_dec_mode EQ val_ripple_interval] and inc_dec_pulse and btn_joy_decrement);
+      btn_dec_ripple = true;
+      delay(5);
+      btn_dec_ripple = false;
+    EndSequence
+    Sequence
+      wait([inc_dec_mode EQ val_gun_pod_angle] and inc_dec_pulse and btn_joy_decrement);
+      btn_dec_pod = true;
+      delay(5);
+      btn_dec_pod = false;
+    EndSequence
+    Sequence
+      wait([inc_dec_mode EQ val_target_size] and inc_dec_pulse and btn_joy_decrement);
+      btn_dec_tgt = true;
+      delay(5);
+      btn_dec_tgt = false;
+    EndSequence
+    Sequence
+      wait([inc_dec_mode EQ val_mfd_zoom] and inc_dec_pulse and btn_joy_decrement);
+      btn_dec_mfd = true;
+      delay(5);
+      btn_dec_mfd = false;
+    EndSequence
+
+//radar en hud curser  slew
+Sequence
+  Wait(btn_reset_slew and not btn_shift);
+  ax_slewhudx = 128;
+  ax_slewhudy = 128;
+EndSequence
+
+Sequence
+  Wait(btn_reset_slew and btn_shift);
+  ax_slewelex = 128;
+  ax_sleweley = 128;
+EndSequence
+
+slew_devx = (joy_slewx - 128) / 12;
+slew_devy = (joy_slewy - 128) / 12;
+
+Sequence
+  while([slew_devx > 0] or [slew_devx < 0]);
+  if(btn_shift) then
+      ax_slewelex = ax_slewelex + slew_devx;
+  else
+    ax_slewhudx = ax_slewhudx + slew_devx;
+  endif
+  delay(2);
+EndSequence
+
+Sequence
+  while([slew_devy > 0] or [slew_devy < 0]);
+  if(btn_shift) then
+    ax_sleweley = ax_sleweley + slew_devy;
+  else
+    ax_slewhudy = ax_slewhudy + slew_devy;
+  endif
+  delay(2);
+EndSequence
+
+//trimming
+  //un shifted
+  trimail_left = btn_trimail_left and not btn_shift;
+  trimail_right = btn_trimail_right and not btn_shift;
+  trimele_up = btn_trimele_up and not btn_shift;
+  trimele_down = btn_trimele_down and not btn_shift;
+
+  //shifted
+  trimrud_left = btn_trimail_left and btn_shift;
+  trimrud_right = btn_trimail_right and btn_shift;
+  resettrim = btn_shift and (btn_trimele_up or btn_trimele_down);
+
+//reset trim 	
+ 	Sequence
+    Wait(resettrim);
+    ax_trimrud = 128;
+    ax_trimail = 128;
+    ax_trimele = 128;
+ 	EndSequence
+
+//set trim axis by converting button presses
+//to an analogue axis movement
+//single click will move axis by trim_slow_amt
+//short hold will trigger repeated axis movement by trim_slow_amt
+//long hold will trigger repeated axis movement by trim_fast_amt
+
+  trimming = trimail_left OR trimail_right OR trimrud_left OR trimrud_left OR trimele_up OR trimele_down;
+  Timer( ONDELAY, trim_slow, trim_slow_delay ) = trimming;
+  Timer( ONDELAY, trim_fast, trim_fast_delay ) = trimming;
+
+  if (trim_fast) then
+  //fast trimming
+    Sequence
+      //trim aileron left
+      while(trimail_left);
+        ax_trimail = ax_trimail - trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim aileron right
+      while(trimail_right);
+        ax_trimail = ax_trimail + trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim rudder left
+      while(trimrud_left);
+        ax_trimrud = ax_trimrud - trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim rudder right
+      while(trimrud_right);
+        ax_trimrud = ax_trimrud + trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim elevator up
+      while(trimele_up);
+        ax_trimele = ax_trimele - trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+
+    Sequence
+      //trim elevator down
+      while(trimele_down);
+        ax_trimele = ax_trimele + trim_fast_amt;
+        Delay(trim_fast_rep);
+    EndSequence
+  else
+    if (trim_slow) then
+    //slow trimming
+      Sequence
+        //trim aileron left
+        while(trimail_left);
+          ax_trimail = ax_trimail - trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim aileron right
+        while(trimail_right);
+          ax_trimail = ax_trimail + trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim rudder left
+        while(trimrud_left);
+          ax_trimrud = ax_trimrud - trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim rudder right
+        while(trimrud_right);
+          ax_trimrud = ax_trimrud + trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim elevator up
+        while(trimele_up);
+          ax_trimele = ax_trimele - trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+
+      Sequence
+        //trim elevator down
+        while(trimele_down);
+          ax_trimele = ax_trimele + trim_slow_amt;
+          Delay(trim_slow_rep);
+      EndSequence
+    endif
+  endif
+
+
+//wheelbrake
+  if ([js3.a1 > 80] or [js3.a2 > 80]) then
+    btn_wheelbrakes = true;
+  else
+    btn_wheelbrakes = false;
+  endif
+endScript
+

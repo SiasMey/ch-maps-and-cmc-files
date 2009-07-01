@@ -1,0 +1,67 @@
+//unit selection controls
+unit_1		1
+unit_2		2
+unit_3		3
+unit_4		4
+unit_5		5
+unit_6		6
+unit_7		7
+unit_8		8
+unit_9		9
+unit_0		0
+
+//unit asignment controls
+asign_unit_1		hold ctl 1
+asign_unit_2		hold ctl 2
+asign_unit_3		hold ctl 3
+asign_unit_4		hold ctl 4
+asign_unit_5		hold ctl 5
+asign_unit_6		hold ctl 6
+asign_unit_7		hold ctl 7
+asign_unit_8		hold ctl 8
+asign_unit_9		hold ctl 9
+asign_unit_10		hold ctl 0
+
+//global unit commands
+attack			    a
+melee			      z
+stop			      s
+attack_ground		g
+retreat			    x
+
+reinforce		r
+exit_all		u
+
+//global build commands
+upgrade			    u
+deploy_power		a
+
+
+//Eldar build commands
+//tier 1
+guardian		      g
+shurican_squad		s
+ranger			      r
+banshee			      b
+//tier 2
+warp_spider		    w
+bright_lance_squad	l
+wraithlord		d
+falcon			f
+//tier 3
+fire_prism		p
+d-cannon_squad		c
+avatar			a
+
+//Eldar Abbilities
+grenade								g
+guardian_embolden						e
+guardian_energy_shield/path_finder_cloaking_field		d
+guardian_repair							p
+path_finder_suppresive_fire					v
+path_finder_infiltrate						i
+banshee_wail/wraithlord_wraith_bone/avatar_wrath_of_kain	w
+warp_spider_jump/exarch_jump					j
+fleet_of_foot/falcon_hollo_generator/fire_prism_focussed_beam	f
+d-cannon_singularity						b
+avatar_destruction_of_kain					d

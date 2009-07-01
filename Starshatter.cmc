@@ -1,0 +1,105 @@
+///
+///    STARSHATTER
+///
+///       cmc by
+///    Kevin Watts
+///
+///
+///
+/// Game Controls
+///
+Exit_to_Menu ESC
+Pause_Game PAUSE
+Accelerate_Time	KBINS
+Decelerate_Time	KBDEL
+Take_Screenshot	F12 
+///
+/// Flight Controls
+///
+Pitch_Up KBDOWN	
+Pitch_Down KBUP	
+Yaw_(Turn)_Left KBLEFT	
+Yaw_(Turn)_Right KBRIGHT	
+Swap_Roll/Yaw j
+Translate_Up KBPGUP
+Translate_Down KBPGDN	
+Translate_Left ,	
+Translate_Right .	
+Translate_Forward KBHOME
+Translate_Backward KBEND
+Increase_Throttle a
+Decrease_Throttle z
+Max_Throttle SHF a
+Full_Stop(Zero_Throttle) SHF z
+Augmenter(Afterburner) TAB
+Toggle_FLCS_Mode m
+Break_Orbit(Fighters_only) o
+///
+/// View Controls
+///
+Main_View F1
+Virtual_3D_Cockpit_View SHF F1
+Chase_View F2
+Orbit_View F3
+Padlock_View F4
+Zoom_In(Orbit_View)	=
+Zoom_Out(Orbit_View) -
+View_Selection v
+HUD_Mode_Cycle h
+HUD_Color_Cycle	SHF h
+Caution/Warning_Indicators c
+Toggle_Normal/Wide_Angle k
+NAV_Console n
+ENG_Console	e
+WEP_Console	w
+FLIGHT_Console f
+Lower_Left_MFD_Mode [
+Lower_Right_MFD_Mode ]
+///
+/// Fire Controls
+///
+Fire_Primary_Weapon	LCTL	
+Fire_Secondary_Weapon SPC	
+Cycle_Primary_Weapon SHF BKSPC
+Cycle_Secondary_Weapon BKSPC
+Target_Ship_in_Reticule	t	
+Target_Threat(Combat_Drone) SHF t
+Target_Closest_Ship	y
+Target_Closest_Threat SHF y
+Target_Hostile_Ship	u
+Target_Hostile_Threat SHF u
+Release_Decoy_Drone	d
+///
+/// Sensor Controls
+///
+Cycle_Sensor_Mode F5
+Sensor_Ground_Mode SHF F5
+Launch_Sensor_Probe	F6
+Decrease_Sensor_Range F7
+Increase_Sensor_Range F8
+Decrease_EMCON_Level F9
+Increase_EMCON_Level F10
+///
+/// Misc Controls
+///
+Toggle_Mouse_Steering `
+Increase_Shield_Power s
+Maximum_Shields	SHF s
+Decrease_Shield_Power x
+Drop_Shields SHF x
+Engage_Quantum_Drive q
+Raise/Lower_Landing_Gear g
+Toggle_Navigation_Lights l
+Radio_Menu r
+Radio_Commands	1 - 9
+"Attack_My_Target" ALT a
+"Escort_My_Target" ALT e
+"Break_and_Attack" ALT b 
+"Return_to_Formation" ALT f
+"Help_Me_Out" ALT h
+"Skip_Next_Navpoint" ALT n
+"Return_To_Base" ALT r
+"Call_Inbound" ALT i
+"Request_Picture" ALT p
+"Request_Support" ALT s
+

@@ -1,0 +1,86 @@
+// CMC Command File
+//
+//     Game Title: Evochron Renegades
+//     Written By: Sias "Dace" Mey
+//     Updated: 07-06-2008
+
+//Flight Controls
+Turn_Right				KBRIGHT
+Turn_Left				KBLEFT
+Pitch_Up				KBDOWN
+Pitch_Down				KBUP
+Roll_Left				.
+Roll_Right				,
+Strafe_Right				d
+Strafe_Left				a
+Strafe_Up				i
+Strafe_Down				k
+Afterburner				TAB
+Toggle_IDS				SPC
+Match_Speed				m
+Reverse_Engine_Thrust			/
+Inertial_Forward			z
+Inertial_Reverse			x
+Throttle_Up_Secondary			w
+Throttle_Down_Secondary			s
+
+//Weapon, Shield
+Fire_Primary				LCTL
+Fire_Secondary				LSHF
+Next_Secondary				'
+Precious_Secondary			;
+Countermeasures				c
+Energy_To_Shield			[
+Energy_To_Weapons			]
+HUD_Mode				h
+Toggle_MDTS				l
+Tractor/Mining_Beam			b
+Toggle_Tractor/Mining_Beam		ALT b
+Augment_Front_Shield			KP8
+Augment_Rear_Shield			KP2
+Augment_Right_Shield			KP6
+Augment_Left_Shield			KP4
+Equalize_Shield				KP5
+Cycle_Primary_Weapon			n
+
+//Targeting Controls
+Target_Nearest				r
+Target_Next				t
+Target_Nearest_Hostile			ALT r
+Target_Next_Hostile			ALT t
+Target_Ship_In_Gunsight			y
+Target_Nearest_Hostile_Secondary	o
+Target_Next_Hostile_Secondary		p
+Target_Subsystem			u
+
+//View Controls
+Toggle_3rd_Person			v
+Toggle_3rd_Person_Padlock		ALT v
+Fly_By_View				\
+View_Right				KBPGUP
+View_Left				KBINS
+View_Up					KBHOME
+View_Behind				KBEND
+
+//Nav and Inventory
+Nav_Console				F1
+Jump_To_Nav				F2
+Jump_Max_Range				ALT F2
+Cargo/Inventory_Console			F3
+Ship_To_Ship_Trade_Console		F4
+
+//Misc Controls
+Toggle_Target_Display			g
+Quit					q
+Quick_Save				ALT q
+Delete_Message_Line			KP/
+Recal_Message_Line			ALT KP/
+MP_Voice_chat				KP-
+Jettison_Cargo				j
+Eject_and_Self_Destruct_Ship		F7
+Form_Up_On_Target			f
+Autopilot_To_Nav			ALT f
+
+//Wingmen Controls
+Wingmen_Formup				F5
+Wingmen_Attack_Hostiles			F6

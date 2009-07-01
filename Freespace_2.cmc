@@ -1,0 +1,133 @@
+// CMC Command File
+//
+//     Game Title: Freespace 2
+//     Written By: Michael Sexton
+//           Date: 2004-03-02
+//
+// Targeting
+//
+Target_Next_Ship												t
+Target_Prev_Ship												SHF t
+Target_Next_Closest_Enemy_Ship									h
+Target_Prev_Closest_Enemy_Ship									SHF h
+Toggle_Auto_Targeting											ALT h
+Target_Next_Closest_Friendly_Ship								f
+Target_Prev_Closest_Friendly_Ship								SHF f
+Target_Ship_in_Reticle											y
+Target_Target's_Nearest_Attacker								g
+Target_Last_Ship_to_Send_Transmission							ALT y
+Stop_Targeting_Ship												ALt t
+Target_Sub-System_in_Reticle									v
+Target_Next_Sub-System											s
+Target_Prev_Sub-System											SHF s
+Stop_Targeting_Sub-System										ALT s
+Target_Closest_Attacking_Ship									r
+Target_Target's_Target											j
+Target_Next_Escort_Ship											e
+Target_Closest_Repair_Ship										ALT r
+Target_Next_Uninspected_Cargo									u
+Target_Prev_Uninspected_Cargo									SHF u
+Target_Newest_Ship_in_Area										n
+Target_Next_Live_Turret											k
+Target_Prev_Live_Turret											SHF k
+Target_Next_Hostile_Bomb										b
+Target_Prev_Hostile_Bomb										SHF b
+
+// Flight Controls
+//
+Forward_Thrust													a
+Reverse_Thrust													z
+Bank_Left														KP7
+Bank_Right														KP9
+Pitch_Forward													KP8
+Pitch_Backward													KP2
+Turn_Left														KP4
+Turn_Right														KP6
+Set_Zero_Throttle												BKSPC
+Set_Max_Throttle												\
+Set_1/3_Throttle												[
+Set_2/3_Throttle												]
+Increase_Throttle_5%											=
+Decrease_Throttle_5%											-
+Afterburner														TAB
+Match_Target_Speed												m
+Toggle_Auto-Speed-Matching										ALT m
+
+// Weapons
+//
+Fire_Primary_Weapon												LCTL
+Fire_Secondary_Weapon											SPC
+Cycle_Forward_Primary_Weapon									.
+Cycle_Backward_Primary_Weapon									,
+Cycle_Secondary_Weapon_Bank										/
+Cycle_Secondary_Weapon_Firing_Rate								SHF /
+Cycle_Radar_Range												'
+Launch_Countermeasures											x
+
+// Energy Controls
+//
+Increase_Weapon_Energy											KBINS
+Decrease_Weapon_Energy											KBDEL
+Increase_Shield_Energy											KBHOME
+Decrease_Shield_Energy											KBEND
+Increase_Engine_Energy											KBPGUP
+Decrease_Engine_Energy											KBPGDN
+Equalize_Energy_Settings										ALT d
+Equalize_Energy_Dec_Gun                     ALT d KBDEL
+Equalize_Energy_Inc_Gun                     ALT d KBINS
+Equalize_Energy_Dec_Shield                  ALT d KBEND
+Equalize_Energy_Inc_Shield                  ALT d KBHOME
+Equalize_Energy_Dec_Engine                  ALT d KBPGDN
+Equalize_Energy_Inc_Engine                  ALT d KBPGUP
+Max_Engine_Energy                           KBPGUP KBPGUP KBPGUP KBPGUP
+Transfer_Energy_To_Shield                   SCRLK
+Transfer_Energy_To_Laser                    SHF SCRLK
+Equalize_Shield_Settings										q
+Augment_Forward_Shield											KBUP
+Augment_Rear_Shield												KBDOWN
+Augment_Left_Shield												KBLEFT
+Augment_Right_Shield											KBRIGHT
+
+// Views
+//
+Chase_View														KP*
+External_View													KP.
+Toggle_External_Camera_Look										KPENT
+Free_Look_View													KP0
+Current_Target_View												KP/
+Increase_View_Distance											KP+
+Decrease_View_Distance											KP-
+Center_View														KP5
+
+// Wingman Commands
+//
+Attack_My_Target												SHF a
+Disarm_My_Target												SHF z
+Disable_My_Target												SHF d
+Attack_My_Sub-System											SHF v
+Capture_My_Target												SHF x
+Engage_Enemy													SHF e
+Form_On_My_Wing													SHF w
+Ignore_My_Target												SHF i
+Protect_My_Target												SHF p
+Cover_Me														SHF c
+Return_To_Base													SHF j
+ReArm_Me														SHF r
+
+// Miscellaneous Commands
+//
+Squadmate_Message_Menu											c
+Enter_Sub-Space(End_Mission)									ALT j
+Add_or_Remove_Escort											ALT e
+Clear_Escort_List												ALT SHF e
+Increase_Time_Compression										SHF .
+Decrease_Time_Compression										SHF ,
+Toggle_High_HUD_Contrast										l
+
+// Multiplayer Commands
+//
+Message_All														1
+Message_Friendly												2
+Message_Hostile													3
+Message_Target													4
+Observer_Zoom_to_Target											ALT x

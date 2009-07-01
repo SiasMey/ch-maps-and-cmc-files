@@ -1,0 +1,227 @@
+// CMC Command File
+//
+//     Game Title: Pacific Fighters
+//     Written By: Michael "LAR Budda" Sexton
+//     Edited by : Kevin "Revvin" Watts/Ken "Ghost" King
+//     Updated: 09-09-05
+
+// AIRCRAFT CONTROLS
+
+Elevator-Up		 KBUP
+Elevator-Down		 KBDOWN
+Aileron-Left		  KBLEFT
+Aileron-Right		 KBRIGHT
+Rudder-Left-Full	 z
+Rudder-Right-Full	  x
+Rudder-Left		 ,
+Rudder-Right	 	.
+Rudder-Neutral		  /
+Level-Stabilizer	 ALT z
+Trim-Aileron-Left	  CTL KBLEFT
+Trim-Aileron-Right	 CTL KBRIGHT
+Trim-Aileron-Neutral	 SHF KBLEFT
+Trim-Elevator-Up	   CTL KBUP
+Trim-Elevator-Down	 CTL KBDOWN
+Trim-Left-Rudder	 CTL z	
+Trim-Right-Rudder	  CTL x
+Rudder-Trim-Neutral	  SHF z
+
+// AIRCRAFT/MISC MECHANICAL SYSTEMS
+
+Toggle-Level-Autopilot	 CTL a
+Toggle-Autopilot	 a
+Bail-Out		 CTL e
+Tinted-Reticle-Dimmer	 CTL d
+Cockpit-Lights		 CTL l
+Toggle-Landing-Lights	 SHF n
+Toggle-Wingtip-Smoke	 t
+Landing-Gear-Up/Down	 g
+Raise-Gear-Manually	 SHF g
+Lower-Gear-Manually	 ALT g
+Cowl/Armor-Flaps	r
+Airbrake		s
+Wheel-Brake		b
+Lock-Tail-Wheel		SHF t
+Jettison-Drop-Tanks	CTL t
+Tail-Hook-Up/Down	h
+Flaps-Up		f
+Flaps-Down		v
+Attach/Detach-AC	 d
+Toggle-Wing-Fold	 SHF w
+Toggle-Chocks		SHF c
+Open/Close-Canopy	  ALT c
+Fire-Extinguisher	  SHF f
+
+// ENGINE CONTROLS
+
+Toggle-Engine		i
+Inc-Power		=
+Dec-Power		-
+Boost(WEP)-On/Off	w
+Power-0			`
+Power-10%		1
+Power-20%		2
+Power-30%		3
+Power-40%		4
+Power-50%		5
+Power-60%		6
+Power-70%		7
+Power-80%		8
+Power-90%		9
+Power-100%		0
+
+Prop-Pitch-10%		SHF `
+Prop-Pitch_20%		SHF 1
+Prop-Pitch-30%		SHF 2
+Prop-Pitch-40%		SHF 3
+Prop-Pitch-50%		SHF 4
+Prop-Pitch-60%		SHF 5
+Prop-Pitch-70%		SHF 6
+Prop-Pitch-80%		SHF 7
+Prop-Pitch-90%		SHF 8
+Prop-Pitch-100%		SHF 9
+Prop-Pitch-Auto		SHF \
+Inc-Prop-Pitch		SHF =
+Dec-Prop-Pitch		SHF -
+Feather-Prop		ALT f
+
+Mixture-10%		 CTL 1
+Mixture-20%		 CTL 2
+Mixture-30%		 CTL 3
+Mixture-40%		 CTL 4
+Mixture-50%	    CTL 5
+Mixture-60%	    CTL 6
+Mixture-70%		 CTL 7
+Mixture-80%		 CTL 8
+Mixture-90%		 CTL 9
+Mixture-100%		CTL 0
+Inc-Mixture		 CTL =
+Dec-Mixture		 CTL -
+
+Magnito-Next		  SHF m
+Magnito-Prev		  ALT m
+
+Supercharger-Next-Stg	  ALT s
+Supercharger-Prev-Stg	  SHF s
+
+Select-All-Engines	 ALT e
+Unselect-All-Engines	SHF e
+Select-Left-Engines	  SHF l
+Select-Right-Engines	SHF r
+Sel-Eng-1		ALT 1
+Sel-Eng-2		ALT 2
+Sel-Eng-3		ALT 3
+Sel-Eng-4		ALT 4
+Sel-Eng-5		ALT 5
+Sel-Eng-6		ALT 6
+Sel-Eng-7		ALT 7
+Sel-Eng-8		ALT 8
+Sel-All-Eng		SHF a
+Toggle-Left-Engs	ALT l
+Toggle-Right-Engs	ALT r
+Sel/Unsel-Eng-1		ALT KPINS
+Sel/Unsel-Eng-2		ALT KP1
+Sel/Unsel-Eng-3		ALT KP3
+Sel/Unsel-Eng-4		ALT KP4
+Sel/Unsel-Eng-5		ALT KP5
+Sel/Unsel-Eng-6		ALT KP6
+Sel/Unsel-Eng-7		ALT KP7
+Sel/Unsel-Eng-8		ALT KP9
+
+// WEAPONS
+
+Weapon-1		ENT
+Weapon-2		BKSPC
+Weapon-3		SPC
+Weapon-4		ALT SPC
+Weapon-1+2		SHF SPC
+Toggle-Gun-Pods-On/Off	CTL SPC
+
+// GUNSIGHT/BOMBSIGHT CONTROLS
+
+Toggle-Sight-Mode(Auto)	  RCTL
+Inc-Sight-Distance	 ALT KBUP
+Dec-Sight-Distance	 ALT KBDOWN
+Adj-Sight-Ctl-Right	  ALT KBRIGHT
+ADJ-Sight-Ctl-Left	 ALT KBLEFT
+Inc-Sight-Alt		 ALT KP8
+Dec-Sight-Alt		 ALT KP2
+Inc-Sight-Vel	  	CTL KP8
+Dec-Sight-Vel	  	CTL KP2
+
+// Gunner Controls
+
+Fire			LCLICK
+
+// VIEWS
+
+Gunsight-View	  	KBDEL
+Cockpit-View		  F1
+No-Cockpit-View	  	CTL F1
+External-View	  	F2
+Pilot-Gunner-Pos	 c
+Next-Friendly-View  	SHF F2
+Next-Enemy-View	  	CTL F2
+Fly-By-View	  	F3
+CKPT-1(Pilot)		SHF KP1
+CKPT-2			SHF KP2
+CKPT-3			SHF KP3
+CKPT-4			SHF KP4
+CKPT-5			SHF KP5
+CKPT-6			SHF KP6
+CKPT-7			SHF KP7
+CKPT-8			SHF KP8
+CKPT-9			SHF KP9
+CKPT-10			SHF KPINS
+Wide-View		KBPGDN
+Normal-View		KBEND
+Toggle-FOV		CAPS
+Inc-FOV			ALT =
+Dec-FOV			ALT -
+FOV-85			ALT F1
+FOV-80			ALT F2
+FOV-75			ALT F3
+FOV-65			ALT F4
+FOV-60			ALT F5
+FOV-55			ALT F8
+FOV-50			ALT F9
+FOV-45			ALT F10
+FOV-40			ALT F11
+FOV-35			ALT F12
+
+// Padlock Views
+
+Padlock-Enemy-Air	F4
+Padlock-Friendly-Air	SHF F4
+Padlock-Enemy-Ground	F5
+Padlock-Friendly-Ground	SHF F5
+Padlock-Next		u
+Padlock-Previous	y
+Ext-Pdlk-Enemy-Air	F6
+Ext-Pdlk-Friendly-Air	SHF F6
+Ext-Pdlk-Closest-Enemy-Air	ALT F6
+Ext-Pdlk-Enemy-Gnd	F7
+Ext-Pdlk-Friendly-Gnd	SHF F7
+Ext-Pdlk-Closest-Enemy-Gnd	ALT F7
+
+Chase-View		F8
+Next-Friendly-Chase-View	SHF F8
+
+// COMMS
+
+Toggle-Comms		TAB
+Press-To-Talk		LCTL
+
+// MISC
+
+Toggle-Map		  m
+Chat		  	CTL TAB
+Toggle-Mirrors	 	CTL m
+
+// Time Compression
+
+Accelerate-TimeX2/X4/X8	  ]
+Normal-Time		 '
+Decelerate-TimeX2/X4	 [
+Pause-Game	 	p
+Time-Skip	  	SHF p

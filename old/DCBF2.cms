@@ -1,0 +1,176 @@
+// CMS Script File
+//
+//     Game Title: Battle Field 2
+//     Written By: Dace
+//           Date: 2006/07/16
+//
+//buttons used by script
+%define btn_mouse0 cms.b127
+%define btn_mouse1 cms.b128
+%define btn_com_rose cms.b1
+%define btn_cms_shift cms.b126
+
+//joy buttons used by script
+%define btn_shift cms.b4
+
+//Axis Used by script
+%define fwd_thr 255 - js2.a3
+%define bkw_thr js2.a3
+
+%define mouse_x cms.a2
+%define mouse_y cms.a3
+
+//bitts used by script
+%define first b1
+%define insequence b2
+
+script
+
+  if (not first) then
+    mouse_x = 128;
+    mouse_y = 128;
+    first = true;
+  endif
+
+  if (not insequence) then btn_mouse0 = js1.b1; endif
+
+  if ( [ bkw_thr < 115 ] ) then
+    cms.a1 = 127 + ( ( bkw_thr - 128 ) * 128 / 115 );
+  else
+    if ( [ bkw_thr > 140 ] ) then
+    cms.a1 = 129 + ( ( bkw_thr - 128 ) * 128 / 115 ) ;
+    else
+      cms.a1 = 128;
+    endif
+  endif
+
+  //ministick up
+  if ([js2.a2 < 30]) then
+    cms.b1 = true;
+  else
+    if (not insequence) then cms.b1 = false; endif
+  endif
+
+  //ministick right
+  if ([js2.a1 > 220]) then
+    cms.b2 = true;
+  else
+    cms.b2 = false;
+  endif
+
+  //ministick left
+  if ([js2.a1 < 30]) then
+    cms.b3 = true;
+  else
+    cms.b3 = false;
+  endif
+
+  //ministick down
+  if ([js2.a2 > 220]) then
+    cms.b4 = true;
+  else
+    cms.b4 = false;
+  endif
+
+  //joystick enemy spotted
+  sequence
+    wait(js1.b4 and not insequence);
+    insequence = true;
+    btn_com_rose = true;
+    delay(1);
+    btn_mouse0 = true;
+    delay(1);
+    btn_mouse0 = false;
+    btn_com_rose = false;
+    insequence = false;
+  endsequence
+
+  //comm rose with selected commands
+  sequence
+    //get in
+    wait(js1.b7 and not insequence);
+    insequence = true;
+    btn_com_rose = true;
+    delay(2);
+
+    //mouse right
+    mouse_x = mouse_x + 80;
+    //mouse up
+    mouse_y = mouse_y - 100;
+    delay(3);
+    mouse_x = 128;
+    mouse_y = 128;
+
+    btn_mouse0 = true;
+    delay(1);
+    btn_mouse0 = false;
+    btn_com_rose = false;
+    insequence = false;
+  endsequence
+
+  sequence
+    //bail out
+    wait(js1.b9 and not insequence);
+    insequence = true;
+    btn_com_rose = true;
+    delay(2);
+
+    //mouse right
+    mouse_x = mouse_x + 0;
+    //mouse up
+    mouse_y = mouse_y + 80;
+    delay(3);
+    mouse_x = 128;
+    mouse_y = 128;
+
+    btn_mouse0 = true;
+    delay(1);
+    btn_mouse0 = false;
+    btn_com_rose = false;
+    insequence = false;
+  endsequence
+
+  sequence
+    //need ammo
+    wait(js1.b10 and not insequence);
+    insequence = true;
+    btn_com_rose = true;
+    delay(2);
+
+    //mouse right
+    mouse_x = mouse_x - 80;
+    //mouse up
+    mouse_y = mouse_y + 100;
+    delay(3);
+    mouse_x = 128;
+    mouse_y = 128;
+
+    btn_mouse0 = true;
+    delay(1);
+    btn_mouse0 = false;
+    btn_com_rose = false;
+    insequence = false;
+  endsequence
+
+  sequence
+    //need repairs
+    wait(js1.b8 and not insequence);
+    insequence = true;
+    btn_com_rose = true;
+    delay(2);
+
+    //mouse right
+    mouse_x = mouse_x + 80;
+    //mouse up
+    mouse_y = mouse_y + 100;
+    delay(3);
+    mouse_x = 128;
+    mouse_y = 128;
+
+    btn_mouse0 = true;
+    delay(1);
+    btn_mouse0 = false;
+    btn_com_rose = false;
+    insequence = false;
+  endsequence
+endScript

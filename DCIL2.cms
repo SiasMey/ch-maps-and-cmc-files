@@ -1,0 +1,259 @@
+// CMS Script File
+//
+//     Game Title:	IL2 Pacific Fighters
+//     Written By:	Dace (Sias Mey)
+//           Date:  2006-03-28
+//
+
+// Buttons used by the script
+%define btn_inc_fov cms.b1
+%define btn_dec_fov cms.b2
+%define btn_raise_gear_man cms.b3
+%define btn_lower_gear_man cms.b4
+%define btn_map cms.b5
+%define btn_toggle_fov cms.b6
+
+%define btn_inc_sight_alt cms.b7
+%define btn_inc_sight_vel cms.b8
+%define btn_dec_sight_alt cms.b9
+%define btn_dec_sight_vel cms.b10
+
+// Joy buttons used by script
+%define btn_shift js1.b4
+
+%define joy_trim_ele_up js1.b9
+%define joy_trim_ele_down js1.b7
+%define joy_trim_rud_left js1.b10
+%define joy_trim_rud_right js1.b8
+%define joy_trim_ail_left js1.b10
+%define joy_trim_ail_right js1.b8
+
+%define joy_inc_fov js2.b2
+//shift to decrease
+%define joy_dec_fov js2.b2
+
+// Joy axis used by script
+%define joy_left_brake js3.a1
+%define joy_right_brake js3.a2
+
+%define joy_mini_x js2.a1
+%define joy_mini_y js2.a2
+
+// Constants used by script
+%define trim_slow_delay 0
+%define trim_slow_rep 1
+%define trim_slow_amt 1
+
+%define trim_fast_delay 60
+%define trim_fast_rep 2
+%define trim_fast_amt 4
+
+%define key_hold_delay 5
+
+%define mini_hat_lt 200
+%define mini_hat_st 55
+
+// Axises used by the script
+%define ax_trim_rud cms.a1
+%define ax_trim_ail cms.a2
+%define ax_trim_ele cms.a3
+%define ax_brakes cms.a4
+
+// Logical devices used by script
+%define trim_slow d1
+%define trim_fast d2
+%define key_hold d3
+
+// Internal bit registers used by the script
+%define first	b1
+%define trimming b2
+				
+script
+ 	if( not first ) then
+ 		first = true;
+    trimming = false;
+
+    ax_trim_rud = 128;
+    ax_trim_ail = 128;
+    ax_trim_ele = 128;
+ 	endif
+
+  //FOV changing
+  sequence
+    while( joy_inc_fov and not btn_shift );
+    btn_dec_fov = true;
+    delay( 2 );
+    btn_dec_fov = false;
+    delay( 1 );
+  endsequence
+
+  sequence
+    while( joy_dec_fov and btn_shift );
+    btn_inc_fov = true;
+    delay( 2 );
+    btn_inc_fov = false;
+    delay( 1 );
+  endsequence
+
+  //trimming
+  trimming = joy_trim_ele_up or joy_trim_ele_down or joy_trim_ail_left or joy_trim_ail_right;
+  timer( ONDELAY, trim_slow, trim_slow_delay ) = trimming;
+  timer( ONDELAY, trim_fast, trim_fast_delay ) = trimming;
+  
+  if ( trim_fast ) then
+    sequence
+      while( joy_trim_ail_left and not btn_shift );
+      ax_trim_ail = ax_trim_ail - trim_fast_amt;
+      delay( trim_fast_rep );
+    endsequence
+
+    sequence
+      while( joy_trim_ail_right and not btn_shift );
+      ax_trim_ail = ax_trim_ail + trim_fast_amt;
+      delay( trim_fast_rep );
+    endsequence
+
+    sequence
+      while( joy_trim_ele_up and not btn_shift );
+      ax_trim_ele = ax_trim_ele - trim_fast_amt;
+      delay( trim_fast_rep );
+    endsequence
+
+    sequence
+      while( joy_trim_ele_down and not btn_shift );
+      ax_trim_ele = ax_trim_ele + trim_fast_amt;
+      delay( trim_fast_rep );
+    endsequence
+
+    sequence
+      while( joy_trim_rud_left and btn_shift );
+      ax_trim_rud = ax_trim_rud - trim_fast_amt;
+      delay( trim_fast_rep );
+    endsequence
+
+    sequence
+      while( joy_trim_ail_right and btn_shift );
+      ax_trim_rud = ax_trim_rud + trim_fast_amt;
+      delay( trim_fast_rep );
+    endsequence
+  else
+  if ( trim_slow ) then
+    sequence
+      while( joy_trim_ail_left and not btn_shift );
+      ax_trim_ail = ax_trim_ail - trim_slow_amt;
+      delay( trim_slow_rep );
+    endsequence
+
+    sequence
+      while( joy_trim_ail_right and not btn_shift );
+      ax_trim_ail = ax_trim_ail + trim_slow_amt;
+      delay( trim_slow_rep );
+    endsequence
+
+    sequence
+      while( joy_trim_ele_up and not btn_shift );
+      ax_trim_ele = ax_trim_ele - trim_slow_amt;
+      delay( trim_slow_rep );
+    endsequence
+
+    sequence
+      while( joy_trim_ele_down and not btn_shift );
+      ax_trim_ele = ax_trim_ele + trim_slow_amt;
+      delay( trim_slow_rep );
+    endsequence
+
+    sequence
+      while( joy_trim_rud_left and btn_shift );
+      ax_trim_rud = ax_trim_rud - trim_slow_amt;
+      delay( trim_slow_rep );
+    endsequence
+
+    sequence
+      while( joy_trim_ail_right and btn_shift );
+      ax_trim_rud = ax_trim_rud + trim_slow_amt;
+      delay( trim_slow_rep );
+    endsequence
+  endif
+  endif
+
+  sequence
+    wait( (( joy_trim_ele_up ) or ( joy_trim_ele_down )) and btn_shift );
+    ax_trim_rud = 128;
+    ax_trim_ail = 128;
+    ax_trim_ele = 128;
+  endsequence
+  
+
+  //toe brakes from rudder pedals
+  if ( [ joy_left_brake >= joy_right_brake ] ) then
+    ax_brakes = joy_left_brake;
+  else
+    ax_brakes = joy_right_brake;
+  endif
+
+  if ( not btn_shift ) then
+  Sequence
+    wait( [ joy_mini_x > mini_hat_lt ] );
+    btn_map = true;
+    delay(3);
+    btn_map = false;
+  EndSequence
+
+  Sequence
+    wait( [ joy_mini_x < mini_hat_st ] );
+    btn_toggle_fov = true;
+    delay(3);
+    btn_toggle_fov = false;
+  EndSequence
+
+  Sequence
+    while( [ joy_mini_y > mini_hat_lt ] );
+    btn_raise_gear_man = true;
+    delay(2);
+    btn_raise_gear_man = false;
+    delay(2);
+  EndSequence
+
+  Sequence
+    while( [ joy_mini_y < mini_hat_st ] );
+    btn_lower_gear_man = true;
+    delay(2);
+    btn_lower_gear_man = false;
+    delay(2);
+  EndSequence
+  endif
+
+  if ( btn_shift ) then
+  Sequence
+    while( [ joy_mini_x > mini_hat_lt ] );
+    btn_inc_sight_vel = true;
+    delay(2);
+    btn_inc_sight_vel = false;
+    delay(2);
+  EndSequence
+
+  Sequence
+    while( [ joy_mini_x < mini_hat_st ] );
+    btn_dec_sight_vel = true;
+    delay(2);
+    btn_dec_sight_vel = false;
+    delay(2);
+  EndSequence
+
+  Sequence
+    while( [ joy_mini_y > mini_hat_lt ] );
+    btn_inc_sight_alt = true;
+    delay(2);
+    btn_inc_sight_alt = false;
+    delay(2);
+  EndSequence
+
+  Sequence
+    while( [ joy_mini_y < mini_hat_st ] );
+    btn_dec_sight_alt = true;
+    delay(2);
+    btn_dec_sight_alt = false;
+    delay(2);
+  EndSequence
+  endif
+endscript	

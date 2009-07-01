@@ -1,0 +1,75 @@
+mainMenu				ENT	   
+cmdConsole				C	   
+prevMenu				ESC   
+exitMenus				KBDEL	   
+// Ship controls	   	   
+brakeZero				BKSPC	   
+boost					TAB	   
+bayDoor					F	   
+timeCompression			j	   
+toggleComputer			u 	   
+dockingComputer			d	   
+dockAtMyTarget			D	   
+strafe					RALT	   
+pause					P	   
+// Weapon controls	   
+fireActiveLaser			LCTL   
+launchMissile			l	   
+cycleMissileType		m   
+laserTargetingMode		k			 	   
+// Target management	   
+targetCursor			t	   
+enemyTargetMode			e
+targetEnemyCursor		T	   
+nextTarget				KBPGUP
+prevTarget				KBPGDN
+nextStation				KBHOME	   
+prevStation 			KBEND
+nextEnemy				KBINS
+prevEnemy 				KBDEL
+// View controls	   
+nextCockpit 			F1
+externalView			F2
+targetView				F3
+nextMonitor				F4
+toggleMonitors			F5
+lookLeftDown			KP1
+lookDown				KP2
+lookRightDown			KP3
+lookLeft				KP4
+lookBack				KP5
+lookRight				KP6
+lookLeftUp				KP7
+lookUp					KP8
+lookRightUp				KP9
+zoomExternalIn			KP+
+zoomExternalOut			KP-
+cameraMode				KP0
+toggleGridProjection	g
+zoomIn 					LALT
+navMap					n	   
+radarMode	 			M
+ 
+// Menu hotkeys (optional)	   
+//.	Sector map	   
+//,	Universe map	   
+//S	Ship info menu	   
+//I	Target info menu	   
+//F	Freight menu	   
+//C	Comm. menu	    
+//P	Pilot information	   
+//R	Player property menu	   
+//1, 2, 3, 4	Change laser in bay 1-4 of active turret or cockpit.	   
+//SHIFT 1-5	Map target object to monitor	   
+//SHIFT 6/7	Command wingman group	   
+//SHIFT 8/9	Command drone group	   
+//SHIFT Q	Quit program	   
+//SHIFT H	Tip window (INCLUDES THIS TABLE!)	   
+//SHIFT O	Options menu	   
+//SHIFT S	Save game. This only functions in space when you have salvage insurance. 	   
+//SHIFT L	Load game.	   
+//SHIFT E	Ejects player from ship/enter ship. Must have intended ship targeted and in 30m range.	   
+//SHIFT R	Recording on / off (3D Video stream)	   
+//H	Help window	   
+//M	Cycle Radar modes	   
+//F9/Print Screen	Save screenshot.

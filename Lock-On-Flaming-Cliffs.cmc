@@ -1,0 +1,285 @@
+//   Command File
+//   Game Title: Lock-On/Flaming Cliffs 1.11
+//   Written By: Ken King
+//   Date:       4.17.07
+//
+///
+/// FLIGHT CONTROLs
+///
+Ele-Trim-Up                    CTL .
+Ele-Trim-Down                  CTL ;
+Ail-Trim-Left                  CTL ,
+Ail-Trim-Right                 CTL /
+Rudder-Trim-Left               CTL z
+Rudder-Trim-Right              CTL x
+CANX-Trim                      CTL t
+//
+Airbrake-Out/In                b
+Airbrake-Out                   B
+Airbrake-In                    CTL b
+Flaps-Up/Down                  f
+Flaps-Landing-Pos              F
+Flaps-Up                       CTL f
+Landing-GearUp/Down            g
+Landing-Gear-Down		G
+Landing-Gear-Up			CTL g
+Tail-Hook-Up/Down              ALT g
+//
+Canopy-Open/Close              CTL c
+Drogue-Chute-Release           p
+Fold-Wings                     CTL p
+Dump-Fuel/Ground-Refuel        CTL r
+Alt-Stab-Mode                  h
+EJECT                          CTL e e e
+Wheel-Brakes                   w
+Wingtip-Smoke                  t
+Refueling-Boom                 r
+Su25-Cycle-Lights-Steady/Flash/Off	CTL l
+Onboard-Lights-On/Off          CTL l
+Gear-Light-On/Off              ALT l
+Su25/Su25T-Incr-Alt-Pressure              +
+Su25/Su25T-Decr-Alt-Pressure              _
+Su25/Su25T-Power-Switch		L
+Power-Switch                   P
+Spin-Recovery                  ALT p
+Speed-Retention-On/Off         ALT s
+Fuel-Tank-Jett                 ALT r
+Reset-Flight-Clock             ALT c
+HUD-Intensity                  CTL h
+Select-Next-Airfield/WPT       `
+Incr-RWR/SPO-Sound-Warning	ALT .
+Decr-RWR/SPO-Sound-Warning	ALT ,
+
+Autopilot                      a
+AP-OVRIDE-Su25T		        HOLD ALT ~
+AP-ALT-HOLD			ALT 1
+AP-ALT/Roll-HOLD		ALT 2
+AP-Trans-LVL-Flight		ALT 3
+AP-Baro-ALT-HOLD		ALT 4
+AP-Radio-ALT-HOLD		ALT 5
+AP-Route-Following-W/O-Autothrottle	ALT 6
+AP-Disengage			ALT 9
+
+
+Pugachevs-Cobra                k
+Set-Carrier-Takeoff-Site       u
+Reset-Audible-Warning          N
+//
+// Throttle/Engine Control
+//
+Auto-Throttle-On/Off           j
+Engine-Start                   RWIN KBHOME
+Engine-Stop                    RWIN KBEND
+Start-Left-Eng                 ALT RWIN KBHOME
+Stop-Left-Eng                  ALT RWIN KBEND
+Start-Right-Eng                SHF RWIN KBHOME
+Stop-Right-Eng                 SHF RWIN KBEND
+//
+//  Navigation/Combat Modes
+//
+Navigation-Mode                           1
+BVR/DVB-Mode                              2
+CAS-Vert-Scan-Mode                	  3
+CAS-Bore(CAC/BVB-BORE/STR)Mode            4
+CAS-Helmet-Mode        			  5
+Longitudinal-Mode 			  6
+Air-To-Ground-Mode             		  7
+Select-Grid(SETKA)Mode                    8
+
+Cycle-Targets                             `
+Lock-Selected-Target                      TAB
+Tracked-Target-Off                        CTL TAB
+CAC-Tracked-Target-On/Off                 TAB
+Change-RWR/SPO-Mode                       R
+//
+// Defensive Systems
+//
+IR-Jamming-Su25			E
+Active-Jamming-ECM             e
+Chaff/Flare                    q
+Cont-Chaff/Flare               Q
+Chaff-Only                     KBINS
+Flares-Only                    KBDEL
+//
+// Weapons Systems
+//
+Cycle-Weapons                  d
+Cannon-Toggle                  c
+Gun-Burst-Off-RF-Planes		C
+Fire-Weapon                    SPC
+Jett-Weapons(Pairs)            CTL w
+Salvo-Mode-Select              CTL v
+A10-Master-Arm                 ALT SPC
+A10-Release-Mode               SHF SPC
+A10-Gun-ROF                    C
+A10/Su25/Su25T-Rpl-Incr                   v
+A10/Su25/Su25T-Rpl-Decr                   V
+A10/Su25/Su25T-Rpl-Quan                   CTL SPC
+A10-RWR-Mode-SEL               R
+Release-Weapon-US              ENT
+Launch-Perm-Override           ALT w
+//
+// Radar & Electro-Optical Systems
+//
+Radar-Illumination-On/Off      i
+Easy-Radar-Mode                I
+Electro-Optical-Sys-On/Off     o
+Center-Radar-Antenna/IR        CTL i
+MFD-Zoom-In                    -
+MFD-Zoom-Out                   =
+Sel-RDR-Mode-RF-SCAN/TWS	ALT i
+F15-Switch-RWS/TWS-Modes       ALT i
+F15-Radar-Azimuth-Incr         CTL =
+F15-Radar-Azimuth-Decr         CTL -
+Sel-RDR-Search-Mode		RWIN i
+Su25/Su25T-Laser-Desig-On/Off	O
+Incr-RNG-To-TGT-RF-Fighters	CTL =
+Decr-RNG-To-TGT-RF-Fighters	CTL -
+Incr-Depr-Angle-Of-SPPU-Gunpod-Barrels-Su25	CTL =
+Decr-Depr-Angle-Of-SPPU-Gunpod-Barrels-Su25	CTL -
+Incr-TGT-Size-RF-Aircraft	ALT =
+Decr-TGT-Size-RF-Aircraft	ALT -
+//
+// Beyond Visual Range Mode
+//
+Radar/EOS-Scan-Up              :
+Radar/EOS_Scan-Left            <
+Radar/EOS_Scan-Down            >
+Radar/EOS_Scan-Right           ?
+
+HUD-Designator-Down            .
+HUD-Designator-Left            ,
+HUD-Designator-Up              ;
+HUD-Designator-Right           /
+//
+// Close Air Combat Mode
+//
+Radar/EOS-Scan-Up              :
+Radar/EOS-Scan-Left            <
+Radar/EOS-Scan-Down            >
+Radar/EOS-Scan-Right           ?
+//
+// Ground Mode
+//
+Radar/TV-Seeker-Up             :
+Radar/TV-Seeker-Left           <
+Radar/TV-Seeker-Down           >
+Radar/TV-Seeker-Right          ?
+//
+// Combined Ground/Air Designator Control
+//
+Radar/EOS/TV-Seeker-Up         :
+Radar/EOS/TV-Seeker-Left       <
+Radar/EOS/TV-Seeker-Down       >
+Radar/EOS/TV-Seeker-Right      ?
+//
+// Auto Lock On
+//
+Lock-Nearest-Enemy-Air           SCRLK
+Lock-Nearest-Enemy-Air-CNTR      ALT SCRLK
+Lock-Previous-Enemy-Air          SHF KBINS
+Lock-Next-Enemy-Air              SHF NUMLOCK
+
+Lock-Nearest-Enemy-Ground        SHF SCRLK
+Lock-Nearest-Enemy-Ground-CNTR   CTL SCRLK
+Lock-Previous-Enemy-Ground       SHF KBDEL
+Lock-Next-Enemy-Ground           CTL NUMLOCK
+//
+// Communications
+//
+Press-To-Talk                           LCTL
+Comm-Menu                               \
+Dispatch-Wingman-On-Mission             KBDEL
+Dispatch-Wingman-On-Mission-Then-Rejoin {
+Dispatch-Wingmen-On-Mission-RTB         CTL [
+Wingman-Tight/Loose-Formation           }
+Wingman-Attack-My-Target                [
+Wingman-Cover-My-Six                    ]
+Wingman-Commands                        K102
+Rejoin-Formation                        ALT [
+AWACS-Radio-Home                        ALT h
+AWACS-Radio-Tanker                      ALT t
+Chat-With-All                           CTL m
+Chat-With-My-Team                       ALT m
+Mission-Goals-Scores                    "
+//
+// View Selection
+//
+Cockpit-View                            F1
+Natural-Head-Move-View                  CTL F1
+HUD-Only-View                           ALT F1
+External-View                           F2
+Aircraft-Labels                         SHF F2
+Launched-Missiles-Labels                SHF F6
+Objects-Labels                          SHF F10
+Ships/Ground-Labels                     SHF F9
+Fly-By-View                             F3
+Fly-By-Jump-View                        CTL F3
+Chase-View                              CTL F4
+Air-Combat-View                         F5
+Air-To-Ground-Combat-View               CTL F5
+Weapons-View                            F6
+Chase-Weapon-View                       CTL F6
+Ground-Objects-View                     F7
+Target-View                             F8
+Ship-View                               F9
+LSO-View                                ALT F9
+Theatre-View                            F10
+Tower&Terrain-View                      F11
+Tower&Terrain-View-Switch/Save          CTL F11
+Static-Objects-View                     F12
+Civilian-Transport-View                 CTL F12
+Trains/Cars-Toggle-Civ-View             SHF F11
+Rear-View                               F4
+//
+// Cockpit View Control
+//
+Move-Head-Down-Left                     KP1
+Move-Head-Down                          KP2
+Move-Head-Down-Right                    KP3
+Move-Head-Left                          KP4
+Move-Center-View                        KP5
+Move-Head-Right                         KP6
+Move-Head-Up_Left                       KP7
+Move-Head-Up                            KP8
+Move-Head-Up-Right                      KP9
+//
+Fast-Move-Head-Down-Left                SHF KP1
+Fast-Move-Head-Down                     SHF KP2
+Fast-Move-Head-Down-Right               SHF KP3
+Fast-Move-Head-Left                     SHF KP4
+Fast-Move-Head-Right                    SHF KP6
+Fast-Move-Head-Up-Left                  SHF KP7
+Fast-Move-Head-Up                       SHF KP8
+Fast-Move-Head-Up-Right                 SHF KP9
+//
+Discrete-Move-Head-Down-Left            CTL KP1
+Discrete-Move-Head-Down                 CTL KP2
+Discrete-Move-Head-Down-Right           CTL KP3
+Discrete-Move-Head-Left                 CTL KP4
+Discrete-Move-Head-Right                CTL KP6
+Discrete-Move-Head-Up-Left              CTL KP7
+Discrete-Move-Head-Up                   CTL KP8
+Discrete-Move-Head-Up-Right             CTL KP9
+Discrete-Mode-Toggle                    ALT z
+//
+Padlock-View-Toggle                     KP.
+All-Missile-Padlock                     SHF KP.
+Threat-Missile-Padlock                  ALT KP.
+Cockpit-Illumination-Toggle             l
+View-Right-Mirror                       m
+View-Left-Mirror                        n
+Zoom-In                                 KP*
+Zoom-Out                                KP/
+Default-Zoom-Level                      CTL KPENT
+Cockpit-Panel-Snap-View                 KP0
+//
+// Program Control
+//
+Immortality-Mode                        ALT v
+End-Mission/Track                       ESC
+Take-Control-In-Track                   CTL q
+//
+Track-IR-Enable				F10
+Track-IR-Center				F12
+

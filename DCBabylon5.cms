@@ -1,0 +1,89 @@
+%define mode2Button					js2.b4
+%define mode3Button					js2.b3
+%define revButton           js2.b2
+
+%define incspeed            cms.b1
+%define decspeed            cms.b2
+%define afterburn           cms.b3
+
+%define ThrottleIn          js2.a3
+%define ThrottleOut         cms.a1
+
+script
+  // Scaled mode buttons and scripting from
+  // F16_Abe (Abe Beson) on CH-Hanger
+
+ 	// Mode1 is the normaly active mode
+ 	// Mode2 is active while button 4 but not button 3 on the
+ 	//       throttle is depressed.
+ 	// Mode3 is active while button 3 but not button 4 on the
+ 	//       throttle is depressed
+ 	// Mode4 is entered while button 3 and button 4 on the
+ 	//       throttle are both depressed. 	
+ 	
+   if(mode2Button && mode3Button) then
+ 		currentMode=MODE4;
+ 	else
+ 		if(mode2Button) then
+ 			currentMode=MODE2;
+ 		else
+ 			if(mode3Button) then
+ 				currentMode=MODE3;
+ 			else
+ 				if (not mode2Button && not mode3Button) then
+ 					currentMode=MODE1;
+ 				endif
+ 			endif
+ 		endif
+ 	endif
+
+
+  a2 = ThrottleIn;
+  if ([ThrottleIn < 40] && [ThrottleIn > 30]) then
+    a2=41;
+  endif
+
+  if ([a2 > 40]) then
+    incspeed = false;
+    decspeed = false;
+    afterburn = false;
+  endif
+
+  if ([a2 <= 30]) then               //in wierd zone
+    if ([a2 <= 16] && [a2 > 2]) then //in incspeed zone
+      if (not revButton) then
+        decspeed = false;
+        incspeed = true;
+      else
+        incspeed = false;
+        decspeed = true;
+      endif
+      afterburn = false;
+    else                             //in incspeed + burn zone
+      if ([a2 <= 2]) then
+        if (not revButton) then
+          decspeed = false;
+          incspeed = true;
+        else
+          incspeed = false;
+          decspeed = true;
+        endif
+        afterburn = true;
+      endif
+    endif
+
+    if ([a2 > 16]) then              //in afterburn zone
+      incspeed = false;
+      decspeed = false;
+      afterburn = true;
+    endif
+  endif
+
+  a1 = ((a2 - 41)*255)/214;
+  if (not revButton) then
+    ThrottleOut = 128 + (127-(a1/2));
+  else
+    ThrottleOut = 127 - (127-(a1/2));
+  endif
+
+endScript

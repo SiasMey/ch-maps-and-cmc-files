@@ -1,0 +1,134 @@
+// CMC Command File
+//
+//     Game Title: IL-2 Sturmovik Forgotten Battles
+//     Written By: Michael Sexton	
+//           Date: 10-12-2003
+//
+// Aircraft Controls	
+Elevator_Up								KBDOWN
+Elevator_Down							KBUP
+Aileron_Left							KBLEFT
+Aileron_Right							KBRIGHT
+Rudder_Left_Full						z
+Rudder_Right_Full						x
+Rudder_Left								,
+Rudder_Neutral							/
+Rudder_Right							.
+Elevator_Trim_Negative					CTL KBUP
+Elevator_Trim_Neutral					SHF KBUP
+Elevator_Trim_Positive					CTL KBDOWN
+Aileron_Trim_Left						CTL KBLEFT
+Aileron_Trim_Neutral					SHF KBLEFT
+Aileron_Trim_Right						CTL KBRIGHT
+Rudder_Trim_Left						CTL z
+Rudder_Trim_Neutral						SHF z
+Rudder_Trim_Right						CTL x
+
+Toggle_Engine							i
+Increase_Engine_Power					=
+Decrease_Engine_Power					-
+Boost_(WEP)_On/Off						w
+Power_0									1
+Power_20%								2
+Power_30%								3
+Power_40%								4
+Power_50%								5
+Power_60%								6
+Power_70%								7				
+Power_80%								8
+Power_90%								9
+Power_100%								0
+
+Prop_Pitch_0							SHF 1
+Prop_Pitch_30%							SHF 2
+Prop_Pitch_60%							SHF 3
+Prop_Pitch_90%							SHF 4
+Prop_Pitch_Auto							SHF 0
+
+Flaps_Up								f
+Flaps_Down								v
+Gear_Up/Down							g
+Cowl_or_Armor_Flaps						r
+Wheel_Brakes							b
+Jettison_Drop_Tanks						CTL t
+
+Weapon_1								ENT
+Weapon_2								BKSPC
+Weapon_3								SPC
+Weapon_4								ALT SPC
+
+//Gunner Controls
+Fire									MOUSE1
+
+//Views
+Pilot_or_Gunner_Position				c
+Wide_View								KBPGDN
+Normal_View								KBEND
+Gunsight_View							KBDEL
+Cockpit_View							F1
+No_Cockpit_View							CTL F1
+External_View							F2
+Next_Friendly_View						SHF F2
+Next_Enemy_View							CTL F2
+Fly-By_View								F3
+Padlock_Enemy							F4
+Padlock_Friendly						SHF F4
+Padlock_Enemy_Ground					F5
+Padlock_Friendly_Ground					SHF F5
+Padlock_Next							u
+Padlock_Previous						y
+Instant_View_Forward_with_Padlock		KP0
+External_Padlock_Enemy_Air				F6
+Exteranl_Padlock_Friendly_Air			SHF F6
+External_Padlock_Closest_Enemy_Air		ALT F6
+External_Padlock_Enemy_Ground			F7
+External_Padlock_Friendly_Ground		SHF F7
+External_Padlock_Closest_Enemy_Ground	ALT F7
+Chase_View								F8
+Next_Friendly_Chase_View				SHF F8
+Next_Enemy_Chase_View					CTL F8
+Toggle_Gunsight							SHF F1
+
+//Snap Views
+Toggle_Snap/Pan_View					F9
+Look_Forward							KP8
+Look_Front_Left							KP7
+Look_Front_Right						KP9
+Look_Back_Left							KP1
+Look_Back_Right							KP3
+Look_Up									KP5
+Look_Down								KP2
+Look_Left								KP4
+Look_Right								KP6
+
+//Pan Views
+Center_View								KP5
+Pan_View_Up								KP8
+Pan_View_Down							KP2
+Pan_View_Left							KP4
+Pan_View_Right							KP6
+Pan_View_Up_Left						KP7
+Pan_View_Up_Right						KP9
+Pan_View_Down_Left						KP1
+Pan_View_Down_Right						KP3
+
+//Comms
+Toggle_Comms							TAB
+Voice_Comms_Key                         KP/
+
+//Misc	
+Toggle_Auto_Pilot						a
+Bailout									CTL e
+Tinted_Reticle_Dimmer(German_Planes)	CTL d
+Cockpit_Lights							CTL l
+Toggle_Wingtip_Smoke					t
+Toggle_Map								m
+Chat									`
+Online_Rating							s
+
+//Time Compression						
+Accelerate_Time_x2/x4/x8				]
+Normal_Time								'
+Decelerate_Time_x2/x4					[
+Pause_Game								p				
+

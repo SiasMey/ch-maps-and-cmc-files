@@ -1,0 +1,124 @@
+// CMC Command File
+//
+//     Game Title: MechWarrior 4
+//     Written By: Michael Sexton
+//           Date: 2004-01-21
+//
+
+// Mech Movement Controls
+//
+Turn_Left											KP4
+Turn_Right											KP6
+Pitch_Torso_Up										KP2
+Pitch_Torso_Down									KP8
+Torso_Twist_Left									KP7
+Torso_Twist_Right									KP9
+Center_Legs-to-Torso								SHF SPC
+Center_Torso-to-Legs								SPC
+Override_Auto_Torso_Centering						;
+Fire_Jump_Jets										j
+Crouch												c
+Get_Up												g
+
+// Throttle Control
+//
+Toggle_Forward/Reverse								BKSPC
+Accelerate											=
+Decelerate											-
+Set_Throttle_to_0%									1
+Set_Throttle_to_20%									2
+Set_Throttle_to_30%									3
+Set_Throttle_to_40%									4
+Set_Throttle_to_50%									5
+Set_Throttle_to_60%									6
+Set_Throttle_to_70%									7
+Set_Throttle_to_80%									8
+Set_Throttle_to_90%									9
+Set_Throttle_to_100%								0
+
+// Mech Management Controls
+//
+Override_Auto-Shutdown								SHF o
+Shutdown/Startup_Mech								s
+Flush_Coolant										f
+
+// Weapons Control
+//
+Fire_Selected_Weapon/Group							ENT
+Change_Firing_Mode									\
+Change_Group_Mode									/
+Select_Next_Weapon									p
+Select_Next_Weapon_Group							]
+Select_Prev_Weapon_Group							[
+Fire_Group_1										KP0
+Fire_Group_2										KP7
+Fire_Group_3										KP9
+Fire_Group_4										KPDEL
+Fire_Group_5										KP1
+Fire_Group_6										KP3
+
+// Targeting Controls
+//
+Target_Next_Enemy									e
+Target_Nearest_Enemy								SHF e
+Target_Previous_Enemy								CTL e
+Target_Object_Under_Reticule						q
+Target_Next_Friendly								w
+Target_Nearest_Friendly								SHF w
+Target_Previous_Friendly							CTL w
+
+// Radar Controls
+//
+Toggle_Radar_Range									r
+Toggle_Radar/Map									SHF m
+Toggle_Radar_Active/Passive							CTL r
+
+// Navigation Controls
+//
+Select_Next_NAV_Point								n
+Select_Previous_NAV_Point							CTL n
+
+// Cockpit Controls
+//
+EJECT												CTL z
+Show_Mission_Objectives								o
+Toggle_Light_Amplification							a
+Toggle_Searchlight									l
+Toggle_HUD_Modes									ALT h
+Toggle_Left_MFD_Functionality						,
+Toggle_Right_MFD_Functionality					.
+Toggle_Zoom_Window									z
+Look_Left											KP4
+Look_Right											KP6
+Look_Down											m
+Toggle_1st_or_3rd_Person_View						v
+
+// Lancemate Commands
+//
+Order_Lancemate_1									F1
+Order_Lancemate_2									F2
+Order_Lancemate_3									F3
+Order_All_Lancemates								F4
+Attack_My_Target									F1
+Defend_My_Target									F2
+Form_On_Me											F3
+Hold_Fire											F4
+Go_to_my_NAV_Point									F5
+Stop_Moving											F6
+Shutdown											F7
+Attack_Nearest_Enemy								F8
+Repair_at_Nearest_Repair_Bay						F9
+Capture_Flag										F10				
+
+// Multiplayer Controls
+//
+General_Chat										y
+Team_Chat											u
+Toggle_Large_Chat									`
+
+// Mouse Toggles
+//
+Mouse_Control_On/Off								CTL \
+Mouse_Yaw											RCLICK
+
+

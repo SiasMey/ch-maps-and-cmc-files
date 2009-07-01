@@ -1,0 +1,41 @@
+// CMS Script File
+//
+//     Game Title:
+//     Written By:Dace
+//           Date:
+//
+
+//axis used by script
+%define ModeSel js1.a3
+
+//timers used by script
+%define gotoMode1 d1
+%define gotoMode2 d2
+%define gotoMode3 d3
+
+//variables used in script
+%define Mode1lim 5
+%define Mode3lim 245
+
+
+script
+  pulse (gotoMode1) = [ModeSel < Mode1lim];
+  pulse (gotoMode2) = [ModeSel > Mode1lim] and [ModeSel < Mode3lim];
+  pulse (gotoMode3) = [ModeSel > Mode3lim];
+
+if (gotoMode1 or gotoMode2 or gotoMode3) then
+  if (gotoMode1) then
+    CURRENTMODE = MODE1;
+  endif
+
+  if (gotoMode2) then
+    CURRENTMODE = MODE2;
+  endif
+
+  if (gotoMode3) then
+    CURRENTMODE = MODE3;
+  endif
+endif
+
+
+endScript

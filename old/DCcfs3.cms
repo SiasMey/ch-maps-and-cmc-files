@@ -1,0 +1,99 @@
+// CMS Script File
+//
+//     Game Title:	CFS3
+//     Written By:	Dace (Sias Mey)
+//           Date:  2006-07-29
+//
+
+// Buttons used by the script
+
+// Joy buttons used by script
+%define btn_shift js1.b4
+
+%define btn_wing_attack cms.b1
+%define btn_wing_yes cms.b2
+%define btn_wing_no cms.b3
+%define btn_wing_help cms.b4
+%define btn_wing_split cms.b5
+%define btn_wing_rejoin cms.b6
+
+// Joy axis used by script
+%define joy_mini_x js2.a1
+%define joy_mini_y js2.a2
+
+// Constants used by script
+%define key_hold_delay 5
+
+%define mini_hat_lt 200
+%define mini_hat_st 55
+
+// Axises used by the script
+
+// Logical devices used by script
+%define key_hold d3
+
+// Internal bit registers used by the script
+%define first	b1
+				
+script
+ 	if( not first ) then
+ 		first = true;
+ 	endif
+
+  //mini joy as hat
+  if ( not btn_shift ) then
+  Sequence
+    wait( [ joy_mini_x > mini_hat_lt ] );
+    btn_wing_yes = true;
+    delay(2);
+    btn_wing_yes = false;
+  EndSequence
+
+  Sequence
+    wait( [ joy_mini_x < mini_hat_st ] );
+    btn_wing_no = true;
+    delay(2);
+    btn_wing_no = false;
+  EndSequence
+
+  Sequence
+    wait( [ joy_mini_y > mini_hat_lt ] );
+    btn_wing_help = true;
+    delay(2);
+    btn_wing_help = false;
+  EndSequence
+
+  Sequence
+    wait( [ joy_mini_y < mini_hat_st ] );
+    btn_wing_attack = true;
+    delay(2);
+    btn_wing_attack = false;
+  EndSequence
+  endif
+
+  if ( btn_shift ) then
+  Sequence
+    while( [ joy_mini_x > mini_hat_lt ] );
+    delay(2);
+  EndSequence
+
+  Sequence
+    while( [ joy_mini_x < mini_hat_st ] );
+    delay(2);
+  EndSequence
+
+  Sequence
+    wait( [ joy_mini_y > mini_hat_lt ] );
+    btn_wing_split = true;
+    delay(2);
+    btn_wing_split = false;
+  EndSequence
+
+  Sequence
+    wait( [ joy_mini_y < mini_hat_st ] );
+    btn_wing_rejoin = true;
+    delay(2);
+    btn_wing_rejoin = false;
+  EndSequence
+  endif
+endscript	

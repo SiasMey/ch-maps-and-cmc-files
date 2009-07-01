@@ -1,0 +1,356 @@
+// CMS Script File
+//
+//     Game Title: Lomac 1.12a
+//     Written By: Sias "Dace" Mey
+//           Date: 2006/07/22
+//
+
+//cms buttons used by script
+
+////command buttons////
+%define btn_wheelbrakes cms.b1  //done
+%define btn_drogueshute cms.b2  //done
+
+%define btn_nav cms.b3  //done
+%define btn_a2g cms.b4  //done
+%define btn_casbvr cms.b6  //done
+%define btn_casvscan cms.b7  //done
+%define btn_casbore cms.b8  //done
+%define btn_cashelmet cms.b9  //done
+%define btn_a2along cms.b10  //done
+
+%define btn_scan_up cms.b13
+%define btn_scan_down cms.b14
+%define btn_scan_left cms.b11
+%define btn_scan_right cms.b12
+
+//Nav mode only functions
+%define btn_gear cms.b15  //done
+%define btn_engine_start cms.b16  //done
+%define btn_engine_stop cms.b17  //done
+%define btn_canopy cms.b20  //done
+%define btn_smoke cms.b21  //done
+%define btn_nav_lights cms.b22  //done
+%define btn_land_lights cms.b23  //done
+%define btn_power cms.b29  //done
+%define btn_refeuling_boom cms.b18
+%define btn_refeul cms.b19
+%define btn_rearm cms.b24
+%define btn_inc_AltPres cms.b25
+%define btn_dec_AltPres cms.b26
+%define btn_inc_SU_25_AltPres cms.b27
+%define btn_dec_SU_25_AltPres cms.b28
+%define btn_carrier_takeof cms.b30
+
+//a2g only
+%define btn_salvo_mode cms.b31
+%define btn_ripple_inc cms.b32
+%define btn_ripple_dec cms.b33
+%define btn_ripple_quantity cms.b34
+%define btn_release_mode cms.b35
+%define btn_gun_rate cms.b36
+
+//a2a only
+%define btn_scanz_up cms.b37
+%define btn_scanz_down cms.b38
+%define btn_radar cms.b39
+%define btn_radar_mode cms.b40
+%define btn_radar_smode cms.b41
+%define btn_inc_azimuth cms.b42
+%define btn_dec_azimuth cms.b43
+
+//a2a or a2g
+%define btn_eos_tv cms.b44
+%define btn_laser cms.b45
+%define btn_mfd_zoom_in cms.b46
+%define btn_mfd_zoom_out cms.b47
+%define btn_inc_rf_stuff cms.b48
+%define btn_dec_rf_stuff cms.b49
+%define btn_inc_rf_stuff_smooth cms.b50
+%define btn_dec_rf_stuff_smooth cms.b51
+%define btn_lock cms.b52
+%define btn_unlock cms.b53
+%define btn_fire cms.b57
+%define btn_release cms.b58
+%define btn_cannon cms.b59
+%define btn_burst_cutoff cms.b60
+
+//other usefull btns
+%define btn_alt cms.b54
+%define btn_shf cms.b55
+%define cms_btn_shift cms.b56
+
+////joystick mapping to cms functions////
+%define btn_shift js1.b4
+
+//mode selection buttons
+%define btn_joy_nav js2.b6
+%define btn_joy_a2g js2.b5
+%define btn_joy_a2along js2.b8
+%define btn_joy_a2a js2.b7
+
+//a2a mode selection buttons
+%define btn_joy_casbvr js2.b7
+%define btn_joy_casbore js2.b6
+%define btn_joy_casvscan js2.b5
+%define btn_joy_cashelmet js2.b8
+
+//devices used by script
+%define key_hold d3
+%define key_pulse d4
+
+//constants used by script
+%define slew_slow_rep 10
+
+//bits used by script
+%define first b1
+
+%define mode_selected b13
+%define a2a_select b14
+
+%define slew_fast b15
+%define slew_slow b16
+
+%define nav_mode mode1
+%define a2a_mode mode2
+%define a2g_mode mode3
+script
+//initialization
+ 	if(not first) then
+ 		first = true;
+    currentmode = nav_mode;
+    mode_selected = false;
+ 	endif
+//button assignments
+ 	
+//reticle slewing
+  if([currentmode ==  a2a_mode] or [currentmode == a2g_mode]) then
+    Sequence
+      wait(js2.b1 and not btn_shift);
+    EndSequence
+
+    Sequence
+      wait(js2.b1 and btn_shift);
+    EndSequence
+  else
+    //mini joy movements in Nav mode
+    Sequence
+      wait([js2.a1 > 200] and not btn_shift);
+      btn_shf = true;
+      delay(5);
+      btn_engine_start = true;
+      delay(5);
+      btn_engine_start = false;
+      delay(5);
+      btn_shf = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a1 < 73] and not btn_shift);
+      btn_alt = true;
+      delay(5);
+      btn_engine_start = true;
+      delay(5);
+      btn_engine_start = false;
+      delay(5);
+      btn_alt = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a2 > 200] and not btn_shift);
+      btn_gear = true;
+      delay(5);
+      btn_gear = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a2 < 73] and not btn_shift);
+      btn_nav_lights = true;
+      delay(5);
+      btn_nav_lights = false;
+    EndSequence
+
+    //mini joy movements in Nav mode shifted
+    Sequence
+      wait([js2.a1 > 200] and btn_shift);
+      btn_shf = true;
+      delay(5);
+      btn_engine_stop = true;
+      delay(5);
+      btn_engine_stop = false;
+      delay(5);
+      btn_shf = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a1 < 73] and btn_shift);
+      btn_alt = true;
+      delay(5);
+      btn_engine_stop = true;
+      delay(5);
+      btn_engine_stop = false;
+      delay(5);
+      btn_alt = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a2 > 200] and btn_shift);
+      btn_canopy = true;
+      delay(5);
+      btn_canopy = false;
+    EndSequence
+
+    Sequence
+      wait([js2.a2 < 73] and btn_shift);
+      btn_land_lights = true;
+      delay(5);
+      btn_land_lights = false;
+    EndSequence
+  endif
+
+  slew_slow = [js2.a1 > 170] or [js2.a1 < 86] or [js2.a2 > 170] or [js2.a2 < 86];
+  slew_fast = [js2.a1 > 240] or [js2.a1 < 15] or [js2.a2 > 240] or [js2.a2 < 15];
+  
+  if (slew_fast and ([currentmode ==  a2a_mode] or [currentmode == a2g_mode])) then
+      btn_scan_right = [js2.a1 > 240];
+      btn_scan_left = [js2.a1 < 15];
+      btn_scan_down = [js2.a2 > 240];
+      btn_scan_up = [js2.a2 < 15];
+  else
+    if (slew_slow and ([currentmode ==  a2a_mode] or [currentmode == a2g_mode])) then
+      Sequence
+        while([js2.a1 > 170]);
+        btn_scan_right = true;
+        delay(1);
+        btn_scan_right = false;
+        delay(slew_slow_rep);
+      EndSequence
+
+      Sequence
+        while([js2.a1 < 86]);
+        btn_scan_left = true;
+        delay(1);
+        btn_scan_left = false;
+        delay(slew_slow_rep);
+      EndSequence
+
+      Sequence
+        while([js2.a2 > 170]);
+        btn_scan_down = true;
+        delay(1);
+        btn_scan_down = false;
+        delay(slew_slow_rep);
+      EndSequence
+
+      Sequence
+        while([js2.a2 < 86]);
+        btn_scan_up = true;
+        delay(1);
+        btn_scan_up = false;
+        delay(slew_slow_rep);
+      EndSequence
+    endif
+  endif
+
+  if ((not slew_fast) and (not slew_slow)) then
+    btn_scan_right = false;
+    btn_scan_left = false;
+    btn_scan_down = false;
+    btn_scan_up = false;
+  endif
+
+//mode selection
+mode_selected = btn_joy_casbvr or btn_joy_casbore or btn_joy_cashelmet or btn_joy_casvscan;
+pulse(key_pulse) = mode_selected;
+
+Sequence
+  //while a2a mode select is active
+  //use alternative values for assignment buttons
+  //only assign on the pulse otherwise holding causes reselection of other modes
+  while(a2a_select);
+  Sequence
+    wait(btn_joy_casbvr and key_pulse);
+    btn_casbvr = true;
+    delay(10);
+    btn_casbvr = false;
+    currentmode = a2a_mode;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_casbore and key_pulse);
+    btn_casbore = true;
+    delay(10);
+    btn_casbore = false;
+    currentmode = a2a_mode;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_cashelmet and key_pulse);
+    btn_cashelmet = true;
+    delay(10);
+    btn_cashelmet = false;
+    currentmode = a2a_mode;
+    a2a_select = false;
+  EndSequence
+
+  Sequence
+    wait(btn_joy_casvscan and key_pulse);
+    btn_casvscan = true;
+    delay(10);
+    btn_casvscan = false;
+    currentmode = a2a_mode;
+    a2a_select = false;
+  EndSequence
+EndSequence
+
+//a2g mode
+Sequence
+  wait(btn_joy_a2g and not a2a_select and key_pulse);
+  btn_a2g = true;
+  delay(5);
+  btn_a2g = false;
+
+  currentmode = a2g_mode;
+EndSequence
+
+//nav mode
+Sequence
+  wait(btn_joy_nav and not a2a_select and key_pulse);
+  btn_nav = true;
+  delay(10);
+  btn_nav = false;
+
+  currentmode = nav_mode;
+EndSequence
+
+//a2along mode
+Sequence
+  wait(btn_joy_a2along and not a2a_select and key_pulse);
+  btn_a2along = true;
+  delay(10);
+  btn_a2along = false;
+
+  currentmode = a2a_mode;
+EndSequence
+
+//a2a modes
+Sequence
+  wait(btn_joy_a2a and not a2a_select and key_pulse);
+  a2a_select = true;
+EndSequence
+
+//wheelbrake and drogue chute
+  if ([js3.a1 > 80] or [js3.a2 > 80]) then
+    btn_wheelbrakes = true;
+  else
+    btn_wheelbrakes = false;
+  endif
+  
+  if ([js3.a1 > 250] and [js3.a2 > 250]) then
+    btn_drogueshute = true;
+  else
+    btn_drogueshute = false;
+  endif
+endScript

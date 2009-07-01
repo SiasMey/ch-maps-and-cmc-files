@@ -1,0 +1,23 @@
+// CMS Script File
+//
+//     Game Title:
+//     Written By:
+//           Date:
+//
+
+%define buildingSelect js1.b1 or js1.b2 or js1.b3 or js1.b4 or js1.b5 or js1.b6 or js1.b7 or js1.b8 or js1.b9 or js1.b10 or js1.b11 or js1.b12 or js1.b13 or js1.b14 or js1.b15
+script
+  SEQUENCE
+    WAIT( js1.b20 );
+    CURRENTMODE = MODE2;
+  ENDSEQUENCE
+  
+  SEQUENCE
+    WHILE([CURRENTMODE == MODE2]);
+    SEQUENCE
+      WAIT( buildingSelect );
+      DELAY(1);
+      CURRENTMODE = MODE1;
+    ENDSEQUENCE
+  ENDSEQUENCE
+endScript

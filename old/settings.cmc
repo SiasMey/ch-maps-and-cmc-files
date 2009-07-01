@@ -1,0 +1,148 @@
+auto_pitch				SHF 0
+
+rudderleft   			z
+compressorminus   		CTL KP-
+rudderright   			x
+compressorplus   		CTL KP+
+boost   			w
+aircraft_flaps_notch_down   	v
+radiator   			r
+aircraft_trim_r_0   		SHF x
+
+sight_dist_minus   		ALT KP/
+aircraft_tailwheellock   	SHF t
+sight_spd_minus   		ALT KP-
+sight_spd_plus   		ALT KP+
+sight_dist_plus   		ALT KP*
+aircraft_toggle_engine   	i
+sight_alt_plus   		ALT KP8
+
+stepauto   			CTL ´
+gear   				g
+aircraft_trim_r_minus   	CTL z
+aircraft_flaps_notch_up   	f
+sight_side_right   		ALT KP6
+aircraft_trim_r_plus   		CTL x
+sight_auto_onoff   		ALT KP5
+sight_side_left   		ALT KP4
+aircraft_toggle_airbrake   	b
+sight_alt_minus   		ALT KP2
+aircraft_drop_tanks   		CTL t
+
+engineextinguisher   		=
+enginefeather   		CTL p
+enginetoggleleft   		ALT 9
+enginetoggle8   		8
+enginetoggle7   		7
+enginetoggle6   		6
+enginetoggle5   		5
+enginetoggle4   		4
+
+aircraft_gear_up_manual   	CTL g
+enginetoggle3   		3
+engineextinguisher   		CTL f
+enginetoggle2   		2
+enginetoggle1   		1
+enginetoggleright   		ALT 0
+aircraft_rudder_centre   	/
+aircraft_rudder_right_1   	.
+engineselectall   		CTL a
+enginedeselectall		ALT a
+
+aircraft_rudder_left_1   	,
+elevatordown   			KBDOWN
+aileronright   			KBRIGHT
+aircraft_gear_down_manual   	ALT g
+elevatorup   			KBUP
+stabilizer   			SHF ,
+aileronleft   			KBLEFT
+
+gunPods					SPC
+
+aircraft_trim_v_0   		SHF KBUP
+aircraft_trim_h_0   		SHF KBLEFT
+aircraft_trim_v_plus   		CTL KBDOWN
+aircraft_trim_h_plus   		CTL KBRIGHT
+aircraft_trim_v_minus   	CTL KBUP
+aircraft_trim_h_minus   	CTL KBLEFT
+
+enginetoggleall   		_
+enginefeather   		BKSPC
+mixminus20   			KP-
+mixplus20   			KP+
+
+nextviewenemyfollow   		CTL F8
+padlockviewforward   		KP0
+nextviewenemy   		CTL F2
+cockpitshow   			CTL F1
+padlockviewprev   		y
+viewenemydirectground   	ALT F7
+padlockviewnext   		u
+viewenemydirectair   		ALT F6
+
+changecockpit   		c
+cockpitview8   			SHF 9
+cockpitview7   			SHF 8
+cockpitview6   			SHF 7
+cockpitview4   			SHF 6
+cockpitview5   			SHF 5
+cockpitview3   			SHF 4
+cockpitview2   			SHF 3
+cockpitview1   			SHF 2
+cockpitview0   			SHF 1
+cockpitview9   			ALT SHF 0
+
+fov70   			KBEND
+fov90   			KBPGDN
+fov30   			KBDEL
+
+outsideviewfollow   		F8
+viewenemyground   		F7
+viewenemyair   			F6
+padlockviewground   		F5
+padlockview   			F4
+outsideviewfly   		F3
+outsideview   			F2
+nextviewfollow   		SHF F8
+cockpitview   			F1
+viewfriendground   		SHF F7
+viewfriendair   		SHF F6
+padlockviewfriendground   	SHF F5
+padlockviewfriend   		SHF F4
+nextview   			SHF F2
+
+cockpitaim   			SHF F1
+snappanswitch   		F9
+snap_1_0   			KP9
+snap_0_0   			KP5
+panright   			KP9
+panreset   			KP5
+
+order9   			9
+order8   			8
+order7   			7
+order6   			6
+order5   			5
+order4   			4
+order3   			3
+order2   			2
+order1   			1
+order0   			0
+
+deactivate			ESC
+activate   			TAB
+chat   				`
+togglesmokes   			t
+onlinerating   			s
+pad   				m
+autopilot   			a
+showmirror   			CTL m
+cockpitlight   			CTL l
+icontypes   			CTL i
+ejectpilot   			CTL e
+cockpitdim   			CTL d
+autopilotauto   		SHF .
+togglelandinglight   	CTL KP8
+togglenavlights   		CTL KP7
+push_to_talk			n
+talk_channel_family		CTL n

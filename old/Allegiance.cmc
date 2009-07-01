@@ -1,0 +1,85 @@
+//Allegiance CMC
+//by Sias 'Dace' Mey
+//2006-09-02
+
+//flight controls
+pitch_down    KBUP
+pitch_up    KBDOWN
+yaw_left    KBLEFT
+yaw_right   KBRIGHT
+roll_left   SHF KBLEFT
+roll_right    SHF KBRIGHT
+booster   TAB
+
+//misc controls
+autopilot_toggle    p
+directionlock_toggle    l
+
+//thrust control
+trust_left    KP4
+thrust_right    KP6
+thrust_up   KP9
+thrust_down   KP7
+thrust_forward    KP8
+thrust_backward   KP5
+
+//throttle control
+throttle_0    BKSPC
+throttle_33   [
+throttle_66   ]
+throttle_100  \
+
+//combat
+fire_weapon   SPC
+fire_missile    CTL SPC
+
+prev_weapon   SHF w
+next_weapon   w
+all_weapon    CTL w
+
+reload_weapon   CTL r
+
+drop_chaff    a
+drop_mine-probe   d
+
+cloak_toggle    k
+match_speed   m
+
+//targeting
+target_ship_next    t
+target_ship_prev    SHF t
+target_ship_nearest    CTL t
+
+target_friend_next    f
+target_friend_prev    SHF f
+target_friend_nearest    CTL f
+
+target_enemy_next    e
+target_enemy_prev    SHF e
+target_enemy_nearest    CTL e
+
+target_ebase_next    q
+target_ebase_prev    SHF q
+target_ebase_nearest    CTL q
+
+target_fbase_next    b
+target_fbase_prev    SHF b
+target_fbase_nearest    CTL b
+
+target_command_obj    SHF c
+
+target_nearest_center    c
+
+target_hostile    h
+
+target_nothing    x
+
+//misc
+option_menu   ESC
+accept_command    KBINS
+clear_command   KBDEL
+swap_command    KBHOME
+chat    ENT
+change_chat_recip   TAB
+grid_toggle   CTL g
+ripcord   hold r

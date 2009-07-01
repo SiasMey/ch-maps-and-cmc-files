@@ -1,0 +1,10 @@
+// CMS Script File
+//
+//     Game Title:
+//     Written By:
+//           Date:
+//
+script
+  cms.b1 = [js3.a2 > 128];
+  cms.b2 = [js3.a1 > 128];
+endScript

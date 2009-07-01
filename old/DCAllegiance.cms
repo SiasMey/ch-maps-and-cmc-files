@@ -1,0 +1,39 @@
+// CMS Script File
+//
+//     Game Title:
+//     Written By:
+//           Date:
+//
+
+// buttons used by script
+%define thrust_left cms.b1
+%define thrust_right cms.b2
+%define thrust_up cms.b3
+%define thrust_down cms.b4
+
+%define boost cms.b5
+
+// Joy axis used by script
+%define joy_left_brake js3.a1
+%define joy_right_brake js3.a2
+
+%define joy_mini_x js2.a1
+%define joy_mini_y js2.a2
+
+// Constants used by script
+%define mini_hat_st 55
+%define mini_hat_lt 200
+
+script
+  if ( [ joy_left_brake >=  100] or [joy_right_brake >= 100]) then
+    boost = true;
+  else
+    boost = false;
+  endif
+
+  thrust_left = [joy_mini_x < mini_hat_st];
+  thrust_right = [joy_mini_x > mini_hat_lt];
+  thrust_up = [joy_mini_y < mini_hat_st];
+  thrust_down = [joy_mini_y > mini_hat_lt];
+
+endScript

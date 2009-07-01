@@ -1,0 +1,900 @@
+// CMS Script File
+//
+//     Game Title:	IL2 Pacific Fighters
+//     Written By:	F16_Abe (Abe Beson)
+//           Date:  2004-11-20
+//
+
+// Buttons used by the script
+%define closeButton					js2.b2
+%define mode2Button					js2.b4
+%define mode3Button					js2.b3
+%define	thrtl1Button				js4.b1
+%define	thrtl2Button				js4.b3
+%define	thrtl3Button				js4.b5
+%define	thrtl4Button				js4.b7
+%define	thrtlAllButton			js4.b9
+%define	thrtlNoneButton			js4.b10
+%define	thrtl1ToggleButton	js4.b2
+%define	thrtl2ToggleButton	js4.b4
+%define	thrtl3ToggleButton	js4.b6
+%define	thrtl4ToggleButton	js4.b8
+%define thrtlModeButton2		js4.b12
+%define	thrtlModeButton1		js4.b11
+
+// Axises used by the script
+%define	mainThrtlIn					js2.a3		// Pro throttle
+%define	tq1In								js4.a1		// TQ throttles
+%define	tq2In								js4.a2		
+%define tq3In								js4.a3
+%define	tq4In								js4.a4
+%define	tq5In								js4.a5
+%define	tq6In								js4.a6
+%define leftBrake						js3.a1		// Pro pedals
+%define rightBrake					js3.a2
+%define mainPitchIn					js1.a3		// Fighterstick throttle
+
+// Cms buttons used by the script. These need
+// to be set in the CMS controls and perhaps
+// in the game
+%define wideOut							cms.b1
+%define normalOut						cms.b2
+%define closeOut						cms.b3
+%define instantCenterOut		cms.b4
+%define deSelectAllOut			cms.b5
+%define select1Out					cms.b6
+%define select2Out					cms.b7
+%define	select3Out					cms.b8
+%define	select4Out					cms.b9
+%define toggle1Out					cms.b10
+%define toggle2Out					cms.b11
+%define	toggle3Out					cms.b12
+%define	toggle4Out					cms.b13
+%define selectAllOut				cms.b14
+%define toggleLeftOut				cms.b15
+%define toggleRightOut			cms.b16
+%define startEngineOut			cms.b17
+
+// Cms axises used by the script
+// these needs to be configured in
+// CMS and in game
+%define	brakeOut						cms.a1
+%define	thrtlOut						cms.a2
+%define pitchOut						cms.a3
+%define	rudderTrimOut				cms.a4
+%define	aileronTrimOut			cms.a5
+%define	elevatorTrimOut			cms.a6
+%define flapsOut						cms.a7
+
+// Internal bit registers used by the script
+%define doneFirst						b1
+%define changeMode					b2
+%define enter4EngineSeq			b3
+%define	enter2EngineSeq			b4
+%define engineSeqRunning 		b5
+%define moveL								b7
+%define moveR								b8
+%define	moveA								b9
+%define move1								b10
+%define move2								b11
+%define move3								b12
+%define move4								b13
+%define switchingMode				b18
+%define	enterPitchSeq				b19
+%define	2EngineSeqRunning		b20
+%define	pitchSeqRunning			b21
+%define	1Sel								b22
+%define 2Sel								b23
+%define	3Sel								b24
+%define 4Sel								b25
+%define	lSel								b26
+%define rSel								b27
+%define aSel								b28
+%define	1Moving							b29
+%define	2Moving							b30
+%define 3Moving							b31
+%define 4Moving							b32
+				
+// Internal "variables" used by the script
+%define thrtl1							a2	
+%define thrtl2							a3
+%define	thrtl3							a4
+%define	thrtl4							a5
+%define oldThrtl1						a6
+%define oldThrtl2						a7
+%define	oldThrtl3						a8
+%define	oldThrtl4						a9
+%define	thrtl								a10
+%define	oldThrtl						a11
+%define	tqMode							a12
+%define engineMode					a13
+%define pitch								a14
+%define oldPitch						a15
+
+// Some definitions
+%define	1Engine							1
+%define	2Engine							2
+%define 4Engine							4
+
+script
+ 	if(not doneFirst) then
+ 		doneFirst=true;
+ 		currentMode=MODE1;
+ 		engineMode=2Engine;
+ 	endif
+
+	// Take care of toe brakes. Maximum break rules.
+  if ([leftBrake GT rightBrake]) then
+    brakeOut=leftBrake;
+  else
+    brakeOut=rightBrake;
+  endif
+ 
+ 	// Some view controls
+ 	sequence // Centers and widens view
+ 		wait( closeButton and [currentmode==MODE1] );
+ 		instantCenterOut=true;
+ 		wideOut=true;
+ 	endsequence 
+ 	sequence // Close view
+ 		wait( closeButton and [currentmode==MODE2] );
+ 		closeOut=true;
+ 	endsequence 	
+ 	 	sequence // Centers view
+ 		wait( closeButton and [currentmode==MODE3] );
+ 		normalOut=true;
+ 	endsequence 	
+	
+ 	sequence // Releases center button if not pressed
+ 		wait( not closeButton );
+ 		instantCenterOut=false;
+ 		normalOut=false;
+ 		closeOut=false;
+ 		wideOut=false;
+ 	endSequence
+ 
+ 	// Mode1 is the normaly active mode
+ 	// Mode2 is active while button 4 but not button 3 on the 
+ 	//       throttle is depressed.
+ 	// Mode3 is active while button 3 but not button 4 on the
+ 	//       throttle is depressed
+ 	// Mode4 is entered while button 3 and button 4 on the 
+ 	//       throttle are both depressed. 	
+ 	if(mode2Button && mode3Button) then
+ 		currentMode=MODE4;
+ 	else 
+ 		if(mode2Button) then
+ 			currentMode=MODE2;
+ 		else 
+ 			if(mode3Button) then
+ 				currentMode=MODE3;
+ 			else 
+ 				if(not mode2Button && not mode3Button) then
+ 					currentMode=MODE1;
+ 				endif
+ 			endif
+ 		endif
+ 	endif
+
+	// Switch TQ mode. The TQ modes are like normal modes,
+	// but only affects the scripted part of the TQ.
+	// Note that any non scripted controls on the TQ will use
+	// the standard modes.
+	if( (NOT thrtlModeButton1) and (NOT thrtlModeButton2)) then
+		tqMode=MODE1;
+	else
+		if(thrtlModeButton1) then
+			tqMode=MODE2;
+		else
+			tqMode=MODE3;
+		endif
+	endif
+
+	// Switch Engine mode. There are 3 engine modes. 
+	// The default mode is the 2Engine mode. In this
+	// mode 2 TQ levers are used to control the throttles for
+	// all the left and all the right engines respectively.
+	// The 4Engine mode uses four TQ levers as throttles 
+	// and selects only individual engines.
+	// Finally the 1Engine mode uses no TQ levers as throttles
+	// but instead uses the pro throttle.
+	sequence
+		wait([tqMode==MODE3] and thrtl1ToggleButton 
+				and (NOT switchingMode) and NOT engineSeqRunning );
+		switchingMode=true;
+		engineMode=1Engine;
+		selectAllOut=true;
+		delay(2);
+		selectAllOut=false;
+		switchingMode=false;
+		1Sel=false;
+		2Sel=false;
+		3Sel=false;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=true;
+	endSequence
+	sequence
+		wait([tqMode==MODE3] and thrtl2ToggleButton 
+				and (NOT switchingMode) and NOT engineSeqRunning);
+		switchingMode=true;
+		engineMode=2Engine;
+		deSelectAllOut=true;
+		oldThrtl1=512; // Dummyvalue
+		oldThrtl2=512;
+		oldThrtl3=512;
+		oldThrtl4=512;
+		delay(2);
+		deSelectAllOut=false;
+		1Sel=false;
+		2Sel=false;
+		3Sel=false;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+		switchingMode=false;
+	endSequence
+	sequence
+		wait([tqMode==MODE3] and thrtl3ToggleButton 
+					and (NOT switchingMode) and NOT engineSeqRunning);
+		switchingMode=true;
+		engineMode=4Engine;
+		deSelectAllOut=true;
+		oldThrtl1=512; // Dummyvalue
+		oldThrtl2=512;
+		oldThrtl3=512;
+		oldThrtl4=512;		
+		delay(2);
+		deSelectAllOut=false;
+		1Sel=false;
+		2Sel=false;
+		3Sel=false;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+		switchingMode=false;
+	endSequence
+
+	// Selects or unselects respective engine. Note that
+	// selecting an engine this way means that all other
+	// engines are deselected by the game.
+	sequence
+		wait([tqMode==MODE1] and thrtl1Button AND NOT engineSeqRunning);
+		select1Out=true;
+		delay(1);
+		select1Out=false;
+		delay(1);
+		1Sel=true;
+		2Sel=false;
+		3Sel=false;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence
+	sequence
+		wait([tqMode==MODE1] and thrtl2Button AND NOT engineSeqRunning);
+		select2Out=true;
+		delay(1);
+		select2Out=false;
+		delay(1);
+		1Sel=false;
+		2Sel=true;
+		3Sel=false;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence
+	sequence
+		wait([tqMode==MODE1] and thrtl3Button AND NOT engineSeqRunning);
+		select3Out=true;
+		delay(1);
+		select3Out=false;
+		delay(1);
+		1Sel=false;
+		2Sel=false;
+		3Sel=true;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence
+	sequence
+		wait([tqMode==MODE1] and thrtl4Button AND NOT engineSeqRunning);
+		select4Out=true;
+		delay(1);
+		select4Out=false;
+		delay(1);
+		1Sel=false;
+		2Sel=false;
+		3Sel=false;
+		4Sel=true;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence
+	// Selects all engines.
+	sequence
+		wait([tqMode==MODE1] and thrtlAllButton and (NOT thrtl1ToggleButton) 
+					and (NOT thrtl2ToggleButton) and (NOT thrtl3ToggleButton) 
+					and (NOT thrtl4ToggleButton) and (NOT engineSeqRunning));
+		selectAllOut=true;
+		delay(1);
+		selectAllOut=false;
+		delay(1);
+		1Sel=true;
+		2Sel=true;
+		3Sel=true;
+		4Sel=true;
+		lSel=true;
+		rSel=true;
+		aSel=true;
+	endSequence
+	// Toggle respectively engine. This control leave the other engine
+	// selections as they are.
+	sequence
+		wait([tqMode==MODE1] and thrtl1ToggleButton AND NOT engineSeqRunning);
+		toggle1Out=true;
+		delay(1);
+		toggle1Out=false;
+		delay(1);
+		1Sel=NOT 1Sel;
+		2Sel=false;
+		3Sel=false;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence
+	sequence
+		wait([tqMode==MODE1] and thrtl2ToggleButton AND NOT engineSeqRunning);
+		toggle2Out=true;
+		delay(1);
+		toggle2Out=false;
+		delay(1);
+		1Sel=false;
+		2Sel=NOT 2Sel;
+		3Sel=false;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence
+	sequence
+		wait([tqMode==MODE1] and thrtl3ToggleButton AND NOT engineSeqRunning);
+		toggle3Out=true;
+		delay(1);
+		toggle3Out=false;
+		delay(1);
+		1Sel=false;
+		2Sel=false;
+		3Sel=NOT 3Sel;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence
+	sequence
+		wait([tqMode==MODE1] and thrtl4ToggleButton AND NOT engineSeqRunning);
+		toggle4Out=true;
+		delay(1);
+		toggle4Out=false;
+		delay(1);
+		1Sel=false;
+		2Sel=false;
+		3Sel=false;
+		4Sel=NOT 4Sel;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence
+	// Unselects all engines
+	sequence
+		wait([tqMode==MODE1] and thrtlNoneButton and (NOT thrtl1Button) 
+					and (NOT thrtl2Button) and (NOT thrtl3Button) 
+					and (NOT thrtl4Button) and (NOT engineSeqRunning));
+		deSelectAllOut=true;
+		delay(1);
+		deSelectAllOut=false;
+		delay(1);
+		1Sel=false;
+		2Sel=false;
+		3Sel=false;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence
+
+	// Starts respective engine. These sequences also invalidates
+	// the current throttle positions
+	sequence
+		wait([tqMode==MODE2] and thrtl1Button AND NOT engineSeqRunning);
+		engineSeqRunning=true;
+		deSelectAllOut=true;
+		delay(2);
+		deSelectAllOut=false;
+		select1Out=true;
+		delay(1);
+		select1Out=false;
+		delay(2);
+		startEngineOut=true;
+		delay(2);
+		startEngineOut=false;
+		delay(2);
+		oldThrtl1=512;
+		engineSeqRunning=false;
+		1Sel=true;
+		2Sel=false;
+		3Sel=false;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence
+	sequence
+		wait([tqMode==MODE2] and thrtl2Button AND NOT engineSeqRunning);
+		engineSeqRunning=true;
+		deSelectAllOut=true;
+		delay(2);
+		deSelectAllOut=false;
+		select2Out=true;
+		delay(1);
+		select2Out=false;
+		delay(2);
+		startEngineOut=true;
+		delay(2);
+		startEngineOut=false;
+		delay(2);
+		oldThrtl2=512;
+		engineSeqRunning=false;
+		1Sel=false;
+		2Sel=true;
+		3Sel=false;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence	
+	sequence
+		wait([tqMode==MODE2] and thrtl3Button AND NOT engineSeqRunning);
+		engineSeqRunning=true;
+		deSelectAllOut=true;
+		delay(2);
+		deSelectAllOut=false;
+		select3Out=true;
+		delay(1);
+		select3Out=false;
+		delay(2);
+		startEngineOut=true;
+		delay(2);
+		startEngineOut=false;
+		delay(2);
+		oldThrtl3=512;
+		engineSeqRunning=false;
+		1Sel=false;
+		2Sel=false;
+		3Sel=true;
+		4Sel=false;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence	
+	sequence
+		wait([tqMode==MODE2] and thrtl4Button AND NOT engineSeqRunning);
+		engineSeqRunning=true;
+		deSelectAllOut=true;
+		delay(2);
+		deSelectAllOut=false;
+		select4Out=true;
+		delay(1);
+		select4Out=false;
+		delay(2);
+		startEngineOut=true;
+		delay(2);
+		startEngineOut=false;
+		delay(2);
+		oldThrtl4=512;
+		engineSeqRunning=false;
+		1Sel=false;
+		2Sel=false;
+		3Sel=false;
+		4Sel=true;
+		lSel=false;
+		rSel=false;
+		aSel=false;
+	endSequence
+	
+	// Toggles the left or right engines. These engines can have an
+	// arbitrary number.
+	sequence
+		wait([tqMode==MODE2] and thrtlAllButton and (NOT thrtl1ToggleButton) 
+					and (NOT thrtl2ToggleButton) and (NOT thrtl3ToggleButton) 
+					and (NOT thrtl4ToggleButton) and (NOT engineSeqRunning));
+		toggleLeftOut=true;
+		delay(1);
+		toggleLeftOut=false;
+		delay(1);
+		lSel=NOT lSel;
+		if([engineMode==4Engine]) then
+			if(lSel)then
+				1Sel=true;
+				2Sel=true;
+			else
+				1Sel=false;
+				2Sel=false;
+			endif
+		else
+			if([engineMode==2Engine])then
+				if(NOT lSel) then
+					aSel=false;
+				endif
+			endif
+		endif
+	endSequence
+	sequence
+		wait([tqMode==MODE3] and thrtlNoneButton and (NOT thrtl1ToggleButton) 
+					and (NOT thrtl2ToggleButton) and (NOT thrtl3ToggleButton) 
+					and (NOT thrtl4ToggleButton) and (NOT engineSeqRunning));
+		toggleRightOut=true;
+		delay(1);
+		toggleRightOut=false;
+		delay(1);
+		rSel=not rSel;
+		if(rSel) then
+			if([engineMode==4Engine]) then
+				1Sel=true;
+				2Sel=true;
+			endif
+		else
+			if([engineMode==4Engine]) then
+				1Sel=false;
+				2Sel=false;
+			else
+				if([engineMode==2Engine]) then
+					aSel=false;
+				endif
+			endif
+		endif
+		aSel=false;
+	endSequence	
+	
+	// Outputs the levers in the 1engine case
+	if([engineMode==1Engine] and NOT switchingMode) then
+		thrtlOut=mainThrtlIn;
+		pitchOut=mainPitchIn;
+		flapsOut=tq3In;
+		aileronTrimOut=tq5In;
+		rudderTrimOut=tq4In;
+		elevatorTrimOut=tq6In;
+	endif
+
+	// Outputs the axis values for the 2Eninge case.  
+	// Also validates if the engine sequence should be run
+	if([engineMode==2Engine] and NOT switchingMode) then
+		pitchOut=mainPitchIn;
+		flapsOut=tq3In;
+		aileronTrimOut=tq5In;
+		rudderTrimOut=tq4In;
+		elevatorTrimOut=tq6In;
+ 		// Calculate new throttle positions. The positions used
+ 		// are the sum of each TQ lever and the pro throttle
+ 		// positions. 
+ 		thrtl1=mainThrtlIn+tq1In;
+ 		if([thrtl1>254]) then
+ 			thrtl1=255;
+ 		endif
+		thrtl2=mainThrtlIn+tq2In;
+		if([thrtl2>254]) then
+			thrtl2=255;
+		endif
+		// If any throttle lever has changed, the engine sequence 
+ 		// should be started.
+ 		1Moving=[thrtl1>oldThrtl1+1] OR [thrtl1+1<oldThrtl1];
+ 		2Moving=[thrtl2>oldThrtl2+1] OR [thrtl2+1<oldThrtl2];
+ 		if(([thrtl1>oldThrtl1+1] OR [thrtl1+1<oldThrtl1] or
+ 	 		[thrtl2>oldThrtl2+1] or [thrtl2+1<oldThrtl2]) AND
+ 	 		(NOT engineSeqRunning)	) then
+ 	 		// Dont run engine sequence if the right engines selected.
+ 	 		if(((aSel or (lSel and rSel)) and 1Moving and 2Moving) or
+ 	 				(lSel and 1Moving and (NOT rSel) and (NOT 2Moving)) or
+ 	 				(rSel and 2Moving and (NOT lSel) and (NOT 1Moving))) then
+ 	 			if(1Moving) then
+ 	 				thrtlOut=thrtl1;
+ 	 				oldThrtl1=thrtl1;
+ 	 			endif
+ 	 			if(2Moving) then
+ 	 				thrtlOut=thrtl2;
+ 	 				oldThrtl2=thrtl2;
+ 	 			endif
+ 	 		else
+ 		 		enter2EngineSeq=true;
+ 		 	endif
+ 		endif
+	endif
+
+	// Outputs the axis values for the 2Eninge case.  
+	// Also validates if the engine sequence should be run
+	if([engineMode==4Engine] and NOT switchingMode) then
+		pitchOut=mainPitchIn;
+		aileronTrimOut=tq5In;
+		elevatorTrimOut=tq6In;
+ 		// Calculate new throttle positions. The positions used
+ 		// are the sum of each TQ lever and the pro throttle
+ 		// positions. 
+ 		thrtl1=mainThrtlIn+tq1In;
+ 		if([thrtl1>254]) then
+ 			thrtl1=255;
+ 		endif
+		thrtl2=mainThrtlIn+tq2In;
+		if([thrtl2>254]) then
+			thrtl2=255;
+		endif
+ 		thrtl3=mainThrtlIn+tq3In;
+ 		if([thrtl3>254]) then
+ 			thrtl3=255;
+ 		endif
+		thrtl4=mainThrtlIn+tq4In;
+		if([thrtl4>254]) then
+			thrtl4=255;
+		endif
+		// If any throttle lever has changed, the engine sequence 
+ 		// should be started.
+ 		1Moving=[thrtl1>oldThrtl1+1] OR [thrtl1+1<oldThrtl1];
+ 		2Moving=[thrtl2>oldThrtl2+1] OR [thrtl2+1<oldThrtl2];
+ 		3Moving=[thrtl3>oldThrtl3+1] OR [thrtl3+1<oldThrtl3];
+ 		4Moving=[thrtl4>oldThrtl4+1] or [thrtl4+1<oldThrtl4];
+ 		// This is NOT all cases then the right engines are
+ 		// selected! :) 
+ 		if((1Moving or 2Moving or 3Moving or 4Moving) AND
+ 	 		(NOT engineSeqRunning)	) then
+ 	 			if( ((aSel or (1Sel and 2Sel and 3Sel and 4Sel))  
+ 	 					and 1Moving and 2Moving and 
+ 	 					3Moving and 4Moving and 
+ 	 					[thrtl1==thrtl2] and [thrtl1==thrtl3] and 
+ 	 					[thrtl1==thrtl4]) or 
+ 	 					
+ 	 					((lSel or (1Sel and 2Sel)) and (NOT (3Sel or 4Sel)) 
+ 	 					and 1Moving and 2Moving and 
+ 	 					NOT (3Moving or 4Moving) and [thrtl1==thrtl2]) or
+ 	 					
+ 	 					((rSel or (3Sel and 4Sel)) and (NOT (1Sel or 2Sel))
+ 	 					and 3Moving and 4Moving and
+ 	 					(NOT (1Moving or 2Moving)) 
+ 	 					and [thrtl3==thrtl4]) or 
+ 	 					
+ 	 					(1Sel and 
+ 	 					(NOT (2Sel or 3Sel or 4Sel or aSel or rSel or lSel)) and 
+ 	 					1Moving and 
+ 	 					(NOT (2Moving or 3Moving or 4Moving))) or
+ 	 					
+ 	 					(2Sel and 
+ 	 					(NOT (1Sel or 3Sel or 4Sel or aSel or rSel or lSel)) 
+ 	 					and 2Moving and
+ 	 					(NOT (1Moving or 3Moving or 4Moving))) or
+ 	 					
+ 	 					(3Sel and 
+ 	 					(NOT (1Sel or 2Sel or 4Sel or aSel or rSel or lSel))
+ 	 					and 3Moving and
+ 	 					(NOT (1Moving or 2Moving or 4Moving))) or
+ 	 					
+ 	 					(4Sel and
+ 	 					(NOT (1Sel or 2Sel or 3Sel or aSel or rSel or lSel))
+ 	 					and 4Moving and
+ 	 					(NOT (1Moving or 2Moving or 3Moving)))
+ 	 					) then
+
+					if(1Moving) then
+						thrtlOut=thrtl1;
+						oldThrtl1=thrtl1;
+					endif
+					if(2Moving) then
+						thrtlOut=thrtl2;
+						oldThrtl2=thrtl2;
+					endif
+					if(3Moving) then
+						thrtlOut=thrtl3;
+						oldThrtl3=thrtl3;
+					endif
+					if(4Moving) then
+						thrtlOut=thrtl4;
+						oldThrtl4=thrtl4;
+					endif
+  		 		
+  		 	else
+  		 		enter4EngineSeq=true;
+  		 	endif
+ 		endif
+	endif
+ 
+ 	// Run the engine sequence only when needed, or
+ 	// the game will be spammed.
+ 	if(enter4EngineSeq or engineSeqRunning and [engineMode==4Engine]) then
+ 		sequence
+ 			engineSeqRunning=true;
+ 			enter4EngineSeq=false;
+
+ 			move1=false;
+ 			move2=false;
+ 			move3=false;
+ 			move4=false;
+ 			// Checks which axises should be updated. 
+ 			// TODO:
+ 			// Remove starvation.
+ 			if( [thrtl1!=oldThrtl1] ) then
+ 		  	thrtl=thrtl1;
+				oldThrtl=oldThrtl1;
+				oldThrtl1=thrtl;
+				move1=true;
+			endif
+ 			  
+ 		  if (NOT move1) then
+ 		  	if([thrtl2!=oldThrtl2]) then
+ 		  		thrtl=thrtl2;
+ 			  	oldThrtl=oldThrtl2;
+ 			  	oldThrtl2=thrtl;
+					move2=true;
+				endif		
+				if(NOT move2) then
+					if ([thrtl3!=oldThrtl3]) then
+ 			  		thrtl=thrtl3;
+						oldThrtl=oldThrtl3;
+						oldThrtl3=thrtl;
+						move3=true;
+					endif
+					if(NOT move3) then
+		  			if ([thrtl4!=oldThrtl4] ) then
+							thrtl=thrtl4;
+							oldThrtl=oldThrtl4;
+							oldThrtl4=thrtl;
+							move4=true;
+ 			 			endif
+					else
+	 		  		if([thrtl4!=oldThrtl4] AND [thrtl4+30>thrtl3] and 
+ 			  				[thrtl4<thrtl3+30]) then
+ 				  		move4=true;
+ 				  		oldThrtl4=thrtl;
+ 			  		endif
+					endif
+				else
+			  	if([thrtl3!=oldThrtl3] AND [thrtl3+50>thrtl2] and 
+ 		  			[thrtl3<thrtl2+30]) then
+ 		  			move3=true;
+ 			  		oldThrtl3=thrtl;
+ 				  endif
+ 			  	if([thrtl4!=oldThrtl4] AND [thrtl4+30>thrtl2] and 
+ 			 				[thrtl4<thrtl2+30]) then
+ 			 			move4=true;
+ 		  			oldThrtl4=thrtl;
+ 		  		endif
+				endif			
+ 			else
+ 		  	if([thrtl2!=oldThrtl2] AND [thrtl2+30>thrtl1] and 
+ 		  			[thrtl2<thrtl1+30]) then
+ 		  		move2=true;
+ 			  	oldThrtl2=thrtl;
+ 			 	endif
+ 			 	if([thrtl3!=oldThrtl3] AND [thrtl3+30>thrtl1] and 
+ 		  			[thrtl3<thrtl1+30]) then
+ 		  		move3=true;
+ 		  		oldThrtl3=thrtl;
+ 			  endif
+ 			 	if([thrtl4!=oldThrtl4] AND [thrtl4+30>thrtl1] and 
+ 			 			[thrtl4<thrtl1+30]) then
+ 		  		move4=true;
+ 		  		oldThrtl4=thrtl;
+ 		  	endif
+		  endif
+
+			// deselect all engines
+ 			deSelectAllOut=true;
+ 			1Sel=false;
+			2Sel=false;
+			3Sel=false;
+			4Sel=false;
+			lSel=false;
+			rSel=false;
+			aSel=false;
+ 			delay(1);
+ 			deSelectAllOut=false;
+ 			thrtlOut = thrtl;
+
+			// Select engines depending on which engines should be updated
+ 			if( move1 ) then
+				toggle1Out=true;
+				1Sel=true;
+ 		  endif
+		  if ( move2 ) then
+				toggle2Out=true;
+				2Sel=true;
+ 			endif
+ 		  if ( move3 ) then					
+ 		 		toggle3Out=true;
+				3Sel=true;
+ 			endif
+ 		  if ( move4 ) then				
+ 		  	toggle4Out=true;
+				4Sel=true;
+ 			endif
+			delay(1);
+			toggle1Out=false;
+			toggle2Out=false;
+			Toggle3Out=false;
+ 		  Toggle4Out=false;
+ 		  delay(1);
+			engineSeqRunning=false;
+ 		endSequence
+ 	endif
+ 	
+ 	 	// Run the engine sequence only when needed, or
+ 	// the game will be spammed.
+ 	if((enter2EngineSeq or 2EngineSeqRunning) and
+ 			[engineMode==2Engine] and NOT pitchSeqRunning ) then
+ 		sequence
+ 			engineSeqRunning=true;
+ 			2EngineSeqRunning=true;
+ 			enter2EngineSeq=false;
+
+ 			move1=false;
+ 			move2=false;
+ 			// Determines which engines should be updated
+ 			// TODO:
+ 			// Remove starvation
+ 			if( [thrtl1!=oldThrtl1] ) then
+ 		  	thrtl=thrtl1;
+				oldThrtl=oldThrtl1;
+				oldThrtl1=thrtl;
+				move1=true;
+			endif
+ 			  
+ 		  if (NOT move1) then
+ 		  	if([thrtl2!=oldThrtl2]) then
+ 		  		thrtl=thrtl2;
+ 			  	oldThrtl=oldThrtl2;
+ 			  	oldThrtl2=thrtl;
+					move2=true;
+				endif		
+ 			else
+ 		  	if([thrtl2!=oldThrtl2] AND [thrtl2+30>thrtl1] and 
+ 		  			[thrtl2<thrtl1+30]) then
+ 		  		move2=true;
+ 			  	oldThrtl2=thrtl;
+ 			 	endif
+		  endif
+
+			// deselect all engines
+ 			deSelectAllOut=true;
+ 			1Sel=false;
+			2Sel=false;
+			3Sel=false;
+			4Sel=false;
+			lSel=false;
+			rSel=false;
+			aSel=false;
+ 			delay(1);
+ 			deSelectAllOut=false;
+ 			thrtlOut=thrtl;
+		
+			// Selects the engines to update
+ 			if( move1 ) then
+				toggleLeftOut=true;
+				lSel=true;
+ 		  endif
+		  if ( move2 ) then
+				ToggleRightOut=true;
+				rSel=true;
+ 			endif
+			delay(1);
+ 		  ToggleRightOut=false;
+ 		  ToggleLeftOut=false;
+			delay(1);
+			2EngineSeqRunning=false;
+			engineSeqRunning=false;
+ 		endSequence
+ 	endif
+    
+endscript	

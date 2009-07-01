@@ -1,0 +1,15 @@
+// CMS Script File
+//
+//     Game Title: LOMAC
+//     Written By: Sigma VAAF Redbacks
+//           Date: 8 Jan 2004
+//
+script
+  // wheelbrake subroutine
+IF ([JS3.A1 > 200] OR [JS3.A2 > 200]) THEN // wheelbrakes pressed
+	CMS.B6 = TRUE ;
+ELSE // wheelbrakes not pressed
+	CMS.B6 = FALSE ;
+ENDIF
+  CMS.B1 = [JS2.A3 <= 12];  // Airbrakes closed @ full thrust
+endScript

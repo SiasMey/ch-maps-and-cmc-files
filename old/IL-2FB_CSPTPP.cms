@@ -1,0 +1,16 @@
+// CMS Script File
+//
+//     Game Title: IL-2 Forgotten Battles
+//     Written By: Kevin 'Revvin' Watts
+//           Date: 24/02/04
+//
+script
+SEQUENCE
+  WAIT( JS2.B2 AND JS2.B3 AND JS2.B4 );  // Wait for buttons 2,3 and 4 to get pressed on the throttle
+  DELAY( 10 );                           // Wait half a second
+  CMS.B1 = TRUE;                         // Start Ejection Sequence
+  DELAY( 10 );                           // Wait half a second
+  CMS.B1 = FALSE;                        // Reset CMS B1 state
+  DELAY( 10 );                           // Wait half a second
+ENDSEQUENCE
+endScript

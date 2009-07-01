@@ -1,0 +1,17 @@
+// CMS Script File
+//
+//     Game Title:
+//     Written By:
+//           Date:
+//
+script
+  if ([js3.a1 > 160] and [js3.a2 > 160]) then
+    cms.b3 = true;
+  else
+    cms.b3 = false;
+  endif
+  
+  cms.b1 = [js3.a1 > 240];
+  cms.b2 = [js3.a2 > 240];
+
+endScript

@@ -1,0 +1,94 @@
+// CMS Script File
+//
+//     Game Title:Black Shark
+//     Written By:Sias "Dace" Mey
+//           Date:2008-03-08
+//
+script
+
+  // Make an initial record of the current axis value
+  // when the script starts.
+  //
+  if( FIRSTSCAN ) then
+    a1 = js2.a3;
+  endIf
+
+  // Now wait until the clock ticks. When it does compare the
+  // current value with the last saved value. If it's moved set the
+  // bit and copy the new value from the axis. If it didn't move,
+  // then shut the bit down.
+  //
+  if( CLOCKTICK ) then
+    // This just calculates the positive difference between the
+    // current value of js2.a3 and the a1 holding register.
+    //
+    if([ js2.a3 > a1 ]) then
+      a2 = js2.a3 - a1;
+    else
+      a2 = a1 - js2.a3;
+    endIf
+    // Now check if the difference is greater than a couple
+    // of counts so it doesn't bobble. You can play with the "2"
+    // value to get it where it works for you.
+    //
+    if([ a2 > 2 ]) then
+      // It moved more than two counts so consider it "moving".
+      // Update the current position in a1 and set the flag.
+      //
+      a1 = js2.a3;
+      cms.b1 = TRUE;
+    else
+      // It didn't move, clear the flag.
+      //
+      cms.b1 = FALSE;
+    endIf
+  endIf
+
+// Change the next 3 entries to your physical devices
+// JS1 is the 1st TAB after "program settings" in the CH manager
+// The axis is the greyed out text above the "dx mode" check box
+// Write down the DX device that each control is assigned to and change it to "DX Device" none
+%DEFINE XIn JS1.A1  //Joystick X
+%DEFINE YIn JS1.A2  //Joystick Y
+%DEFINE RIn JS3.A3  //Rudder
+
+
+//Don't change the next few lines
+//Instead, go to the CMS tab and assign CMS.A1, CMS.A2, and CMS.A3 to the DX devices that
+//your physical controls (from the previous block) were previously mapped to
+%DEFINE XOut CMS.A1
+%DEFINE YOut CMS.A2
+%DEFINE ROut CMS.A3
+
+//Trim button - Change to your physical device that you wish to trim with
+//Also set the trim button to emit a 't' whilst pressed
+%DEFINE TrimBut JS1.B2
+
+//Internal variables, no need to change these unless you use them in your own scripting
+%DEFINE Holding B1
+
+//Script itself - no need to alter anything after this point
+
+
+  IF(NOT Holding) THEN
+    XOut = Xin;
+    YOut = Yin;
+    ROut = Rin;
+  ELSE
+    XOut = 127;
+    YOut = 127;
+    ROut = 127;
+  ENDIF
+
+  SEQUENCE
+    Holding = FALSE;
+    WAIT(TrimBut);
+    WAIT(NOT TrimBut);
+    DELAY(6); //wait for a moment for BS to register the key release
+    Holding = TRUE;
+    //Check that all controls are centered before resuming
+    // you may have to increase the range if your controls have backlash
+    WHILE( [Xin < 130] AND [Xin > 124] AND [Yin < 130] AND [Yin > 124] AND [Rin < 130] AND [Rin > 124]);
+  ENDSEQUENCE
+
+endScript

@@ -1,0 +1,136 @@
+//PROGRAM CONTROL	
+Accelerate simulation speed	Ctrl-A
+Decelerate simulation speed	Alt-A
+Reset normal simulation speed	Shift-A
+Toggle Pause/Resume/Launch model time at the mission start.	S
+Show frame rate	Ctrl-Backspace
+	
+//FLIGHT CONTROL	
+Trim up		Ctrl-. (Period)
+Trim down	Ctrl-; (Semi-colon)
+Trim left	Ctrl-, (Comma)
+Trim right	Ctrl-/ (Slash)
+Reset trimmers	Ctrl-T
+Trim left rudder	Ctrl-Z
+Trim right rudder	Ctrl-X
+Toggle auto-pilot	A
+Toggle altitude stabilization mode	H
+Toggle auto-throttle	J
+Reset Current Audible Warning	Shift-N
+Execute “Pugachev’s Cobra”	K
+Setting your plane to the takeoff site on the carrier 	U
+
+//cheats?
+Toggle immortality mode	Alt-V
+Automatic spin recovery Alt-P
+Speed retention toggle 	Alt-S
+Easy landings toggle	Alt-E
+	
+//THROTTLE CONTROL	
+Engine Start 	Page Up
+Engine Stop	Page Down
+Left engine only	        With Alt 
+Right engine only	        With Shift
+	
+//MECHANICAL SYSTEMS CONTROL	
+Airbrake out	Shift-B
+Airbrake in	Ctrl-B
+Eject (Press E three times holding Ctrl down)	Ctrl-E-E-E
+Toggle active jamming 	E
+Toggle flaps up/down	F
+Flaps landing position	Shift-F
+Flaps up	Ctrl-F
+Toggle landing gear up/down	G
+Toggle arrestor hook down/up (Note: Su-33 only)	Ctrl-G
+Canopy open/close	Ctrl-C
+Release drogue chute 	P
+Toggle folding wings 	Ctrl-P
+Dump fuel 		Ctrl-R 
+Jettison fuel tanks	Alt-R
+Wheel brakes 		W
+Toggle wingtip smoke	T
+Toggle refueling boom	R
+HUD color selection	Ctrl-H
+Cockpit illumination	L
+Toggle on-board lights 	Ctrl-L
+Toggle gear light Near/Far/Off	Alt-L
+	
+//NAVIGATION	
+Select next waypoint or airfield	~ (Tilde)
+Navigation (NAV) modes	1
+Reset flight clock	Alt-C
+	
+//COMBAT MODES 	
+Toggle to set Beyond Visual Range (BVR/DVB) mode 	2
+Select Close Air Combat  – Vertical Scan (CAC/BVB – VS) mode 	3
+Select Close Air Combat  – Bore (CAC/BVB – BORE/STR) mode	4
+Select Close Air Combat  – Helmet-Mounted Target Designator  (CAC/BVB – HMTD/SHLEM) mode	5
+Select Longitudinal Missile Aiming (LNGT/FIO) mode	6
+Select Air-to-ground (GND/ZEMLYA) mode	7
+Select Grid (SETKA) mode	8
+Cycle through targets 	~ 
+Lock selected target or target point 	TAB
+Turn off tracked target 	Ctrl-TAB
+ToggleRadarThreatModes	Shift-R
+	
+//WEAPONS  	
+Cycle through weapons selection	D
+Toggle cannon	C
+Dispense chaff & flare Q
+Continuously chaff & flares shift-Q
+Dispense chaffs only	Insert
+Dispense flares only 	Delete
+Fire weapon   	Spacebar
+Release weapon  Enter
+Launch permission override 	Alt-W
+	Ctrl-W
+Toggle salvo mode on or off	Ctrl-V
+Change rate of fire for the gun of A-10	Shift-C
+Increase the ripple interval for A-10	V
+Decrease the ripple interval for A-10	Shift-V
+Change the ripple quantity for A-10	Ctrl-Space
+Switch the master arm for A-10	Alt-Space
+Change the release mode for A-10	Shift-Space
+	
+//RADAR & ELECTRO-OPTICAL SYSTEMS 	
+Toggle radar on/off	I
+Easy radar mode toggle	Shift-I
+Change radar mode RWS/TWS for F-15 radar	Alt-I
+Toggle Electro-Optical System (EOS) on/off for Su-27/33 and MiG-29 Toggle laser target designator on/off for Su-25 Toggle CCRP bombing mode on/off for A-10	O
+Reset to center all sensor	Ctrl-I
+Multi-Functional Display (MFD) zoom in	- (Minus)
+Multi-Functional Display zoom out	+ (Plus)
+Increase radar antenna azimuth limit for F-15 radar	Ctrl-+
+Decrease radar antenna azimuth limit for F-15 radar	Ctrl--
+	
+//AUTO LOCK ON	
+Lock on to nearest enemy air target	ScrollLock
+Lock on to enemy air target nearest the center of the player’s view	Alt-ScrollLock
+Lock on to previous enemy air target	Shift-Insert
+Lock on to next enemy air target	Shift-NumLock
+Lock on to nearest enemy ground target	Shift-ScrollLock
+Lock on to enemy ground target nearest the center of the player’s view	Control-ScrollLock
+Lock on to previous enemy ground target	Shift-Delete
+Lock on to next enemy ground target	Ctrl-NumLock
+	
+//AIR COMBAT MODES	
+Move radar/EOS scan zone UP	Shift-; (Semicolon)
+Move radar/EOS scan zone LEFT	Shift-, (Comma)
+Move radar/EOS scan zone DOWN	Shift-. (Period)
+Move radar/EOS scan zone RIGHT	Shift-/ (Slash)
+Move HUD target designator Box DOWN (BVR only)	-; (Semicolon)
+Move HUD target designator Box LEFT (BVR only)	-, (Comma)
+Move HUD target designator Box UP (BVR only)	-. (Period)
+Move HUD target designator Box RIGHT (BVR only)	-/ (Slash)
+	
+//RADIO COMMANDS	
+Communication menu	\
+Dispatch wingman on mission. When mission completion, join up (Complete mission and rejoin)	Shift-[
+Dispatch wingman on mission. When mission completion, return to base (Complete mission and RTB)	Ctrl-[
+Toggle tight formation or loose formation (Toggle formation)	Shift-]
+Rejoin formation	Alt+[
+Attack my target	[
+Cover my six o’clock (Cover me)	]
+Radio request to AWACS for bearing and distance to the home airfield 	Alt-H
+Radio request to AWACS for bearing and distance to the tanker 	Alt-T
+	

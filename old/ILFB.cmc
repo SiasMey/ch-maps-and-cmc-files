@@ -1,0 +1,122 @@
+weapon1           ENT
+weapon2           BKSPC
+weapon3           SPC
+weapon4           ALT SPC
+weapon12          ENT BKSPC
+tgl_gunpods       SHF g
+
+rudderleft   			z
+rudderright   			x
+elevatordown   			KBDOWN
+aileronright   			KBRIGHT
+elevatorup   			KBUP
+stabilizer   			SHF ,
+aileronleft   			KBLEFT
+
+auto_mix        CTL 0
+auto_pitch			SHF 0
+compressorminus   		CTL KP-
+compressorplus   		CTL KP+
+mixminus20   			KP-
+mixplus20   			KP+
+enginefeather   		SHF `
+boost   			w
+radiator   			r
+
+aircraft_toggle_engine   	i
+aircraft_flaps_notch_up   	f
+aircraft_flaps_notch_down   	v
+
+aircraft_trim_r_0   		SHF x
+aircraft_trim_r_plus   		CTL x
+aircraft_trim_r_minus   	CTL z
+aircraft_trim_v_0   		SHF KBUP
+aircraft_trim_v_plus   		CTL KBDOWN
+aircraft_trim_v_minus   	CTL KBUP
+aircraft_trim_h_0   		SHF KBLEFT
+aircraft_trim_h_plus   		CTL KBRIGHT
+aircraft_trim_h_minus   	CTL KBLEFT
+
+aircraft_tailwheellock   	SHF t
+aircraft_gear   		g
+aircraft_gear_up_manual   	CTL g
+aircraft_gear_down_manual   	ALT g
+
+aircraft_toggle_airbrake   	b
+aircraft_drop_tanks   		CTL t
+
+stepauto   			CTL ´
+sight_dist_minus   		ALT KP/
+sight_dist_plus   		ALT KP*
+sight_spd_minus   		ALT KP-
+sight_spd_plus   		ALT KP+
+sight_alt_minus   		ALT KP2
+sight_alt_plus   		ALT KP8
+sight_side_right   		ALT KP6
+sight_side_left   		ALT KP4
+sight_auto_onoff   		ALT KP5
+
+engineextinguisher   		e
+enginefeather   		CTL p
+
+nextviewenemyfollow   		CTL F8
+padlockviewforward   		KP0
+nextviewenemy   		CTL F2
+cockpitshow   			CTL F1
+padlockviewprev   		y
+viewenemydirectground   	ALT F7
+padlockviewnext   		u
+viewenemydirectair   		ALT F6
+
+fov70   			KBEND
+fov90   			KBPGDN
+fov30   			KBDEL
+
+outsideviewfollow   		F8
+viewenemyground   		F7
+viewenemyair   			F6
+padlockviewground   		F5
+padlockview   			F4
+outsideviewfly   		F3
+outsideview   			F2
+nextviewfollow   		SHF F8
+cockpitview   			F1
+viewfriendground   		SHF F7
+viewfriendair   		SHF F6
+padlockviewfriendground   	SHF F5
+padlockviewfriend   		SHF F4
+nextview   			SHF F2
+
+cockpitaim   			SHF F1
+snappanswitch   		F9
+panreset   			KP5
+
+order9   			9
+order8   			8
+order7   			7
+order6   			6
+order5   			5
+order4   			4
+order3   			3
+order2   			2
+order1   			1
+order0   			0
+
+deactivate			ESC
+activate   			TAB
+chat   				`
+togglesmokes   			t
+onlinerating   			s
+pad   				m
+autopilot   			a
+showmirror   			CTL m
+cockpitlight   			CTL l
+icontypes   			CTL i
+ejectpilot   			CTL e
+cockpitdim   			CTL d
+autopilotauto   		SHF .
+togglelandinglight   		CTL KP8
+togglenavlights   		CTL KP7
+push_to_talk			n
+talk_channel_family		CTL n
+

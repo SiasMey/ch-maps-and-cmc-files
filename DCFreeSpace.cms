@@ -1,0 +1,16 @@
+// CMS Script File
+//
+//     Game Title:
+//     Written By:
+//           Date:
+//
+%define LpedIn          js3.a1
+%define RpedIn          js3.a2
+%define PedOut         cms.a1
+
+script
+  PedOut = 127 + (LpedIn - RpedIn) / 2;
+  
+  if([LpedIn > 127]) then cms.b1=true; else cms.b1=false; endif
+  if([RpedIn > 127]) then cms.b2=true; else cms.b2=false; endif
+endScript

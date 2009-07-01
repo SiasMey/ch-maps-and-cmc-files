@@ -1,0 +1,118 @@
+// CMC Command File
+//
+//     Game Title: Babylon 5: I've Found Her
+//     Written By: Michael Sexton
+//           Date: 2004-03-04
+//
+
+// Flight
+//
+Yaw_Left													KBLEFT
+Yaw_Right													KBRIGHT
+Pitch_Up													KBUP
+Pitch_Down													KBDOWN
+Roll_Left													q
+Roll_Right													e
+Increase_Speed												=
+Decrease_Speed												-
+Set_Speed_to_Zero											BKSPC
+Toggle_Matching_Speed										ENT
+Slide_Mode													LALT
+Slide_Left													a
+Slide_Right													d
+Slide_Up													x
+Slide_Down													z
+Accelerate_Forward											w
+Accelerate_Backward											s
+Inertial_Mode_Toggle										SPC
+Afterburner													  TAB
+
+// Weapons
+//
+Decoy														v
+Link/UnLink_Primary											j
+Fire_Missile												  MCLICK
+Fire_Primary												  LCLICK
+Next_Primary												/
+
+// Targeting
+//
+Contacts_Allegiance											k
+Contacts_Sorting											l
+Toggle_ALL_Targets											i
+Next_Object													.
+Prev_Object													,
+Target_Nearest_Hostile										h
+Target_Nearest_Friendly										f
+Target_Nearest_Neutral										g
+Target_Nearest_Attacker										r
+Target_Target's_Attacker									t
+Target_Nearest_Incoming_Missile								y
+Target_in_Reticle											RCLICK
+UnTarget													u
+Remember_Target_1											SHF F5
+Remember_Target_2											SHF F6
+Remember_Target_3											SHF F7
+Remember_Target_4											SHF F8
+Recall_Target_1												F5
+Recall_Target_2												F6
+Recall_Target_3												F7
+Recall_Target_4												F8
+Next_Sub-System_Group										]
+Prev_Sub-System_Group										[
+Next_Sub-System												;
+Prev_Sub-System												'
+
+// Miscellaneous
+//
+AutoPilot:Approach											CTL a
+Zoom														m
+HUD_Mode_Toggle												n
+Left_Window_Toggle											o
+Right_Window_Toggle											p
+Current_Target_Window										KBINS
+Self-Monitoring_Window										KBDEL
+Messages_Window												KBHOME
+Scroll_Up_Messages											KBPGUP
+Scroll_Down_Messages										KBPGDN
+Objectives_Window											KBEND
+
+// Communication
+//
+Communication												c
+Order:Attack_My_Target										SHF a
+Order:Protect_My_Target										SHF d
+Order:Cover_Me												SHF c
+Order:Proceed_to_NAV_Point									SHF g
+Order:Follow_Me												SHF f
+Order:Hold_Position											SHF h
+COMM_Item_1													1
+COMM_Item_2													2
+COMM_Item_3													3
+COMM_Item_4													4
+COMM_Item_5													5
+COMM_Item_6													6
+COMM_Item_7													7
+COMM_Item_8													8
+COMM_Item_9													9
+COMM_Item_0													0
+
+// Views
+//
+Cockpit_View												F1
+Free_View													F2
+External_View												F3
+Target_View													F4
+Zoom-In_View												KP+
+Zoom-Out_View												KP-
+Turn_Camera_Left											KP4
+Turn_Camera_Right											KP6
+Turn_Camera_Up												KP8
+Turn_Camera_Down											KP2
+Turn_Camera_Up-Left											KP7
+Turn_Camera_Up-Right										KP9
+Turn_Camera_Down-Left										KP1
+Turn_Camera_Down-Right										KP3
+Screenshot													F12
+
+

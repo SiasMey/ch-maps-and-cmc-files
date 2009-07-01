@@ -1,0 +1,108 @@
+//Game controls
+help		F1
+quick_ref_card		F2
+pause		p
+skip_next_action		x
+inflight_brief		m
+checklist   n
+sound		q
+exit_game		CTL q
+exit_game_im		CTL SHF q
+zoom_out		[
+zoom_in			]
+coordinates		z
+next_waypoint   SHF w
+prev_waypoint   CTL w
+next_target   TAB
+prev_target   SHF TAB
+target_attacker CTL `
+
+//Engine commands
+engine_auto_start	e
+prop_inc		SHF =
+prop_dec		SHF -
+prop_max		CTL F7
+prop_min		CTL F6
+mix_lean		CTL -
+mix_rich		CTL =
+mix_idle_cutt		CTL SHF F6
+mix_full_rich		CTL SHF F7
+wep		w
+select_all    SHF 5
+sel_eng_1   SHF 1
+sel_eng_2   SHF 2
+sel_eng_3   SHF 3
+sel_eng_4   SHF 4
+dsel_eng_1    CTL 1
+dsel_eng_2    CTL 2
+dsel_eng_3    CTL 3
+dsel_eng_4    CTL 4
+starter   CTL s
+
+//Flight commands
+flaps_full_up		SHF v
+flaps_up		v
+Flaps_full_down		SHF f
+flaps_down		f
+spoilers		d
+ail_rudd_cent KP5
+
+//trim commands
+trim_ail_left    CTL KP4
+trim_ail_right   CTL KP6
+trim_rud_left   CTL KP0
+trim_rud_right  CTL KP3
+trim_auto   CTL a
+trim_ele_up   CTL KP1
+trim_ele_down CTL KP7
+
+//Other aircraft commands
+gear		g
+gear_man		SHF g
+lock_tailwheel		SHF l
+parking_brakes		CTL SHF b
+brakes		b
+left_brake		,
+right_brake		.
+canopy		SHF c
+toggle_power    SHF b
+mag_inc   CTL m
+mag_dec   SHF m
+tail_hook   SHF h
+fold_wings  CTL SHF w
+cowl_flaps_open   SHF e
+cowl_flaps_close    CTL e
+
+//Weapon commands
+fire_guns	SHF SPC
+fire_cannon		CTL SPC
+fire_gun_cannon		SPC
+fire_ordanace		ENT
+cycle_weapons   BKSPC
+sel_ordanace    SHF s
+jettison_sel_weap   CTL j
+refill_sel_weap   SHF j
+drop_fuel_tanks		CTL SHF D
+open_bomb_bay		SHF B
+go_bomb		F7
+go_pilot		F6
+go_gunner		F8
+bail_out		o o o
+
+//Display commands
+tac_disp		SHF t
+tac_mode		t
+tac_range		CTL SHF t
+enemy_ind		i
+hud_toggle		F5
+hud_measure		u
+labels		CTL SHF l
+
+//Wingman commands
+wing_attack		a
+wing_yes		SHF a
+wing_no		SHF n
+wing_help		h
+wing_split		s
+wing_rejoin		r
+
