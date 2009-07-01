@@ -1,7 +1,8 @@
 ///
-///     LOCK ON 1.02/1.1 Flaming Cliffs CMC
-///                     by
-///              Ken "Ghost" King
+///      LOCK ON CMC
+///          by
+///  Kevin 'Revvin' Watts
+///
 ///
 /// Flight Control
 ///
@@ -12,41 +13,29 @@ Trim_Right CTL /
 Trim_Rudder_Left CTL z
 Trim_Rudder_Right CTL x
 Cancel_Trim CTL t
+
 Altitude_Stabilization_Mode h
-Autopilot a
-1.1-Autopilot_override_Su-25T_(press_and_hold) ALT `
-1.1-Autopilot_mode_attitude_hold ALT 1
-1.1-Autopilot_mode_altitude_and_roll_hold ALT 2
-1.1-Autopilot_mode_transition_to_level_flight_(panic_button) ALT 3
-1.1-Autopilot_mode_barometric_altitude_hold ALT 4
-1.1-Autopilot_mode_radio-altitude_hold ALT 5
-1.1-Autopilot_mode_Route_following_mode._Same_as_Toggle_autopilot_command_but_without_auto-throttle ALT 6
-1.1-Autopilot_disengage ALT 9
-Airbrake_Toggle b
-Airbrake_Out SHF b
-Airbrake_In CTL b
-Toggle_Flaps_Up/Down f
-Flaps_Down_Landing_Position SHF f
-Flaps_Up CTL f
-Landing_Gear_Toggle g
-1.1-Toggle_landing_gear_down SHF g
-1.1-Toggle_landing_gear_up CTL g
-1.1-Toggle_arrestor_hook_down/up_(Note:_Su-33_only) ALT g
-Arrestor_Hook_Toggle CTL g
-Canopy_Open/Close CTL c
-Drogue_Chute_Release p
-Fold_Wings CTL p
-Dump_Fuel/Ground_Refuel CTL r
-Wheel_Brakes w
-Eject CTL e e e
+Reset_Audible_Warning SHF m
+Onboard_Lights_Toggle CTL l
+Immortality_Mode ALT v
+Pugachevs_Cobra k
+Set_Carrier_Takeoff_Site u
+AWACS_Radio_Home ALT h
+AWACS_Radio_Tanker ALT t
+Increase_Altimeter_Pressure SHF =
+Decrease_Altimeter_Pressure SHF -
+Power_Switch SHF p
+Spin_Recovery ALT p
+Speed_Retention_Toggle ALT s
+Mission_Goals_Scores SHF '
+Toggle_Chat_With_All CTL m
+Toggle_Chat_With_My_Team ALT m
 ///
 /// Throttle Control
 ///
 Auto_Throttle_Toggle j
 Engine_Start KBPGUP
-Engine_Stop
-1.1-Engine_Start RWIN KBHOME
-1.1-Engine_Stop RWIN KBEND
+Engine_Stop KBPGDN
 Start_Left_Engine ALT KBPGUP
 Stop_Left_Engine ALT KBPGDN
 Start_Right_Engine SHF KBPGUP
@@ -54,28 +43,36 @@ Stop_Right_Engine SHF KBPGDN
 ///
 /// Mechanical Systems Control
 ///
-Reset_Audible_Warning SHF m
-1.1-Decrease_RWR/SPO_sound_warnings_volume ALT ,
-1.1-Increase_RWR/SPO_sound_warnings_volume ALT .
-Onboard_Lights_Toggle CTL l
-Increase_Altimeter_Pressure SHF =
-Decrease_Altimeter_Pressure SHF -
-1.1-Increase_air_data_system_barometric_altitude_(for_Su-25,Su-25T_only) SHF KP+
-1.1-Decrease_air_data_system_barometric_altitude_(for_Su-25,Su-25T_only) SHF KP-
-Power_Switch SHF p
-Spin_Recovery ALT p
-Speed_Retention_Toggle ALT s
+Airbrake_Toggle b
+Airbrake_Out SHF b
+Airbrake_In CTL b
+Eject CTL e e e
+Toggle_Active_JammingECM e
+Toggle_Flaps_Up/Down f
+Flaps_Down_Landing_Position SHF f
+Flaps_Up CTL f
+Landing_Gear_Toggle g
+Arrestor_Hook_Toggle CTL g
+Canopy_Open/Close CTL c
+Drogue_Chute_Release p
+Fold_Wings CTL p
+Dump_Fuel/Ground_Refuel CTL r
 Fuel_Tank_Jettison ALT r
+Wheel_Brakes w
 Wingtip_Smoke t
 Refueling_Boom r
 Gear_Light_Toggle ALT l
 Reset_Audible_Warning SHF n
-HUD_Intensity CTL h
-Set_Carrier_Takeoff_Site u
+///
+/// Navigation
+///
+Select_Next_Airfield/Waypoint `
+Autopilot a
+Navigation_Mode 1
+Reset_Flight_Clock ALT c
 ///
 /// Combat Modes
 ///
-Navigation_Mode 1
 Beyond_Visual_Range(BVR/DVB)Mode 2
 CAS_Vertical_Scan(CAC/BVB)Mode 3
 CAS_Bore(CAC/BVB-BORE/STR)Mode 4
@@ -83,44 +80,45 @@ CAS_Helmet(CAC/BVB-HMTD/SHLEM)Mode 5
 Longitudinal_Missile_Aiming(LNGT/FIO)Mode 6
 Air_To_Ground(GND/ZEMLYA)Mode 7
 Select_Grid(SETKA)Mode 8
+Cycle_Targets `
+Lock_Selected_Target TAB
+Tracked_Target_Off CTL TAB
+HUD_Intensity CTL h
+CAC_Tracked_Target_On/Off TAB
+Change_RWR/SPO_Mode SHF r
 ///
-/// Navigation
+/// Weapons
 ///
-Select_Next_Airfield/Waypoint `
-Reset_Flight_Clock ALT c
-///
-/// Defensive Systems
-///
-Toggle_Active_Jamming_ECM e
-1.1-Toggle_active_IR_jamming_for_Su-25T_only SHF e
+Cycle_Weapons d
+Cannon_Toggle c
 Chaff/Flare q
 Continuous_Chaff/Flare SHF q
+Fire_Weapon SPC
+Jettison_Weapons(Pairs) CTL w
+Salvo_Mode_Toggle CTL v
+A10_Gun_Rate_Of_Fire SHF c
+A10_Ripple_Increase v
+A10_Ripple_Decrease CTL v
+A10_Ripple_Quantity CTL SPC
+A10_Master_Arm ALT SPC
+A10_Release_Mode SHF SPC
+A10_RWR_Mode_Change SHF r
 Dispense_Chaff_Only KBINS
 Dispense_Flares_Only KBDEL
+Release_Weapon_US ENT
+Launch_Permission_Override ALW w
 ///
 /// Radar & Electro-Optical Systems
 ///
 Radar_Illumination_Toggle i
 Easy_Radar_Mode SHF i
-1.1-Change_radar_mode_RWS/TWS_(US)_and_SCAN/TWS_(RF) ALT i
-1.1-Change_radar_search_modes_PRF_(pulse_repetition_frequency)_Interleaved_PRF_(AUT)–HI_PRF_(PPS)–MED_PRF_(ZPS) RWIN i
 F15_Switch_RWS/TWS_Modes ALT i
 Electro_Optical_Sys_Toggle o
-1.1-Toggle_laser_target_designator_on/off_for_Su-25_and_Su-25T SHF o
 Centre_RadarAntenna/IR CTL i
 MFD_Zoom_In -
 MFD_Zoom_Out =
 F15_Radar_Azimuth_Increase CTL =
-1.1-Increase_range_to_target_for_RF_fighters_(range-elevation_BVR_search)Increase_target_size_for_RF_aircraft_in_10_m._(Gun_funnel_or_target_box_Su-25T)_Increase_the_depression_ang le_of_SPPU_gun-pod barrels_(for_Su-25/25T) CTL KP+
 F15_Radar_Azimuth_Decrease CTL -
-1.1-Decrease_range_to_target_for_RF_fighters_(range-elevation_BVR_search)Decrease_target_size_for_RF_aircraft_in_10_m._(Gun_funnel_or_target_box_Su-25T)_Decrease_the_depression_ang le_of_SPPU_gun-pod barrels_(for_Su-25/25T) CTL KP-
-1.1-Increase_target_size_for_RF_aircraft_smooth._(Gun_funnel_or_target_box_Su-25T)Increase_the_depression_angle_of_SPPU_gun-pod_barrels_smooth_(for_Su-25/25T) ALT KP-
-1.1-Decrease_target_size_for_RF_aircraft_smooth._(Gun_funnel_or_target_box_Su-25T)Decrease_the_depression_angle_of_SPPU_gun-pod_barrels_smooth_(for_Su-25/25T) ALT KP-
-Cycle_Targets `
-Lock_Selected_Target TAB
-Tracked_Target_Off CTL TAB
-CAC_Tracked_Target_On/Off TAB
-Change_RWR/SPO_Mode SHF r
 ///
 /// Auto Lock On
 ///
@@ -136,10 +134,8 @@ Lock_Next_Enemy_Ground CTL NUMLOCK
 /// Beyond Visual Range Mode
 ///
 Move_Radar/EOS_Scan_Up SHF ;
-1.1-Move_radar/EOS_scan_zone_UP_for_RF_fighters_incrementally_in_1000_m._(range-elevation_BVR_search) SHF ;
 Move_Radar/EOS_Scan_Left SHF ,
 Move_Radar/EOS_Scan_Down SHF .
-1.1-Move_radar/EOS_scan_zone_Down_for_RF_fighters_incrementally_in_1000_m._(range-elevation_BVR_search) SHF .
 Move_Radar/EOS_Scan_Right SHF /
 Move_HUD_Designator_Down .
 Move_HUD_Designator_Left ,
@@ -166,29 +162,6 @@ Move_Radar/EOS/TV_Seeker_Up SHF ;
 Move_Radar/EOS/TV_Seeker_Left SHF ,
 Move_Radar/EOS/TV_Seeker_Down SHF .
 Move_Radar/EOS/TV_Seeker_Right SHF /
-///
-/// Weapons
-///
-Cycle_Weapons d
-Cannon_Toggle c
-Fire_Weapon SPC
-Jettison_Weapons(Pairs) CTL w
-Salvo_Mode_Toggle CTL v
-A10_Gun_Rate_Of_Fire SHF c
-1.1-Cut-off_guns_burst_for_RF_planes SHF c
-A10_Ripple_Increase v
-1.1-A10/Su-25/Su25T_Ripple_Decrease CTL v
-1.1-A10/Su-25/Su25T_Ripple_Quantity CTL SPC
-A10_Master_Arm ALT SPC
-A10_Release_Mode SHF SPC
-A10_RWR_Mode_Change SHF r
-Release_Weapon_US ENT
-Launch_Permission_Override ALW w
-///
-/// Communications Commands
-///
-AWACS_Radio_Home ALT h
-AWACS_Radio_Tanker ALT t
 ///
 /// Wingman Commands
 ///
@@ -276,8 +249,4 @@ Cockpit_Panel_Snap_View KP0
 ///
 End_Mission/Track ESC
 Take_Control_In_Track CTL q
-Immortality_Mode ALT v
-Pugachevs_Cobra k
-Mission_Goals_Scores SHF '
-Toggle_Chat_With_All CTL m
-Toggle_Chat_With_My_Team ALT m
+

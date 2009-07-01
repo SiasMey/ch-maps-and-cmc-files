@@ -1,0 +1,131 @@
+// CMC Command File
+//
+//     Game Title: Battlefield 1942
+//     Written By: Michael Sexton
+//           Date: 030912
+//
+
+// COMMON
+//
+Enter/Exit_Vehicle				e
+Parachute 						9
+Say_All 						k
+Say_Team 						l
+Show_Scoreboard 				TAB
+Show_Spawn_Interface 			ENT
+Show_Map 						m
+Zoom_Map 						n
+Inside 							F9
+Chase_Rear 						F10
+Chase_Front 					F11
+Fly_By 							F12
+Toggle_Camera_View 				c
+Pause_Game 						p
+Screenshot						PRTSC
+Toggle_Tool_Tip					t
+Radio_1							F1
+Radio_2							F2
+Radio_3							F3
+Radio_4							F4
+Radio_5							F5
+Radio_6							F6
+Radio_7							F7
+Radio_8							F8
+
+// INFANTRY
+//
+Forward							w
+Backward						s
+Strafe_Left						a
+Strafe_Right 					d
+Jump							SPC
+Walk							LSHF
+Drop/Pickup_Kit					g
+Fire							LCLICK
+Zoom_In/Alternate_Fire			RCLICK
+Reload 							r
+Weapon_1						1
+Weapon_2						2
+Weapon_3						3
+Weapon_4						4
+Weapon_5						5
+Weapon_6						6
+Crouch							LCTL
+Prone							z
+
+// AIR
+//
+Speed_Up						w
+Slow_Down/Reverse_Speed			s
+Rudder_Left						a
+Rudder_Right					d				
+Fire							LCLICK
+Alternate_Fire					RCLICK
+Toggle_Mouse_Look				LSHF
+Go_To_Position_1				1
+Go_To_Position_2				2
+Go_To_Position_3				3
+Go_To_Position_4				4
+Go_To_Position_5				5
+Go_To_Position_6				6
+Go_To_Position_7				7
+Go_To_Position_8				8
+
+// LAND/SEA
+//
+Speed_Up						w
+Slow_Down/Reverse_Speed			s
+Turn_Left						a
+Turn_Right 						d
+Dive/Hatch_Down					KBUP
+Emerge/Hatch_Up					KBDOWN
+Fire							LCLICK
+Alternate_Fire					RCLICK
+Go_To_Position_1				1
+Go_To_Position_2				2
+Go_To_Position_3				3
+Go_To_Position_4				4
+Go_To_Position_5				5
+Go_To_Position_6				6
+
+// Radio Commands
+//
+Roger							F1 F1 NULL
+Negative						F1 F2 NULL
+
+Request_A_Pickup				F2 F1 NULL
+Request_Reinforcement			F2 F2 NULL
+Request_Anti-Tank				F2 F3 NULL
+Request_Naval_Support			F2 F4 NULL
+Request_Air_Support				F2 F5 NULL
+Request_APC_Support				F2 F7 NULL
+Request_Medic/Repair			F6 F5 NULL
+
+Spotted_Enemy_Armor				F3 F1 NULL
+Spotted_Enemy_Infantry			F3 F2 NULL
+Spotted_Enemy_Unit				F3 F3 NULL
+Spotted_Enemy_Ship				F3 F4 NULL
+Spotted_Enemy_Submarine			F3 F5 NULL
+Spotted_Enemy_Airplane			F3 F6 NULL
+Spotted_Enemy_Scout				F3 F7 NULL
+
+Defending						F5 F3 NULL
+Attacking						F5 F4 NULL
+
+Wait							F6 F1 NULL
+Fire							F6 F2 NULL
+Hold_Your_Fire					F6 F3 NULL
+Fire_In_The_Hole				F6 F4 NULL
+Artillery_Ready					F2 F6 NULL
+Take_Cover						F6 F6 NULL
+Bail_Out						F6 F7 NULL
+Cover_Me						F7 F1 NULL
+Hold_Position					F7 F2 NULL
+Go_for_Enemy_Flag				F7 F3 NULL
+Fall_Back						F7 F4 NULL
+Stick_Together					F7 F5 NULL
+Follow_Me						F7 F6 NULL
+GO_GO_GO!						F7 F7 NULL
+
+Cancel_Any_Radio_Message		F8 Null
+

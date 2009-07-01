@@ -1,0 +1,45 @@
+// CMC Command File
+//
+//     Game Title:Diablo 2
+//     Written By:Nathan Wilson
+//           Date:11/20/03
+//
+
+Toggle_Character_Attributes_screen_on	a
+Toggle_Backpack/Inventory_screen_on	b
+Toggle_the_Party_screen_on	p
+Toggle_the_Message_log_on	m
+Toggle_the_Quest_log_on	q
+Bring_up_the_Help_overlay	h
+Toggle_Skill_Tree_screen_on t
+Toggle_mouse_button_Skill_menu_overlay_on	s
+Toggle_a_belt_larger_than_1x4_open	`
+Use_Belt_Item_1	1
+Use_Belt_Item_2	2
+Use_Belt_Item_3	3
+Use_Belt_Item_4	4
+Open_In_Game_Chat_overlay ENT
+Run CTL
+Toggle_auto_run_mode_ r
+Use_Skill_While_Standing_In_Place LSHF
+Highlight_all_items_on_the_ground LALT
+Toggle_all_party_member_portraits_on/off z
+
+Toggle_the_Automap_on TAB
+Center_the_Automap_on_the_player F9
+Toggle_Automap_fading_on F10
+Toggle_party_member_display_on/off_in_Automap F11
+Toggle_player/NPC_name_display_in_Automap. F12
+
+Player_character_says_Help KP0
+Player_character_says_Follow_me KP1
+Player_character_says_For_you	KP2
+Player_character_says_Thanks	KP3
+Player_character_says_Sorry	KP4
+Player_character_says_Bye	KP5
+Player_character_says_Die KP6
+
+Save_screen_shot PRTSC
+Cancel_all_the_above_screens_and_overlays SPC
+Clear_all_text_messages_from_the_screen	n
+

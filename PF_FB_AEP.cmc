@@ -7,37 +7,37 @@
 
 // AIRCRAFT CONTROLS
 
-Elevator-Up		 KBUP
-Elevator-Down		 KBDOWN
-Aileron-Left		  KBLEFT
-Aileron-Right		 KBRIGHT
-Rudder-Left-Full	 z
-Rudder-Right-Full	  x
-Rudder-Left		 ,
-Rudder-Right	 	.
-Rudder-Neutral		  /
-Level-Stabilizer	 ALT z
-Trim-Aileron-Left	  CTL KBLEFT
-Trim-Aileron-Right	 CTL KBRIGHT
-Trim-Aileron-Neutral	 SHF KBLEFT
-Trim-Elevator-Up	   CTL KBUP
-Trim-Elevator-Down	 CTL KBDOWN
-Trim-Left-Rudder	 CTL z	
-Trim-Right-Rudder	  CTL x
-Rudder-Trim-Neutral	  SHF z
+Elevator-Up		KBUP
+Elevator-Down		KBDOWN
+Aileron-Left		KBLEFT
+Aileron-Right		KBRIGHT
+Rudder-Left-Full	z
+Rudder-Right-Full	x
+Rudder-Left		,
+Rudder-Right		.
+Rudder-Neutral		/
+Level-Stabilizer	ALT z
+Trim-Aileron-Left	CTL KBLEFT
+Trim-Aileron-Right	CTL KBRIGHT
+Aileron-Trim-Neutral	SHF KBUP
+Trim-Elevator-Up	CTL KBUP
+Trim-Elevator-Down	CTL KBDOWN
+Trim-Left-Rudder	CTL z	
+Trim-Right-Rudder	CTL x
+Rudder-Trim-Neutral	SHF z
 
 // AIRCRAFT/MISC MECHANICAL SYSTEMS
 
-Toggle-Level-Autopilot	 CTL a
-Toggle-Autopilot	 a
-Bail-Out		 CTL e
-Tinted-Reticle-Dimmer	 CTL d
-Cockpit-Lights		 CTL l
-Toggle-Landing-Lights	 SHF n
-Toggle-Wingtip-Smoke	 t
-Landing-Gear-Up/Down	 g
-Raise-Gear-Manually	 SHF g
-Lower-Gear-Manually	 ALT g
+Toggle-Level-Autopilot	CTL a
+Toggle-Autopilot	a
+Bail-Out		CTL e
+Tinted-Reticle-Dimmer	CTL d
+Cockpit-Lights		CTL l
+Toggle-Landing-Lights	SHF n
+Toggle-Wingtip-Smoke	t
+Landing-Gear-Up/Down	g
+Raise-Gear-Manually	SHF g
+Lower-Gear-Manually	ALT g
 Cowl/Armor-Flaps	r
 Airbrake		s
 Wheel-Brake		b
@@ -46,11 +46,11 @@ Jettison-Drop-Tanks	CTL t
 Tail-Hook-Up/Down	h
 Flaps-Up		f
 Flaps-Down		v
-Attach/Detach-AC	 d
-Toggle-Wing-Fold	 SHF w
+Attach/Detach-AC	d
+Toggle-Wing-Fold	SHF w
 Toggle-Chocks		SHF c
-Open/Close-Canopy	  ALT c
-Fire-Extinguisher	  SHF f
+Open/Close-Canopy	ALT c
+Fire-Extinguisher	SHF f
 
 // ENGINE CONTROLS
 
@@ -85,28 +85,28 @@ Inc-Prop-Pitch		SHF =
 Dec-Prop-Pitch		SHF -
 Feather-Prop		ALT f
 
-Mixture-10%		 CTL 1
-Mixture-20%		 CTL 2
-Mixture-30%		 CTL 3
-Mixture-40%		 CTL 4
-Mixture-50%	    CTL 5
-Mixture-60%	    CTL 6
-Mixture-70%		 CTL 7
-Mixture-80%		 CTL 8
-Mixture-90%		 CTL 9
+Mixture-10%		CTL 1
+Mixture-20%		CTL 2
+Mixture-30%		CTL 3
+Mixture-40%		CTL 4
+Mixture-50%		CTL 5
+Mixture-60%		CTL 6
+Mixture-70%		CTL 7
+Mixture-80%		CTL 8
+Mixture-90%		CTL 9
 Mixture-100%		CTL 0
-Inc-Mixture		 CTL =
-Dec-Mixture		 CTL -
+Inc-Mixture		CTL =
+Dec-Mixture		CTL -
 
-Magnito-Next		  SHF m
-Magnito-Prev		  ALT m
+Magnito-Next		SHF m
+Magnito-Prev		ALT m
 
-Supercharger-Next-Stg	  ALT s
-Supercharger-Prev-Stg	  SHF s
+Supercharger-Next-Stg	ALT s
+Supercharger-Prev-Stg	SHF s
 
-Select-All-Engines	 ALT e
+Select-All-Engines	ALT e
 Unselect-All-Engines	SHF e
-Select-Left-Engines	  SHF l
+Select-Left-Engines	SHF l
 Select-Right-Engines	SHF r
 Sel-Eng-1		ALT 1
 Sel-Eng-2		ALT 2
@@ -119,8 +119,8 @@ Sel-Eng-8		ALT 8
 Sel-All-Eng		SHF a
 Toggle-Left-Engs	ALT l
 Toggle-Right-Engs	ALT r
-Sel/Unsel-Eng-1		ALT KPINS
-Sel/Unsel-Eng-2		ALT KP1
+Sel/Unsel-Eng-1		ALT KP1
+Sel/Unsel-Eng-2		CTL KP2
 Sel/Unsel-Eng-3		ALT KP3
 Sel/Unsel-Eng-4		ALT KP4
 Sel/Unsel-Eng-5		ALT KP5
@@ -139,15 +139,15 @@ Toggle-Gun-Pods-On/Off	CTL SPC
 
 // GUNSIGHT/BOMBSIGHT CONTROLS
 
-Toggle-Sight-Mode(Auto)	  RCTL
-Inc-Sight-Distance	 ALT KBUP
-Dec-Sight-Distance	 ALT KBDOWN
-Adj-Sight-Ctl-Right	  ALT KBRIGHT
-ADJ-Sight-Ctl-Left	 ALT KBLEFT
-Inc-Sight-Alt		 ALT KP8
-Dec-Sight-Alt		 ALT KP2
-Inc-Sight-Vel	  	CTL KP8
-Dec-Sight-Vel	  	CTL KP2
+Toggle-Sight-Mode(Auto)	RCTL
+Inc-Sight-Distance	ALT KBUP
+Dec-Sight-Distance	ALT KBDOWN
+Adj-Sight-Ctl-Right	ALT KBRIGHT
+ADJ-Sight-Ctl-Left	ALT KBLEFT
+Inc-Sight-Alt		ALT KP8
+Dec-Sight-Alt		ALT KP2
+Inc-Sight-Vel		CTL KP8
+Dec-Sight-Vel		CTL KP2
 
 // Gunner Controls
 
@@ -155,14 +155,14 @@ Fire			LCLICK
 
 // VIEWS
 
-Gunsight-View	  	KBDEL
-Cockpit-View		  F1
-No-Cockpit-View	  	CTL F1
-External-View	  	F2
-Pilot-Gunner-Pos	 c
-Next-Friendly-View  	SHF F2
-Next-Enemy-View	  	CTL F2
-Fly-By-View	  	F3
+Gunsight-View		KBDEL
+Cockpit-View		F1
+No-Cockpit-View		CTL F1
+External-View		F2
+Pilot-Gunner-Pos	c
+Next-Friendly-View	SHF F2
+Next-Enemy-View		CTL F2
+Fly-By-View		F3
 CKPT-1(Pilot)		SHF KP1
 CKPT-2			SHF KP2
 CKPT-3			SHF KP3
@@ -173,7 +173,7 @@ CKPT-7			SHF KP7
 CKPT-8			SHF KP8
 CKPT-9			SHF KP9
 CKPT-10			SHF KPINS
-Wide-View		KBPGDN
+Wide-View		PGDN
 Normal-View		KBEND
 Toggle-FOV		CAPS
 Inc-FOV			ALT =
@@ -214,14 +214,14 @@ Press-To-Talk		LCTL
 
 // MISC
 
-Toggle-Map		  m
-Chat		  	CTL TAB
-Toggle-Mirrors	 	CTL m
+Toggle-Map		m
+Chat			CTL TAB
+Toggle-Mirrors		CTL m
 
 // Time Compression
 
-Accelerate-TimeX2/X4/X8	  ]
-Normal-Time		 '
-Decelerate-TimeX2/X4	 [
-Pause-Game	 	p
-Time-Skip	  	SHF p
+Accelerate-TimeX2/X4/X8	]
+Normal-Time		'
+Decelerate-TimeX2/X4	[
+Pause-Game		p
+Time-Skip		SHF p

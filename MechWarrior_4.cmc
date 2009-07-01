@@ -46,7 +46,6 @@ Flush_Coolant										f
 //
 Fire_Selected_Weapon/Group							ENT
 Change_Firing_Mode									\
-Change_Group_Mode									/
 Select_Next_Weapon									p
 Select_Next_Weapon_Group							]
 Select_Prev_Weapon_Group							[
@@ -86,8 +85,8 @@ Toggle_Light_Amplification							a
 Toggle_Searchlight									l
 Toggle_HUD_Modes									ALT h
 Toggle_Left_MFD_Functionality						,
-Toggle_Right_MFD_Functionality					.
-Toggle_Zoom_Window									z
+Toggle_Right_MFD_Functionality						.
+Toggle_Zoom_Window									KP0
 Look_Left											KP4
 Look_Right											KP6
 Look_Down											m
@@ -120,5 +119,4 @@ Toggle_Large_Chat									`
 //
 Mouse_Control_On/Off								CTL \
 Mouse_Yaw											RCLICK
-
 

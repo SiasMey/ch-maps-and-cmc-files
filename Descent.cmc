@@ -1,0 +1,75 @@
+// CMC Command File
+//
+//     Game Title: Descent
+//     Written By: Marc Zeldes
+//           Date: 23 Apr 2004
+//
+
+
+// Weapons (Primary & Secondary)
+
+Laser_&_Super_Laser_Cannon			1
+
+Vaus_&_Mass_Driver				2
+
+Napalm_Cannon_&_Microwave			3
+
+Plasma_Cannon_&_EMD_Gun				4
+
+Fusion_Cannon_&_Omega				5
+
+Concussion_Missile_&_Frag_Missile		6
+
+Homing_Missile_&_Guided				7
+
+Impact_Mortar_&_Napalm_Rocket			8
+
+Smart_Missile_&_Cyclone				9
+
+Mega_Missile_&_Black_Shark			0
+
+// Movement
+
+Forward						a
+
+Reverse						z
+
+Bank_Left					q
+
+Bank_Right					e
+
+Afterburner					s
+
+Slide_Left					KP1
+
+Slide_Right					KP3
+
+Slide_Up					KP-
+
+Slide_Down					KP+
+
+
+// Misc Controls
+
+Flare						f
+
+Headlight					h
+
+Rear_View					r
+
+Automap						TAB
+
+Rear_View_Camera(left)				SHF F1
+
+Rear_View_Camera(Right)				SHF F2
+
+Drop_Marker					F12
+
+Show_Level_Briefing				SHF TAB
+
+Guide-Bot_Menu(Single-Player)			F4						
+
+
+
+
+

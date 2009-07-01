@@ -1,0 +1,72 @@
+//Game controls
+help		F1
+quick_ref_card		F2
+pause		p
+skip_next_action		x
+inflight_brief		m
+sound		q
+exit_game		CTRL q
+exit_game_im		CTRL SHF q
+zoom_out		[
+zoom_in			]
+coordinates		z
+
+//Engine commands
+engine_auto_start	e
+prop_inc		SHF =
+prop_dec		SHF -
+prop_max		CTRL F7
+prop_min		CTRL F6
+mix_lean		CTRL -
+mix_rich		CTRL =
+mix_idle_cutt		CTRL SHF F6
+mix_full_rich		CTRL SHF F7
+wep		w
+
+//Flight commands
+flaps_full_up		SHF v
+flaps_up		v
+Flaps_full_down		SHF f
+flaps_down		f
+spoilers		d
+
+//Other aircraft commands
+gear		g
+gear_man		SHF g
+lock_tailwheel		shf l
+parking_brakes		CTRL SHF b
+brakes		b
+left_brake		,
+right_brake		.
+canopy		SHF c
+
+//Weapon commands
+fire_guns	SHF SPC
+fire_cannon		CTRL SPC
+fire_gun_cannon		SPC
+fire_ordanace		ENT
+cycle_ordanance		BSPC
+drop_fuel_tanks		CTRL SHF D
+open_bomb_bay		SHF B
+go_bomb		F7
+go_pilot		F6
+go_gunner		F8
+bail_out		o o o
+
+//Display commands
+tac_disp		SHF t
+tac_mode		t
+tac_range		CTRL SHF t
+enemy_ind		i
+hud_toggle		F5
+//hud_gauge		
+hud_measure		u
+labels		CTRL SHF l
+
+//Wingman commands
+wing_attack		a
+wing_yes		SHF a
+wing_no		SHF n
+wing_help		h
+wing_split		s
+wing_rejoin		r

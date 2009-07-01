@@ -1,0 +1,44 @@
+// CMC Command File
+//
+//     Game Title: AquaNox
+//     Written By: Michael Sexton
+//           Date: 2004-02-17
+//
+
+// Direction of Movement
+//
+Forward										w
+Back										s
+Left										a
+Right										d
+Up											r
+Down										f
+
+// Weapons Config
+//
+Primary_Fire								SPC
+Secondary_Fire								v
+Next_Weapon									c
+Last_Weapon									x
+Throw_Buzzer								TAB
+Lock_Enemy									e
+Vendetta_1/Vendetta_Sniper					2
+Vendetta_2/Vendetta_Gun						1
+Vendetta_Gatling							5
+Plasma_2/Quantum_Blaster					6
+Plasma_Gatling								3
+Sizzler										8
+Laser_Gatling								7
+Empactor									4
+Uber_Weapon									0
+Torpedo_Launcher							9
+
+// Camera
+//
+On/Off										KP0
+Alpha_Sub									KP4
+Alpha_Add									KP6
+Beta_Sub									KP2
+Beta_Add									KP8
+Distance_Sub								KP7
+Distance_Add								KP1

@@ -1,0 +1,88 @@
+// CMC Command File
+//
+//     Game Title: Battlefield 2
+//     Written By: Kevin Watts
+//           Date: 10-06-2005
+//
+/// Common Controls
+///----------------
+/// Weapon
+Pickup_Kit                   g
+Fire                         HOLD SPC
+Alt_Fire                     HOLD KP0
+Reload                       r
+Cycle_Weapon                 f
+Weapon_1                     1
+Weapon_2                     2
+Weapon_3                     3
+Weapon_4                     4
+Weapon_5                     5
+Weapon_6                     6
+Weapon_7                     7
+Weapon_8                     8
+Parachute                    9
+///
+/// Movement
+Enter/Exit                   e
+Forward                      w
+Backward                     s
+Strafe_Right                 d
+Strafe_Left                  a
+Crouch                       LCTL
+Prone                        z
+Jump                         SPC
+Sprint                       LSHF
+///
+/// Positions
+Position_1                   F1
+Position_2                   F2
+Position_3                   F3
+Position_4                   F4
+Position_5                   F5
+Position_6                   F6
+Position_7                   F7
+Position_8                   F8
+///
+/// Communication
+Push_To_Talk                 HOLD b
+Say_All                      j
+Say_Team                     k
+Say_Squad                    l
+Main_Radio                   q
+Secondary_Radio              t
+Comm_Channel                 v
+Vote_Yes                     KBPGUP
+Vote_No                      KBPGDN
+///
+/// Misc
+Zoom_Map                     n
+Map                          m
+Scoreboard                   TAB
+Spawn_Screen                 ENT
+Squad_Screen                 CAPS
+Cycle_Camera                 c
+Pause                        p
+Screenshot                   PRTSC
+///
+/// Vehicle Control
+///----------------
+/// Camera Positions
+Cockpit                      F9
+Chase_Front                  F10
+Chase_Rear                   F11
+Fly_By                       F12
+Mouselook                    LCTL
+///
+/// Land Vehicle
+Boost                        LSHF
+Pop_Smoke                    x
+Weapon_9                     9
+///
+/// Aircraft/Helicopters
+Afterburner                  LSHF
+Flares                       f
+///
+/// Boats
+Open/On                      KBUP
+Close/Off                    KBDOWN
+

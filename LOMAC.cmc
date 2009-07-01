@@ -1,0 +1,235 @@
+// CMC Command File
+//
+//     Game Title: LOMAC
+//     Written By: Michael Sexton
+//           Date: 030930
+//
+
+//Program Control
+End_Mission												ESC
+Accelerate_Simulation_Speed								CTL a
+Decelerate_Simulation_Speed								ALT a
+Reset_Normal_Simulation_Speed							SHF a
+Toggle_Pause											s
+Automatic_Spin_Recovery									ALT p
+Speed_Retention_Toggle	 								ALT s
+Easy_Landings_Toggle									ALT e
+All_Missile_Padlock_Toggle								SHF KBDEL
+Threat_Missile_Padlock_Toggle							ALT KPDEL
+Produce_An_Explosion									SHF x
+Show_Frame_Rate											CTL BKSPC
+
+
+//Flight Control
+Trim_up													CTL .
+Trim_down												CTL ;
+Trim_left												CTL ,
+Trim_right												CTL /
+Trim_left_rudder										CTL z
+Trim_right_rudder										CTL x
+Toggle_altitude_stabilization_mode						h		
+Reset_Current_Audible_Warning							SHF m
+Toggle_on-board_lights									CTL l 
+Toggle_immortality_mode									ALT v
+Execute_"Pugachev’s_Cobra"								k
+Cancel_Trim_Settings									CTL t
+Request_bearing/distance_to_home_airfield				ALT h 
+Request_bearing/distance_to_tanker						ALT t 
+Increase_basic_pressure_of_Altimeter					SHF =
+Decrease_basic_pressure_of_Altimeter					SHF -
+Power_switch											SHF p
+
+
+//Throttle Control
+Engine_Start											KBHOME
+Engine_Stop												KBEND
+
+//Mechaical Systems Control
+Toggle_Airbrake											b
+Airbrake_Out											SHF b
+Airbrake_In												CTL b
+EJECT													CTL e
+Toggle_Active_Jamming									e
+Flaps_Up/Down											f
+Landing_Flaps											SHF f
+Flaps_Up												CTL f
+Gear_Up/Down											g
+Canopy_Open/Close										CTL c
+Release_Drogue_Chute									p 
+Dump_Fuel(in_flight)_or_Refuel(on_ground)				CTL r
+Jettison_Fuel_Tanks										ALT r
+Engage_Wheel_Brakes										w
+Toggle_Wingtip_Smoke									t
+Toggle_Refueling_Boom									r
+Toggle_Gear_Light_Near/Far/Off							ALT l
+
+//Navigation 	
+Select_Next_Waypoint									`
+Auto-Pilot												a
+Toggle_Navigation_Modes									1
+Reset_Flight_Clock										ALT c
+
+//Combat Modes 
+Beyond_Visual_Range_Mode								2
+ATA_Vertical_Scan_Mode									3
+ATA_Boresight_Mode										4
+ATA_Helmet-Mounted_Target_Designator_Mode				5
+Longitudinal_Missile_Aiming_Mode						6
+ATG_Mode												7
+ATG_Grid_(SETKA)_Mode									8
+Cycle_Through_Targets									`
+Lock_Selected_Target									TAB
+Turn_Off_Tracked_Target 								CTL TAB
+Cycle_HUD_Intensities									CTL h
+
+//Weapons 
+Cycle_Weapons											d
+Toggle_Cannon											c
+Fire_Current_Weapon										SPC
+Jettison_Weapons(in_flight)_or_Re-arm(on_ground)		CTL w
+Toggle_Salvo_Mode										CTL v
+A10_ROF													SHF c
+A10_Ripple_Interval_Increase							v	
+A10_Ripple_Interval_Decrease							SHF v
+A10_Ripple_Quantity										CTL SPC
+A10_Master_Arm											ALT SPC
+A10_Release_Mode										SHF SPC
+
+//Counter Measures
+Chaff/Flare												q
+Continous_Chaff/Flare									SHF q
+A10_RWR_Mode											SHF r
+
+//Radar & Electro-Optical Systems 
+Toggle_Radar_Illumination								i
+Easy_Radar_Mode											SHF i
+Toggle_Electro-Optical_System							o
+Center_Radar_Antenna/Infra-Red_Scan/Track_Ball			CTL i
+MFD_Zoom_In												-
+MFD_Zoom_Out											=
+
+//Auto Lock-On Air
+Closest_Enemy_Air_Target								SCRLK									
+Enemy_Air_Target_Closest_to_Center_of_View				ALT SCRLK
+Previous_Enemy_Air_Target								SHF KBINS
+Next_Enemy_Air_Target									SHF NUMLOCK
+
+//Auto Lock-On Ground
+Closest_Enemy_Ground_Target								SHF SCRLK
+Enemy_Ground_Target_Closest_to_Center_of_View			CTL SCRLK
+Previous_Enemy_Ground_Target							SHF KBDEL
+Next_Enemy_Ground_Target								CTL NUMLOCK
+
+//Beyond Visual Range Mode
+Radar/EOS_Scan_Zone_UP									SHF ;
+Radar/EOS_Scan_Zone_LEFT								SHF ,
+Radar/EOS_Scan_Zone_DOWN								SHF .
+Radar/EOS_Scan_Zone_RIGHT								SHF /
+HUD_Target_Designator_Box_DOWN							;
+HUD_Target_Designator_Box_LEFT							,
+HUD_Target_Designator_Box_UP							.
+HUD_Target_Designator_Box_RIGHT							/
+
+//Close Air Combat Mode
+Radar/EOS_Scan_Zone_UP									SHF ;
+Radar/EOS_Scan_Zone_LEFT								SHF ,
+Radar/EOS_Scan_Zone_DOWN								SHF .
+Radar/EOS_Scan_Zone_RIGHT								SHF /
+
+//Ground Attack Mode
+Radar/TV_Seeker_Scan_Zone_UP							SHF ;
+Radar/TV_Seeker_Scan_Zone_LEFT							SHF ,
+Radar/TV_Seeker_Scan_Zone_DOWN							SHF .
+Radar/TV_Seeker_Scan_Zone_RIGHT							SHF /
+
+
+//View Selection
+Cockpit													F1
+Natural_Head_Movement									CTL F1
+HUD_Only												ALT F1
+External_View											F2
+Toggle_Aircraft_Labels									SHF F2
+Fly-By													F3
+Fly-By_Jump												CTL F3
+Chase													F4
+Air_Combat_View(Cycles_Locked_Enemy_Planes)				F5
+Weapon													F6
+Weapon_to_Target										CTL F6
+Toggle_Launched_Missiles_Labels							SHF F6
+Active_Ground_Objects									F7
+Target													F8
+Toggle_Ships_and_Ground_Units_Labels					SHF F9
+Theater													F10
+Toggle_Object_Labels									SHF F10
+Tower/Terrain											F11
+Tower/Terrain_locked									CTL F11 
+Static_Objects											F12
+Civilian_Transport										CTL F12
+
+//View Modifiers
+External_Views_Friendly_Only							CTL KBHOME
+External_Views_Enemy_Only								CTL KBEND
+All_External_Views										CTL KBDEL
+Toggle_Padlock											KP.
+Toggle_Terrain_Point_Padlock							CTL KP.
+Toggle_Camera_Direction									BKSPC
+Exclude_Current_Object_from_Switching					ALT KBDEL
+Include_All_Excluded_Objects_in_Switching				ALT KBINS
+Reverse_Objects_Switching_Direction						CTL KBPGUP
+Forward_Objects_Switching_Direction						CTL KBPGDN
+Weapons_Release/Track_View								KP+
+Starts_Moving_Camera_Forward							KP*
+Starts_Moving_Camera_Backward							KP/
+Stops_Moving_Camera										KP5
+End_Padlock_View										KP5
+Toggle_External_Information								y
+Earth_Coordinates_Units(Degrees/Meters)					ALT y
+Toggle_Replace_Video_Edit_Mode							ALT BKSPC
+Toggle_Insert_Video_Edit_Mode							SHF BKSPC
+Toggle_External_Camera_Jiggle							SHF j
+Toggle_Local/Object_Camera_Rotation						SHF ESC
+
+//Cockpit View Control 
+Down_and_Left											KP1 
+Down  													KP2
+Down_and_Right 											KP3
+Left 													KP4
+Center 													KP5
+Right 													KP6
+Up_and_Left 											KP7
+Up 														KP8
+Up_and_Right											KP9
+Padlock/Cycle_Targets									KPDEL
+Cockpit_Illumination									l
+Right_Mirror											m
+Left_Mirror												n
+Zoom_In													KP*
+Zoom_In_MAX												SHF KP*
+Zoom_Out												KP/
+Zoom_Out_MAX											SHF KP/
+Default_Zoom											KPENT
+Toggle_Cockpit_Panel_Snap_View_Mode 					CTL KP0
+Fast_Cockpit_View_Mouse_Speed							CTL RSHF
+Slow_Cockpit_View_Mouse_Speed							ALT RSHF
+Normal_Cockpit_View_Mouse_Speed							SHF RSHF
+Fast_Cockpit_Keyboard_Speed								CTL LSHF
+Slow_Cockpit_Keyboard_Speed								ALT LSHF
+Normal_Cockpit_Keyboard_Speed							SHF LSHF
+
+//External View Control
+Down_and_Left											KP1 
+Down  													KP2
+Down_and_Right 											KP3
+Left 													KP4
+Center 													KP5
+Right 													KP6
+Up_and_Left 											KP7
+Up 														KP8
+Up_and_Right											KP9
+Move_Viewpoint_Forward									KP*
+Move_Viewpoint_Back										KP/
+Zoom_In													CTL KP*
+Zoom_Out												CTL KP/
+Default_Zoom											CTL KPENT
+
+
