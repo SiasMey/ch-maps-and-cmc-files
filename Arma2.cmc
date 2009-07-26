@@ -44,6 +44,7 @@ vhl_turn_in					x
 
 //Items
 vhl_weapon_mode					f
+vhl_turbo 					lshf
 vhl_lights					l
 vhl_cycle_gunners_weapon			hold lctl f
 vhl_fire_order					hold lctl lclick
@@ -67,8 +68,9 @@ air_fire_order					hold lctl lclick
 air_flaps_up        hold rctl l
 air_flaps_down      hold rctl k
 air_cycle_gunners_weapon			hold lctl f
-air_auto_hover_on       \\
-air_auto_hover_off      \
+//not default
+air_auto_hover_on       p p
+air_auto_hover_off      p
 //wth ??? these make no sense
 air_gear_up         hold rctl g
 air_gear_down         hold rctl g
@@ -114,4 +116,4 @@ command_select_all          `
 
 team_switch                 t
 team-switch_next            u
-team_switch_previos         y
+team_switch_previous         y
