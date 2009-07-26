@@ -1,3 +1,5 @@
+020E22=switch_command_mode
+020C22=command_view
 021104=1
 021105=1
 021304=1
@@ -51,7 +53,7 @@
 021122=map
 021322=toggle_gps
 020C20=weapon_view
-020E20=command_view
+020E20=command_mode
 022005=1
 022020=command_select_all
 000001=2

@@ -103,6 +103,8 @@ toggle_gps            hold rctl m
 weapon_view					KP0
 command_view					KP.
 command_watch         lalt
+command_mode          spc
+switch_command_mode   hold lctl spc
 
 command_fire          hold rctl lclick
 command_move_forward_slow				q
