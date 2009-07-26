@@ -1,0 +1,117 @@
+// CMC Command File
+//
+//     Game Title: Arma 2
+//     Written By: Sias "Dace" Mey
+//           Date: 20 July 2009
+//
+
+
+//Default Controls
+//Infantry Controls
+//Movement
+inf_move_forward				w
+inf_run_forward					w w
+inf_step_over					v
+inf_move_back					s
+inf_strafe_left					a
+inf_strafe_right				d
+inf_lead_left					q
+inf_lean_right					e
+
+inf_prone					z
+inf_crouch					x
+inf_stand_up					c
+
+//Items
+inf_reload					r
+inf_weapon_mode					f
+inf_gear					g
+inf_binoculars					b
+inf_night_vission				n
+inf_pri_sec_weapons				;
+inf_raise/lower_weapon				lctl lctl
+
+//Land Vehicle Controls
+//Movement
+vhl_move_forward_slow				q
+vhl_move_forward				w
+vhl_move_forward_fast				e
+vhl_break/move_back				s
+vhl_steer_left					a
+vhl_steer_right					d
+vhl_turn_out					z
+vhl_turn_in					x
+
+//Items
+vhl_weapon_mode					f
+vhl_lights					l
+vhl_cycle_gunners_weapon			hold lctl f
+vhl_fire_order					hold lctl lclick
+
+//air Vehicle Controls
+//Movement
+air_inc_thrust					q
+air_dec_thrust					z
+air_nose_down					w
+air_nose_up					s
+air_bank_left					a
+air_bank_right					d
+air_rudder_left					x
+air_rudder_right				c
+
+//Items
+air_weapon_mode					f
+air_lights					l
+air_cycle_gunners_weapon			hold lctl f
+air_fire_order					hold lctl lclick
+air_flaps_up        hold rctl l
+air_flaps_down      hold rctl k
+air_cycle_gunners_weapon			hold lctl f
+air_auto_hover_on       \\
+air_auto_hover_off      \
+//wth ??? these make no sense
+air_gear_up         hold rctl g
+air_gear_down         hold rctl g
+
+//Shared
+//View controls
+look_up_right					KP9
+look_up						KP8
+look_up_left					KP7
+look_right					KP6
+look_center					KP5
+look_left					KP4
+look_down_right					KP3
+look_down					KP2
+look_down_left					KP1
+zoom_in						KP+
+zoom_out					KP-
+free_look_toggle				KP*
+1st/3rd_person_camera				KPENT
+
+//Items
+map						m
+watch					o
+toggle_watch				o o
+compass					k
+toggle_compass				k k
+toggle_gps            hold rctl m
+
+//Command
+weapon_view					KP0
+command_view					KP.
+command_watch         lalt
+
+command_fire          hold rctl lclick
+command_move_forward_slow				q
+command_move_forward				w
+command_move_forward_fast				e
+command_break/move_back				s
+command_steer_left					a
+command_steer_right					d
+
+command_select_all          `
+
+team_switch                 t
+team-switch_next            u
+team_switch_previos         y

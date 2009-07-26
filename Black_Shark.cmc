@@ -217,24 +217,24 @@ SAI-Standby-Attitude-Indicator-Cage/Control-Test-Handle-Right	HOLD RSHF HOLD RCT
 SAI-Standby-Attitude-Indicator-Cage/Control-Test-Handle-Left	HOLD RSHF HOLD RALT a
 Radar-Altimeter-Dangerous-RALT-Set-Rotary-Right	HOLD LSHF .
 Radar-Altimeter-Dangerous-RALT-Set-Rotary-Left	HOLD LSHF ,
-Radar-Altimeter-Test-Button	HOLD LSHF HOLD LALT r
+Radar-Altimeter-Test-Button	HOLD LSHF LALT r
 Altimeter-QFE-Knob-Pressure-Increase	HOLD RSHF =
 Altimeter-QFE-Knob-Pressure-Decrease	HOLD RSHF -
 G-meter-Reset	HOLD LSHF -
-Laser-Range-Finder-Designator-Mode-Switch-Cover	HOLD LSHF HOLD LALT o
+Laser-Range-Finder-Designator-Mode-Switch-Cover	HOLD LSHF LALT o
 Laser-Range-Finder-Designator-Mode-Switch	HOLD LSHF o
 Laser-Designator-Reset-Button	HOLD LCTL HOLD LALT o
 Exhaust-Gas-Temperature-Running-Engines-Indicator-Test-Button	HOLD LCTL p
 Exhaust-Gas-Temperature-Stopped-Engines-Indicator-Test-Button	HOLD LALT p
-Fuel-Quantity-Indicator-Self-Test-Button	HOLD LSHF HOLD LCTL HOLD LALT p
+Fuel-Quantity-Indicator-Self-Test-Button	HOLD LSHF LCTL LALT p
 //
 //	Ins HUD Controls
 //
 Raise/Lower-Color-Filter-On-HUD	HOLD RSHF h
 HUD-Modes-Reticle/Night/Day	HOLD RSHF 8
 HUD-Brightness-Up	HOLD RCTL HOLD RSHF h
-HUD-Brightness-Down	HOLD RSHF HOLD RALT h
-HUD-Test	HOLD RCTL HOLD RSHF HOLD RALT h
+HUD-Brightness-Down	HOLD RSHF RALT h
+HUD-Test	HOLD RCTL RSHF RALT h
 //
 //	Ins Landing Lights & Voice Warning Panel
 //
@@ -242,54 +242,54 @@ Light-Landing-Search-On/Retraction/Off	HOLD RSHF l
 Lights-Landing-Search-Change-Main/Reserved	HOLD RCTL l
 ADF-Beacon-Select	HOLD LALT =
 Voice-Message-Emergency-Mode	HOLD LCTL v
-Voice-Message-Cease	HOLD LSHF HOLD LALT v
+Voice-Message-Cease	HOLD LSHF LALT v
 Voice-Message-Repeat	HOLD LALT v
 //
 //	Ins NAV Panel Controls PVI
 //
-PVI-Change-Master-Mode-(to-right)	RALT b
-PVI-Change-Master-Mode-(to-left)	RALT v
-PVI-Set-Fixtaking-Method	RCTL v
-PVI-Datalink-Power	RCTL b
-PVI-Pushbutton-1	RALT 1
-PVI-Pushbutton-2	RALT 2
-PVI-Pushbutton-3	RALT 3
-PVI-Pushbutton-4	RALT 3
-PVI-Pushbutton-5	RALT 5
-PVI-Pushbutton-6	RALT 6
-PVI-Pushbutton-7	RALT 7
-PVI-Pushbutton-8	RALT 8
-PVI-Pushbutton-9	RALT 9
-PVI-Pushbutton-0	RALT 0
-PVI-Waypoint-Mode	RALT q
-PVI-In-flight-INU-Realignment	RALT w
-PVI-Navpos-Correction-Mode	RALT e
-PVI-Precise-INU-Alignment	RALT r
-PVI-Airfields-Mode	RALT t
-PVI-Normal-INU-Alignment	RALT y
-PVI-Targets-Mode	RALT u
-PVI-Enter	RALT i
-PVI-Cancel	RALT o
-PVI-Initial-NAV-Position	RALT p
-PVI-Self-Coordinates	RALT a
-PVI-Course/Time/Range	RALT s
-PVI-Wind-Heading/Speed	RALT d
-PVI-True-Heading/Time/Range-to-Final-STP	RALT f
-PVI-Bearing/Range-to-Target	RALT g
-PVI-Lighting-Up	RSHF RCTL p
-PVI-Lighting-Down	RSHF RALT p
+PVI-Change-Master-Mode-(to-right)	HOLD RALT b
+PVI-Change-Master-Mode-(to-left)	HOLD RALT v
+PVI-Set-Fixtaking-Method	HOLD RCTL v
+PVI-Datalink-Power	HOLD RCTL b
+PVI-Pushbutton-1	HOLD RALT 1
+PVI-Pushbutton-2	HOLD RALT 2
+PVI-Pushbutton-3	HOLD RALT 3
+PVI-Pushbutton-4	HOLD RALT 3
+PVI-Pushbutton-5	HOLD RALT 5
+PVI-Pushbutton-6	HOLD RALT 6
+PVI-Pushbutton-7	HOLD RALT 7
+PVI-Pushbutton-8	HOLD RALT 8
+PVI-Pushbutton-9	HOLD RALT 9
+PVI-Pushbutton-0	HOLD RALT 0
+PVI-Waypoint-Mode	HOLD RALT q
+PVI-In-flight-INU-Realignment	HOLD RALT w
+PVI-Navpos-Correction-Mode	HOLD RALT e
+PVI-Precise-INU-Alignment	HOLD RALT r
+PVI-Airfields-Mode	HOLD RALT t
+PVI-Normal-INU-Alignment	HOLD RALT y
+PVI-Targets-Mode	HOLD RALT u
+PVI-Enter	HOLD RALT i
+PVI-Cancel	HOLD RALT o
+PVI-Initial-NAV-Position	HOLD RALT p
+PVI-Self-Coordinates	HOLD RALT a
+PVI-Course/Time/Range	HOLD RALT s
+PVI-Wind-Heading/Speed	HOLD RALT d
+PVI-True-Heading/Time/Range-to-Final-STP	HOLD RALT f
+PVI-Bearing/Range-to-Target	HOLD RALT g
+PVI-Lighting-Up	HOLD RSHF RCTL p
+PVI-Lighting-Down	HOLD RSHF RALT p
 //
 //	Ins Overhead Panel
 //
-Lights-Navigation-10%/30%/100%/Off	RALT l
-Lights-Navigation-Code-Mode	LALT l
-Windshield-Wiper-Switch	LCTL LALT w
+Lights-Navigation-10%/30%/100%/Off	HOLD RALT l
+Lights-Navigation-Code-Mode	HOLD LALT l
+Windshield-Wiper-Switch	HOLD LCTL LALT w
 L-140-Laser-Warning-System-Reset-Button	l
-Pitot-Static-Port-and-AoA-Sensors-Heat-Switch	LSHF LALT s
-Pitot-Ram-Air-and-Clock-Heat-Switch	LSHF LCTL s
-Pitot-System-Heat-Test	RSHF RCTL s
-Rotor-de-icing-System-Switch	LSHF LCTL LALT s
-Engines-de-icing/Dust-Protection-Systems-Switch	LALT i
+Pitot-Static-Port-and-AoA-Sensors-Heat-Switch	HOLD LSHF LALT s
+Pitot-Ram-Air-and-Clock-Heat-Switch	HOLD LSHF LCTL s
+Pitot-System-Heat-Test	HOLD RSHF RCTL s
+Rotor-de-icing-System-Switch	HOLD LSHF LCTL LALT s
+Engines-de-icing/Dust-Protection-Systems-Switch	HOLD LALT i
 //
 //	Ins Radio R-800 VHF-2
 //
@@ -342,7 +342,7 @@ Button-Airborne-target 	v
 Button-Head-on-airborne-target-aspect 	HOLD LALT s
 Weapon-system-mode-selector-(to-right)	HOLD LALT f
 Weapon-system-mode-selector-(to-left) 	HOLD LCTL f
-Training-mode-switch 	HOLD LSHF HOLD RCTL l
+Training-mode-switch 	HOLD LSHF RCTL l
 //
 //	Ins Wall panel
 //	
@@ -433,32 +433,32 @@ Weapon-system-control-switch-Manual/Auto	a
 Weapon-mode-switch 	s
 Cannon-round-selector-switch 	HOLD LCTL c
 Cannon-rate-of-fire-setting 	HOLD LSHF c
-Jettison-arm-mode-explosive/unexplosive	HOLD LSHF HOLD LALT w
+Jettison-arm-mode-explosive/unexplosive	HOLD LSHF LALT w
 //
 //	Labels
 //	
-All-Labels 	LSHF F10
-Aircraft-Labels 	LSHF F2
-Missile-Labels 	LSHF F6
-Vehicle-&-Ship-Labels	LSHF F9
+All-Labels 	HOLD LSHF F10
+Aircraft-Labels 	HOLD LSHF F2
+Missile-Labels 	HOLD LSHF F6
+Vehicle-&-Ship-Labels	HOLD LSHF F9
 //
 //	Radio Communications
 //	
 Communication-menu 	\
-Flight-Complete-mission-and-RTB 	LWIN e
-Flight-Complete-mission-and-rejoin	RWIN r
-Toggle-formation 	LWIN t
-Join-up-formation 	LWIN y
-Attack-my-target 	LWIN q
-Cover-me 	LWIN w
-Flight-Attack-ground-targets 	LWIN g
-Flight-Attack-air-defenses 	LWIN d
+Flight-Complete-mission-and-RTB 	HOLD LWIN e
+Flight-Complete-mission-and-rejoin	HOLD RWIN r
+Toggle-formation 	HOLD LWIN t
+Join-up-formation 	HOLD LWIN y
+Attack-my-target 	HOLD LWIN q
+Cover-me 	HOLD LWIN w
+Flight-Attack-ground-targets 	HOLD LWIN g
+Flight-Attack-air-defenses 	HOLD LWIN d
 //
 //	Systems
 //	
-Cockpit-door-open/close 	RCTL c
-Eject 	LCTL e LCTL e LCTL e
-SPU-9-Radio-communicator-selector	LCTL LALT /
+Cockpit-door-open/close 	HOLD RCTL c
+Eject 	HOLD LCTL e LCTL e LCTL e
+SPU-9-Radio-communicator-selector	HOLD LCTL LALT /
 //
 //	View
 //	

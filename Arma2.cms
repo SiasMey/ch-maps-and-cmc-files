@@ -1,0 +1,44 @@
+// CMS Script File
+//
+//     Game Title: Arma 2
+//     Written By: Sias "Dace" Mey
+//           Date: 21 July 2009
+//
+
+%define revButton           				js2.b4
+%define StandButton         				cms.b1
+%define CrouchButton         				cms.b2
+%define ProneButton          				cms.b3
+
+%define MiniYIn             js2.a2
+
+%define ThrottleIn          js2.a3
+%define ThrottleOut         cms.a1
+
+script
+  if ([MiniYIn < 20]) then
+    StandButton = true;
+  else
+    StandButton = false;
+  endif
+
+  if ([MiniYIn > 240]) then
+    if (not revButton) then
+      CrouchButton = true;
+    else
+      ProneButton = true;
+    endif
+  else
+    if (not revButton) then
+      CrouchButton = false;
+    else
+      ProneButton = false;
+    endif
+  endif
+
+  if (not revButton) then
+    ThrottleOut = 128 + (127-(ThrottleIn/2));
+  else
+    ThrottleOut = 127 - (127-(ThrottleIn/2));
+  endif
+endScript
